@@ -34,7 +34,13 @@ system #(
 ) dut  (
 	.clk(          clk    ),
 	// Debug
-	.rst(          rst    ),
+	.rst(          
+
+
+
+
+
+rst    ),
 	.led(          led    ),
 	// Uart
 	.uart_rxd(  uart_rxd  ),

@@ -35,14 +35,16 @@ volatile uint8_t *p2;
 
 extern uint32_t tic_msec;
 
+
 int main()
 {
-	uint32_t aa=1;
-
+   uint32_t aa=1;
+   char test2[] = "Hola ferneyyyyyyyyyyyyyyyyyyy\n";
+   char *str = test2;
+ 
   for(;;)
   {
-	//  uart_putchar(2*(aa));
-     uart_putchar((2+(aa++)));
+    uart_putstr( test2 );
 
   }
 	   prueba();
@@ -50,8 +52,6 @@ int main()
    uart_putchar(2+3);
    uart_putchar(2*3);
    uart_putchar(6/3);
-   char test2[] = "Lokalerstr";
-   char *str = test2;
    uint32_t i;
     
 //    for (i = 0; i < 4; i++)

@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed Sep 23 16:02:59 2015
+// Written by: Map P.20131013 on Fri Oct 02 11:31:02 2015
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -13,7 +13,7 @@ COMP "spi_miso" LOCATE = SITE "N11" LEVEL 1;
 COMP "spi_mosi" LOCATE = SITE "R11" LEVEL 1;
 PIN bram0/Mram_ram1_pins<10> = BEL "bram0/Mram_ram1" PINNAME CLKA;
 PIN bram0/Mram_ram2_pins<10> = BEL "bram0/Mram_ram2" PINNAME CLKA;
-TIMEGRP sys_clk = BEL "conbus0/conbus_arb/state_FSM_FFd3" BEL
+TIMEGRP sys_clk_pin = BEL "conbus0/conbus_arb/state_FSM_FFd3" BEL
         "lm0/write_enable_w" BEL "lm0/write_enable_m" BEL "lm0/store_m" BEL
         "lm0/load_m" BEL "lm0/branch_m" BEL "lm0/m_bypass_enable_m" BEL
         "lm0/csr_write_enable_x" BEL "lm0/scall_x" BEL "lm0/eret_x" BEL
@@ -601,18 +601,18 @@ TIMEGRP sys_clk = BEL "conbus0/conbus_arb/state_FSM_FFd3" BEL
         "gpio0/gpio_o_3" BEL "gpio0/gpio_o_2" BEL "gpio0/gpio_o_1" BEL
         "gpio0/gpio_o_0" BEL "uart0/ack" BEL "uart0/uart0/rx_count16_2" BEL
         "uart0/uart0/rx_count16_1" BEL "uart0/uart0/rx_count16_0" BEL
-        "uart0/uart0/tx_busy" BEL "uart0/uart0/rx_avail" BEL
-        "uart0/uart0/rx_busy" BEL "spi0/run" BEL "timer0/ack" BEL "gpio0/ack"
-        BEL "lm0/valid_x" BEL "lm0/interrupt/eie" BEL "lm0/interrupt/ie" BEL
-        "lm0/instruction_unit/i_cyc_o" BEL "lm0/load_store_unit/stall_wb_load"
-        BEL "lm0/load_store_unit/wb_load_complete" BEL
+        "uart0/uart0/uart_txd" BEL "uart0/uart0/tx_busy" BEL
+        "uart0/uart0/rx_avail" BEL "uart0/uart0/rx_busy" BEL "spi0/run" BEL
+        "timer0/ack" BEL "gpio0/ack" BEL "lm0/valid_x" BEL "lm0/interrupt/eie"
+        BEL "lm0/interrupt/ie" BEL "lm0/instruction_unit/i_cyc_o" BEL
+        "lm0/load_store_unit/stall_wb_load" BEL
+        "lm0/load_store_unit/wb_load_complete" BEL
         "lm0/load_store_unit/d_stb_o" BEL "uart0/uart0/rx_error" BEL
         "spi0/sck" BEL "timer0/en1" BEL "timer0/en0" BEL "timer0/ar1" BEL
         "timer0/ar0" BEL "bram0/ack" BEL "uart0/rx_ack" BEL "uart0/tx_wr" BEL
         "spi0/ilatch" BEL "spi0/ack" BEL "timer0/irqen1" BEL "timer0/irqen0"
-        BEL "uart0/uart0/uart_txd" BEL "uart0/uart0/rx_count16_3" BEL
-        "timer0/trig1" BEL "timer0/trig0" BEL
-        "lm0/Mcompar_cmp_zero_cy<10>_FRB" BEL "spi0/Result<0>1_FRB" BEL
+        BEL "uart0/uart0/rx_count16_3" BEL "timer0/trig1" BEL "timer0/trig0"
+        BEL "lm0/Mcompar_cmp_zero_cy<10>_FRB" BEL "spi0/Result<0>1_FRB" BEL
         "spi0/Result<1>1_FRB" BEL "spi0/Result<2>1_FRB" BEL
         "spi0/Result<3>_FRB" BEL "spi0/Result<4>_FRB" BEL "spi0/Result<5>_FRB"
         BEL "spi0/Result<6>_FRB" BEL "spi0/Result<7>_FRB" BEL
@@ -713,5 +713,6 @@ TIMEGRP sys_clk = BEL "conbus0/conbus_arb/state_FSM_FFd3" BEL
         "lm0/Mram_registers6/SP" BEL "lm0/Mram_registers6/DP" BEL
         "lm0/Mram_registers2/SP" BEL "lm0/Mram_registers2/DP" BEL
         "lm0/Mram_registers3/SP" BEL "lm0/Mram_registers3/DP";
+TS_sys_clk = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
 SCHEMATIC END;
 

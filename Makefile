@@ -58,17 +58,19 @@ SMARTGUIDE=
 #############################################################################
 # Simulation constants
 SIMCLEAN=system_tb.vvp system_tb.vcd verilog.log system_tb.vvp.list simulation
-
 CVER=cver
 GTKWAVE=gtkwave
 IVERILOG=iverilog
 VVP=vvp
 	
 #############################################################################
-# 
+# PROGRAM
+NEXYS=Nexys3
+#############################################################################
 sim: system_tb.vcd
 syn: system.bit
 view: system_tb.view
+
 
 #############################################################################
 # Ikarus verilog simulation
@@ -133,8 +135,10 @@ usage: system-routed.xdl
 	xdlanalyze.pl system-routed.xdl $(USAGE_DEPTH)
 
 
-upload: system.bit
-	sudo fpgaprog -v -f system.bit 
+upload: 
+	djtgcfg enum 
+	djtgcfg init -d $(NEXYS)  
+	djtgcfg prog -d $(NEXYS) -i 0 -f system.bit 
 
 
 ####################################################################

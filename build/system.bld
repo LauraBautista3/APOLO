@@ -4,18 +4,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 Command Line: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -uc
 ../system.ucf system.ngc
 
-Reading NGO file
-"/home/juan/Downloads/procesadores/lm32_soc_hdl/build/system.ngc" ...
+Reading NGO file "/home/laura/Documentos/DIGITAL2/lm32_soc_hdl/build/system.ngc"
+...
 Gathering constraint information from source properties...
 Done.
 
 Annotating constraints to design from ucf file "../system.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
-WARNING:ConstraintSystem:56 - Constraint <TIMESPEC TS_sys_clk = PERIOD
-   sys_clk_pin 100 MHz HIGH 50%;> [../system.ucf(6)]: Unable to find an active
-   'TNM' or 'TimeGrp' constraint named 'sys_clk_pin'.
-
 Done...
 
 Checking expanded design ...
@@ -29,12 +25,12 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings:   1
+  Number of warnings:   0
 
-Total memory usage is 407112 kilobytes
+Total memory usage is 413228 kilobytes
 
 Writing NGD file "system.ngd" ...
-Total REAL time to NGDBUILD completion:  9 sec
-Total CPU time to NGDBUILD completion:   9 sec
+Total REAL time to NGDBUILD completion:  4 sec
+Total CPU time to NGDBUILD completion:   4 sec
 
 Writing NGDBUILD log file "system.bld"...
