@@ -11,7 +11,9 @@ NET "led"	LOC = "U16"	| IOSTANDARD = "LVCMOS33";
 
 # ==== UART ====
 NET "uart_txd"	LOC = "N18"	| IOSTANDARD = "LVCMOS33";		
-NET "uart_rxd"	LOC = "N17"	| IOSTANDARD = "LVCMOS33";		
+NET "uart_rxd"	LOC = "N17"	| IOSTANDARD = "LVCMOS33";
+
+
 
 # ==== SPI ====
 NET "spi_miso"	LOC = "N11"	| IOSTANDARD = "LVCMOS33";		
@@ -20,5 +22,4 @@ NET "spi_clk"	LOC = "T11"	| IOSTANDARD = "LVCMOS33";
 
 # ==== I2C ====
 #NET "i2c_sda"	LOC = "V16"	| IOSTANDARD = "LVCMOS33";		
-#NET "i2c_clk"	LOC = "U15"	| IOSTANDARD = "LVCMOS33";		
-
+#NET "i2c_clk"	LOC = "U15"	| IOSTANDARD = "LVCMOS33";	

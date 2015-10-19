@@ -17,6 +17,7 @@
 /****************************************************************************
  * Types
  */
+
 typedef unsigned int  uint32_t;    // 32 Bit
 typedef signed   int   int32_t;    // 32 Bit
 
@@ -91,7 +92,8 @@ typedef struct {
 typedef struct {
    volatile uint32_t ucr;
    volatile uint32_t rxtx;
-} uart_t;
+			} 
+uart_t;
 
 void uart_init();
 void uart_putchar(char c);

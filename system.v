@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 // LatticeMico32 System On A Chip
 //
-// Top Level Design for the Nexys4 ferney
+// Top Level Design for the Nexys3
 //---------------------------------------------------------------------------
 
 module system
