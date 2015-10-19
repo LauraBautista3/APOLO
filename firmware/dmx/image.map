@@ -1,17 +1,17 @@
 
-Se asignan símbolos comunes
-Símbolo común       tamaño            fichero
+Allocating common symbols
+Common symbol       size              file
 
 isr_table           0x80              soc-hw.o
 tic_msec            0x4               soc-hw.o
 
-Configuración de la Memoria
+Memory Configuration
 
-Nombre           Origen             Longitud           Atributos
+Name             Origin             Length             Attributes
 ram              0x0000000000000000 0x0000000000001000
 *default*        0x0000000000000000 0xffffffffffffffff
 
-Guión del enlazador y mapa de memoria
+Linker script and memory map
 
                 0x0000000000000000                __DYNAMIC = 0x0
                 0x0000000000000000                _RAM_START = 0x0
@@ -56,7 +56,7 @@ Guión del enlazador y mapa de memoria
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
                 0x0000000000000590       0x68 main.o
-                                         0x6c (tamaño antes de la relajación)
+                                         0x6c (size before relaxing)
  .rodata.cst4   0x00000000000005f8        0x4 soc-hw.o
  *(.rodata1)
                 0x00000000000005fc                _erodata = .
@@ -142,13 +142,13 @@ OUTPUT(image elf32-lm32)
 
 .debug_str      0x0000000000000000      0x1db
  .debug_str     0x0000000000000000       0x7c main.o
-                                         0x88 (tamaño antes de la relajación)
+                                         0x88 (size before relaxing)
  .debug_str     0x000000000000007c      0x15f soc-hw.o
-                                        0x1cf (tamaño antes de la relajación)
+                                        0x1cf (size before relaxing)
 
 .comment        0x0000000000000000       0x11
  .comment       0x0000000000000000       0x11 main.o
-                                         0x12 (tamaño antes de la relajación)
+                                         0x12 (size before relaxing)
  .comment       0x0000000000000000       0x12 soc-hw.o
 
 .debug_ranges   0x0000000000000000       0x18

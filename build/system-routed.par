@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-laura-Lenovo-Z40-70::  Mon Oct 19 11:44:23 2015
+ferney-XPS::  Mon Oct 19 12:16:06 2015
 
 par -ol high -w system.ncd system-routed.ncd 
 
@@ -98,37 +98,37 @@ Specific Feature Utilization:
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 5 secs 
-Finished initial Timing Analysis.  REAL time: 5 secs 
+Starting initial Timing Analysis.  REAL time: 19 secs 
+Finished initial Timing Analysis.  REAL time: 19 secs 
 
 Starting Router
 
 
-Phase  1  : 9330 unrouted;      REAL time: 5 secs 
+Phase  1  : 9330 unrouted;      REAL time: 20 secs 
 
-Phase  2  : 8212 unrouted;      REAL time: 6 secs 
+Phase  2  : 8212 unrouted;      REAL time: 22 secs 
 
-Phase  3  : 3620 unrouted;      REAL time: 11 secs 
+Phase  3  : 3620 unrouted;      REAL time: 40 secs 
 
-Phase  4  : 3647 unrouted; (Setup:24190, Hold:0, Component Switching Limit:0)     REAL time: 12 secs 
-
-Updating file: system-routed.ncd with current fully routed design.
-
-Phase  5  : 0 unrouted; (Setup:28050, Hold:0, Component Switching Limit:0)     REAL time: 19 secs 
-
-Phase  6  : 0 unrouted; (Setup:27811, Hold:0, Component Switching Limit:0)     REAL time: 20 secs 
+Phase  4  : 3647 unrouted; (Setup:24190, Hold:0, Component Switching Limit:0)     REAL time: 44 secs 
 
 Updating file: system-routed.ncd with current fully routed design.
 
-Phase  7  : 0 unrouted; (Setup:27811, Hold:0, Component Switching Limit:0)     REAL time: 26 secs 
+Phase  5  : 0 unrouted; (Setup:28050, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 7 secs 
 
-Phase  8  : 0 unrouted; (Setup:27811, Hold:0, Component Switching Limit:0)     REAL time: 26 secs 
+Phase  6  : 0 unrouted; (Setup:27811, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 11 secs 
 
-Phase  9  : 0 unrouted; (Setup:27811, Hold:0, Component Switching Limit:0)     REAL time: 26 secs 
+Updating file: system-routed.ncd with current fully routed design.
 
-Phase 10  : 0 unrouted; (Setup:27301, Hold:0, Component Switching Limit:0)     REAL time: 26 secs 
-Total REAL time to Router completion: 26 secs 
-Total CPU time to Router completion: 27 secs 
+Phase  7  : 0 unrouted; (Setup:27811, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 31 secs 
+
+Phase  8  : 0 unrouted; (Setup:27811, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 31 secs 
+
+Phase  9  : 0 unrouted; (Setup:27811, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 31 secs 
+
+Phase 10  : 0 unrouted; (Setup:27301, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 34 secs 
+Total REAL time to Router completion: 1 mins 34 secs 
+Total CPU time to Router completion: 1 mins 37 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -194,10 +194,10 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 27 secs 
-Total CPU time to PAR completion: 28 secs 
+Total REAL time to PAR completion: 1 mins 37 secs 
+Total CPU time to PAR completion: 1 mins 40 secs 
 
-Peak Memory Usage:  733 MB
+Peak Memory Usage:  729 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
