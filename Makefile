@@ -36,10 +36,6 @@ SRC=                                      \
 	../rtl/wb_timer/wb_timer.v         \
 	../rtl/wb_gpio/wb_gpio.v           \
 	../rtl/wb_spi/wb_spi.v             \
-	../rtl/wb_i2c/i2c_master_wb_top.v  \
-	../rtl/wb_i2c/i2c_master_registers.v  \
-	../rtl/wb_i2c/i2c_master_byte_ctrl.v  \
-	../rtl/wb_i2c/i2c_master_bit_ctrl.v  \
 	../rtl/wb_conbus/conbus.v          \
 	../rtl/wb_conbus/conbus_arb.v      
 
