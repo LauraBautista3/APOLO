@@ -14,7 +14,8 @@ module system
 	// Debug 
 	output            led,
 	input             rst,
-
+	//GPIO
+	inout [7:0]	   gpio_io,
 	// UART
 	input             uart_rxd, 
 	output            uart_txd,
@@ -49,7 +50,6 @@ wire [31:0]  lm32i_adr,
              ddr0_adr,
              bram0_adr,
              sram0_adr;
-
 
 wire [31:0]  lm32i_dat_r,
              lm32i_dat_w,
@@ -179,7 +179,6 @@ conbus #(
 	.m1_cyc_i(  lm32d_cyc    ),
 	.m1_stb_i(  lm32d_stb    ),
 	.m1_ack_o(  lm32d_ack    ),
-
 
 	// Slave0  bram
 	.s0_dat_i(  bram0_dat_r ),
@@ -392,5 +391,6 @@ assign led       = ~uart_txd;
 assign spi_mosi  = spi0_mosi;
 assign spi0_miso = spi_miso;
 assign spi_clk = spi0_clk;
+assign gpio_io=gpio0_io;
 
 endmodule

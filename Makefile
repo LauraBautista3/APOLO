@@ -132,7 +132,7 @@ usage: system-routed.xdl
 
 
 upload: 
-	djtgcfg enum 
+	djtgcfg enum
 	djtgcfg init -d $(NEXYS)  
 	djtgcfg prog -d $(NEXYS) -i 0 -f system.bit 
 
