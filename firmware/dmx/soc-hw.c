@@ -13,7 +13,7 @@ void prueba()
 {
 	   uart0->rxtx=30;
 	   timer0->tcr0 = 0xAA;
-	   gpio0->dir=0x55;
+	   gpio0->dir=0x00;
 	   spi0->rxtx=1;
 	   spi0->nop1=2;
 	   spi0->cs=3;
