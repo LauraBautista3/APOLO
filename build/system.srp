@@ -1560,13 +1560,13 @@ clk            |   12.519|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 55.00 secs
-Total CPU time to Xst completion: 54.77 secs
+Total REAL time to Xst completion: 54.00 secs
+Total CPU time to Xst completion: 53.77 secs
  
 --> 
 
 
-Total memory usage is 405512 kilobytes
+Total memory usage is 405424 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  325 (   0 filtered)

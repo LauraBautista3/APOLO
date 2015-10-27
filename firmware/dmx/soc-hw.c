@@ -17,7 +17,11 @@ void prueba()
 }
 void prueba1()
 {
-           gpio0->write = 0xFF;
+           gpio0->write = 0xff;
+}
+void prueba2()
+{
+           gpio0->write = 0x00;
 }
 //	   spi0->rxtx=1;
 //	   spi0->nop1=2;

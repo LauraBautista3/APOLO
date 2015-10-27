@@ -10,6 +10,9 @@ int main()
 	for(;;)
 	{
 		prueba1();
+                msleep(88);
+		prueba2();
+                msleep(88);
 //		gpio0->write = 0x11;
 /*		uint32_t i=0;
 		
