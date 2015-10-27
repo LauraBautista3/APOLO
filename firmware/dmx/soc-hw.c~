@@ -11,16 +11,21 @@ isr_ptr_t isr_table[32];
 
 void prueba()
 {
-	   uart0->rxtx=30;
-	   timer0->tcr0 = 0xAA;
-	   gpio0->dir=0x0f;
-	   spi0->rxtx=1;
-	   spi0->nop1=2;
-	   spi0->cs=3;
-	   spi0->divisor=4;
-	   spi0->nop2=5;
-
+//	   uart0->rxtx=30;
+//	   timer0->tcr0 = 0xAA;
+	   gpio0->dir=0x0F; 
 }
+void prueba1()
+{
+           gpio0->write = 0xF0;
+}
+//	   spi0->rxtx=1;
+//	   spi0->nop1=2;
+//	   spi0->cs=3;
+//	   spi0->divisor=4;
+//	   spi0->nop2=5;
+
+
 void tic_isr();
 /***************************************************************************
  * IRQ handling

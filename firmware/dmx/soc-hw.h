@@ -66,6 +66,7 @@ void msleep(uint32_t msec);
 void nsleep(uint32_t nsec);
 
 void prueba();
+void prueba1();
 void tic_init();
 
 
@@ -73,9 +74,9 @@ void tic_init();
  * GPIO0
  */
 typedef struct {
-	volatile uint32_t dir;
-	volatile uint32_t write;
 	volatile uint32_t read;
+	volatile uint32_t write;
+	volatile uint32_t dir;
 
 } gpio_t;
 

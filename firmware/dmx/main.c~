@@ -8,7 +8,8 @@ int main()
 	for(;;)
 	{
 		prueba();
-		gpio0->write = 0x81;
+		prueba1();
+//		gpio0->write = 0x11;
 /*		uint32_t i=0;
 		
 	

@@ -4,11 +4,13 @@
 int main()
 {
 
-	gpio0->read = 0x000000ff;
+//	gpio0->read = 0x000000ff;
+	
+	prueba();
 	for(;;)
 	{
-		prueba();
-		gpio0->write = 0x11;
+		prueba1();
+//		gpio0->write = 0x11;
 /*		uint32_t i=0;
 		
 	
