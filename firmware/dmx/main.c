@@ -6,13 +6,29 @@ int main()
 
 //	gpio0->read = 0x000000ff;
 	
-	prueba();
+	DMX_protocol();
 	for(;;)
 	{
-		prueba1();
-                msleep(88);
-		prueba2();
-                msleep(88);
+		Break();
+                nsleep(88000);
+
+		MAB();
+                nsleep(8000);
+
+		start_code();
+                nsleep(44000);
+		
+		chanel_1()
+		nsleep(44000);
+		
+		chanel_2()
+		nsleep(44000);
+
+		chanel_3()
+		nsleep(44000);
+
+
+
 //		gpio0->write = 0x11;
 /*		uint32_t i=0;
 		

@@ -9,20 +9,47 @@ spi_t   *spi0   = (spi_t *)    0x50000000;
 
 isr_ptr_t isr_table[32];
 
-void prueba()
+
+
+void DMX_protocol()
 {
 //	   uart0->rxtx=30;
 //	   timer0->tcr0 = 0xAA;
 	   gpio0->dir=0x0F; 
 }
-void prueba1()
+
+void Break()
+{	
+	   gpio0->write = 0x00; 
+}
+void MAB()
 {
            gpio0->write = 0xff;
 }
-void prueba2()
+void start_code()
 {
            gpio0->write = 0x00;
 }
+void chanel_1()
+{
+           gpio0->write = 0xff;
+}
+void chanel_2()
+{
+           gpio0->write = 0x00;
+}
+
+void chanel_3()
+{
+           gpio0->write = 0xff;
+}
+
+
+
+
+
+
+
 //	   spi0->rxtx=1;
 //	   spi0->nop1=2;
 //	   spi0->cs=3;
