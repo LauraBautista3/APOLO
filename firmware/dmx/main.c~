@@ -1,29 +1,20 @@
 #include "soc-hw.h"
+#include "mdmx.h"
 
 
 int main()
 {
 
-	gpio0->read = 0x000000ff;
+	config_dmx();
 	for(;;)
 	{
-		prueba();
-		prueba1();
-//		gpio0->write = 0x11;
-/*		uint32_t i=0;
-		
-	
-		for(i=0; i<8; i++) 
-		{
-			uint32_t out1, out2;
-			out1 = 0x01 << i;
-			out2 = 0x80 >> i;
-			gpio0->write = out1 | out2;
-
-			msleep(100000);
-		}*/
-	}
+		dmx_init_send();      
+		dmx_channel_send(0xaa);
+		//dmx_channel_send(2);
+		//dmx_channel_send(3);
+	} 
 }
+
 
 /*	uint8_t tmp_var=0;
 	uint8_t tmp_num=0;

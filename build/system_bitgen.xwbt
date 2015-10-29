@@ -1,7 +1,7 @@
-INFILE=/home/ferney/FERNEY/NACHO/Digital2/laboratorios/proyectosestudiantes/2-2015/APOLO/build/system-routed.ncd
-OUTFILE=/home/ferney/FERNEY/NACHO/Digital2/laboratorios/proyectosestudiantes/2-2015/APOLO/build/system.bit
+INFILE=/home/juan/APOLO/build/system-routed.ncd
+OUTFILE=/home/juan/APOLO/build/system.bit
 FAMILY=Spartan6
 PART=xc6slx16-3csg324
-WORKINGDIR=/home/ferney/FERNEY/NACHO/Digital2/laboratorios/proyectosestudiantes/2-2015/APOLO/build
+WORKINGDIR=/home/juan/APOLO/build
 LICENSE=WebPack
-USER_INFO=211008208_0_0_072
+USER_INFO=211084337_0_0_656

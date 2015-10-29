@@ -9,6 +9,9 @@ spi_t   *spi0   = (spi_t *)    0x50000000;
 
 isr_ptr_t isr_table[32];
 
+
+
+
 void prueba()
 {
 //	   uart0->rxtx=30;
