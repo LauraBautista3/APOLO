@@ -1,17 +1,17 @@
 
-Allocating common symbols
-Common symbol       size              file
+Se asignan símbolos comunes
+Símbolo común       tamaño            fichero
 
 isr_table           0x80              soc-hw.o
 tic_msec            0x4               soc-hw.o
 
-Memory Configuration
+Configuración de la Memoria
 
-Name             Origin             Length             Attributes
+Nombre           Origen             Longitud           Atributos
 ram              0x0000000000000000 0x0000000000001000
 *default*        0x0000000000000000 0xffffffffffffffff
 
-Linker script and memory map
+Guión del enlazador y mapa de memoria
 
                 0x0000000000000000                __DYNAMIC = 0x0
                 0x0000000000000000                _RAM_START = 0x0
@@ -135,15 +135,15 @@ OUTPUT(image elf32-lm32)
  .debug_aranges
                 0x0000000000000020       0x20 soc-hw.o
 
-.debug_str      0x0000000000000000      0x1f2
- .debug_str     0x0000000000000000       0x9a main.o
-                                         0xa6 (size before relaxing)
- .debug_str     0x000000000000009a      0x158 soc-hw.o
-                                        0x1fc (size before relaxing)
+.debug_str      0x0000000000000000      0x1b6
+ .debug_str     0x0000000000000000       0x5e main.o
+                                         0x6a (tamaño antes de la relajación)
+ .debug_str     0x000000000000005e      0x158 soc-hw.o
+                                        0x1c0 (tamaño antes de la relajación)
 
 .comment        0x0000000000000000       0x11
  .comment       0x0000000000000000       0x11 main.o
-                                         0x12 (size before relaxing)
+                                         0x12 (tamaño antes de la relajación)
  .comment       0x0000000000000000       0x12 soc-hw.o
 
 .debug_loc      0x0000000000000000       0xfc
