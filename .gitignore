@@ -1,7 +1,10 @@
-firmware/dmx/image
-firmware/dmx/image.lst
-firmware/dmx/image.map
-firmware/dmx/image.ram
-firmware/dmx/image.srec
-firmware/dmx/main.c~
-firmware/dmx/main.o
+firmware/dmx/image*
+firmware/dmx/*~
+firmware/dmx/*.o
+firmware/dmx/*.d
+*~
+simulation/*
+build/*
+
+
+

@@ -1,6 +1,6 @@
 #ifndef SPIKEHW_H
 #define SPIKEHW_H
-
+   
 #define PROMSTART 0x00000000
 #define RAMSTART  0x00000800
 #define RAMSIZE   0x400
