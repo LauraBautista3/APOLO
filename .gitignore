@@ -1,4 +1,7 @@
 firmware/dmx/image*
 firmware/dmx/*~
 firmware/dmx/*.o
+*~
+simulation/*
+build/*
 
