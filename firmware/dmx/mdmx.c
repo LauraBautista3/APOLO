@@ -47,7 +47,7 @@ void dmx_init_send()
 	pin_inv(22);
 	pin_inv(2);
 	pin_inv(9);
-        pin_inv(2);
+     pin_inv(2);
  }
 
 
