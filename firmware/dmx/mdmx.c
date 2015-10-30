@@ -1,6 +1,7 @@
 #include "soc-hw.h"
 #include "mdmx.h"
 
+
 void sleept1()
 {
 	uint32_t tcr;
@@ -10,6 +11,7 @@ void sleept1()
  		tcr = timer0->tcr1;
  	} while ( ! (tcr & TIMER_TRIG) );
 }
+
 
 void set_pin(uint8_t pin_act)
 {
@@ -46,8 +48,8 @@ void dmx_init_send()
 {
 	pin_inv(22);
 	pin_inv(2);
-	pin_inv(9);
-     pin_inv(2);
+	pin_inv(8);
+     pin_inv(300);
  }
 
 
@@ -66,6 +68,13 @@ void dmx_channel_send(uint8_t value)
 	gpio0->write = gpio0->read | DMX_PIN;
 	sleept1();
 	sleept1();
- 
+	sleept1();
+	sleept1();
+	sleept1();
+	sleept1();
+	sleept1();
+	sleept1();
+	sleept1();
+	sleept1();
 
-}
+	}

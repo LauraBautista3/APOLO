@@ -5,7 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <DeviceUsageSummary rev="2">
-<DesignStatistics TimeStamp="Fri Oct 30 13:21:22 2015"><group name="NetStatistics">
+<DesignStatistics TimeStamp="Fri Oct 30 15:09:12 2015"><group name="NetStatistics">
 <item name="NumNets_Active" rev="2">
 <attrib name="value" value="2559"/></item>
 <item name="NumNets_Gnd" rev="2">
@@ -202,7 +202,7 @@
 <attrib name="value" value="65"/></item>
 </group>
 </DesignStatistics>
-<DeviceUsage TimeStamp="Fri Oct 30 13:21:22 2015"><group name="SiteSummary">
+<DeviceUsage TimeStamp="Fri Oct 30 15:09:12 2015"><group name="SiteSummary">
 <item name="BUFG" rev="2">
 <attrib name="total" value="1000000"/><attrib name="used" value="1"/></item>
 <item name="BUFG_BUFG" rev="2">
@@ -261,7 +261,7 @@
 <attrib name="total" value="1000000"/><attrib name="used" value="382"/></item>
 </group>
 </DeviceUsage>
-<ReportConfigData TimeStamp="Fri Oct 30 13:21:22 2015"><group name="DSP48A1">
+<ReportConfigData TimeStamp="Fri Oct 30 15:09:12 2015"><group name="DSP48A1">
 <item name="CEA" rev="2">
 <attrib name="CEA_INV" value="0"/><attrib name="CEA" value="3"/></item>
 <item name="CEB" rev="2">
@@ -502,7 +502,7 @@
 <attrib name="ASYNC" value="93"/><attrib name="SYNC" value="18"/></item>
 </group>
 </ReportConfigData>
-<ReportPinData TimeStamp="Fri Oct 30 13:21:22 2015"><group name="DSP48A1">
+<ReportPinData TimeStamp="Fri Oct 30 15:09:12 2015"><group name="DSP48A1">
 <item name="A0" rev="2">
 <attrib name="value" value="3"/></item>
 <item name="A1" rev="2">

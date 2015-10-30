@@ -8,7 +8,7 @@ Target Device  : xc6slx16
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Fri Oct 30 13:20:10 2015
+Mapped Date    : Fri Oct 30 15:08:00 2015
 
 Mapping design into LUTs...
 Writing file system.ngm...
@@ -19,7 +19,7 @@ INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
 Running timing-driven placement...
 Total REAL time at the beginning of Placer: 8 secs 
-Total CPU  time at the beginning of Placer: 8 secs 
+Total CPU  time at the beginning of Placer: 7 secs 
 
 Phase 1.1  Initial Placement Analysis
 Phase 1.1  Initial Placement Analysis (Checksum:b586f285) REAL time: 8 secs 
@@ -72,7 +72,7 @@ Phase 13.34  Placement Validation
 Phase 13.34  Placement Validation (Checksum:25a39a18) REAL time: 29 secs 
 
 Total REAL time to Placer completion: 30 secs 
-Total CPU  time to Placer completion: 30 secs 
+Total CPU  time to Placer completion: 29 secs 
 Running post-placement packing...
 Writing output files...
 
