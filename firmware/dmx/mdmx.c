@@ -13,18 +13,18 @@ void sleept1()
 
 void set_pin(uint8_t pin_act)
 {
-        if (pin_act)
-		gpio0->write = gpio0->read & (~DMX_PIN);
-	else
+     if (pin_act)
 		gpio0->write = gpio0->read | DMX_PIN;
+	else
+		gpio0->write = gpio0->read & (~DMX_PIN);
 
 }
 void pin_inv(uint32_t num)
 {
 	uint32_t i;
 	uint32_t pin_act;
-	pin_act = gpio0->read & DMX_PIN;
-        set_pin(pin_act);
+	pin_act = (~gpio0->read) & DMX_PIN;
+     set_pin(pin_act);
 	for(i=0;i<num;i++)
 		sleept1();
 }

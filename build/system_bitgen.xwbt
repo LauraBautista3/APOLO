@@ -1,7 +1,7 @@
-INFILE=/home/alejandra/APOLO/build/system-routed.ncd
-OUTFILE=/home/alejandra/APOLO/build/system.bit
+INFILE=/home/laura/Documentos/DIGITAL2/APOLO/build/system-routed.ncd
+OUTFILE=/home/laura/Documentos/DIGITAL2/APOLO/build/system.bit
 FAMILY=Spartan6
 PART=xc6slx16-3csg324
-WORKINGDIR=/home/alejandra/APOLO/build
+WORKINGDIR=/home/laura/Documentos/DIGITAL2/APOLO/build
 LICENSE=WebPack
-USER_INFO=210794160_0_0_738
+USER_INFO=211016364_0_0_319
