@@ -1,10 +1,7 @@
-firmware/dmx/image*
-firmware/dmx/*~
-firmware/dmx/*.o
-firmware/dmx/*.d
-*~
-simulation/*
-build/*
-
-
-
+/firmware/dmx/image*
+/firmware/dmx/*~
+/firmware/dmx/*.o
+/firmware/dmx/*.d
+/*~
+/build/
+/simulation/
