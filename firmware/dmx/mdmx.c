@@ -49,7 +49,7 @@ void dmx_init_send()
 	pin_inv(22);
 	pin_inv(2);
 	pin_inv(8);
-     pin_inv(300);
+     	pin_inv(2);
  }
 
 
@@ -68,13 +68,5 @@ void dmx_channel_send(uint8_t value)
 	gpio0->write = gpio0->read | DMX_PIN;
 	sleept1();
 	sleept1();
-	sleept1();
-	sleept1();
-	sleept1();
-	sleept1();
-	sleept1();
-	sleept1();
-	sleept1();
-	sleept1();
-
+	
 	}
