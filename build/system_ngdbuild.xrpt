@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="NgdBuild" timeStamp="Sat Oct 31 10:06:51 2015">
+  <application stringID="NgdBuild" timeStamp="Sat Oct 31 10:18:55 2015">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -16,7 +16,7 @@
         </row>
         <row stringID="row" value="1">
           <item stringID="variable" value="PATH"/>
-          <item stringID="value" value="/opt/Xilinx/14.7/ISE_DS/ISE//bin/lin64:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64:/opt/rtems-4.11/bin"/>
+          <item stringID="value" value="/opt/Xilinx/14.7/ISE_DS/ISE//bin/lin64:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64:/opt/rtems-4.11/bin/"/>
         </row>
         <row stringID="row" value="2">
           <item stringID="variable" value="XILINX"/>
@@ -27,13 +27,13 @@
         <item stringID="User_EnvOsname" value="Ubuntu"/>
         <item stringID="User_EnvOsrelease" value="Ubuntu 14.04.3 LTS"/>
       </item>
-      <item stringID="User_EnvHost" value="alejandra-N46VB"/>
+      <item stringID="User_EnvHost" value="LenovoZ475"/>
       <table stringID="User_EnvCpu">
         <column stringID="arch"/>
         <column stringID="speed"/>
         <row stringID="row" value="0">
-          <item stringID="arch" value="Intel(R) Core(TM) i7-3630QM CPU @ 2.40GHz"/>
-          <item stringID="speed" value="3284.531 MHz"/>
+          <item stringID="arch" value="AMD A6-3420M APU with Radeon(tm) HD Graphics"/>
+          <item stringID="speed" value="800.000 MHz"/>
         </row>
       </table>
     </section>
