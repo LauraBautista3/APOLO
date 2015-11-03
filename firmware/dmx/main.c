@@ -16,7 +16,9 @@ int main()
 	uint8_t v_ch2=0;
 	uint8_t v_ch3=0;
 	uint8_t w_c=0;
-		
+	
+	config_pt();
+	
 	for(;;)
 	{
 		while(tmp_var!='<')

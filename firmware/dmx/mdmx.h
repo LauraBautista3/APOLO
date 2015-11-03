@@ -10,4 +10,7 @@ void dmx_init_send();
 
 void dmx_channel_send(uint8_t value);
 
+void config_pt();
+
+
 #endif // _MDMX

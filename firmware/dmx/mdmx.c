@@ -39,7 +39,7 @@ void config_dmx()
 	gpio0->dir |= DMX_PIN;
     //   gpio0->dir = gpio0->dir  | DMX_PIN;
     // config Use timer 1
-	timer0->compare1 = (FCPU/1000000)*(TBIT-1); // for usecond
+	timer0->compare1 = (FCPU/1000000)*(TBIT)-80; // for usecond
 	gpio0->write = gpio0->read | DMX_PIN;
  
 }
@@ -52,6 +52,18 @@ void dmx_init_send()
      	
  }
 
+void config_pt()
+{
+	uint32_t pin_act;
+	gpio0->write = gpio0->read | DMX_PIN;
+
+for(;;)
+{    
+     pin_act = (~gpio0->read) & DMX_PIN;
+     set_pin(pin_act);
+     sleept1();
+}
+}
 
 void dmx_channel_send(uint8_t value)
 {
