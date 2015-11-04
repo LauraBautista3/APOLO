@@ -28,7 +28,7 @@ uint32_t ch3;
 				{
 
 					while (gpio0->read & 0x01);
-					//sleep2us();
+					sleep2us();
 					ch1 = leerdatos();
 					while (gpio0->read & 0x01);
 					sleep2us();
