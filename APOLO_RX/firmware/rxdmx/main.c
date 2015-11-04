@@ -10,7 +10,7 @@ uint32_t ch3;
 
 
 
-#define DEBUG 
+//#define DEBUG 
 
 int main()
 {
@@ -45,7 +45,7 @@ int main()
 					uart_putchar(dato);	
 			     	#endif
 
-                        	if (!(error) &&(dato ==0))
+ 				if (!(error) &&(dato ==0))
 				{
 					#ifdef DEBUG
 						uart_putstr("LEYENDO DATOS  \n");	
