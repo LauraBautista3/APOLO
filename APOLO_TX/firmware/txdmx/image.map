@@ -1,0 +1,182 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+isr_table           0x80              soc-hw.o
+tic_msec            0x4               soc-hw.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ram              0x0000000000000000 0x0000000000001000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000000000                __DYNAMIC = 0x0
+                0x0000000000000000                _RAM_START = 0x0
+                0x0000000000001000                _RAM_SIZE = 0x1000
+                0x0000000000001000                _RAM_END = (_RAM_START + _RAM_SIZE)
+
+.text           0x0000000000000000      0x8d8
+                0x0000000000000000                _ftext = .
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000000000000      0x208 crt0ram.o
+                0x0000000000000000                _start
+                0x0000000000000140                irq_enable
+                0x000000000000014c                irq_disable
+                0x0000000000000158                irq_set_mask
+                0x0000000000000160                irq_get_mask
+                0x0000000000000168                jump
+                0x000000000000016c                halt
+                0x00000000000001f8                get_sp
+                0x0000000000000200                get_gp
+ .text          0x0000000000000208      0x1d8 main.o
+                0x0000000000000208                main
+ .text          0x00000000000003e0      0x264 soc-hw.o
+                0x00000000000003e0                isr_null
+                0x00000000000003e4                tic_isr
+                0x0000000000000410                prueba
+                0x0000000000000428                prueba1
+                0x0000000000000440                prueba2
+                0x0000000000000454                irq_handler
+                0x00000000000004b8                isr_init
+                0x00000000000004dc                isr_register
+                0x00000000000004f4                isr_unregister
+                0x0000000000000514                msleep
+                0x0000000000000550                nsleep
+                0x0000000000000580                tic_init
+                0x00000000000005c4                uart_init
+                0x00000000000005c8                uart_getchar
+                0x00000000000005ec                uart_putchar
+                0x0000000000000610                uart_putstr
+ .text          0x0000000000000644      0x294 txdmx.o
+                0x0000000000000644                sleept1
+                0x000000000000066c                set_pin
+                0x00000000000006b0                pin_inv
+                0x0000000000000724                config_dmx
+                0x0000000000000760                config_pt
+                0x00000000000007d4                dmx_channel_send
+                0x00000000000008ac                dmx_init_send
+                0x00000000000008d8                _etext = .
+
+.rodata         0x00000000000008d8       0x60
+                0x00000000000008d8                . = ALIGN (0x4)
+                0x00000000000008d8                _frodata = .
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.str1.4
+                0x00000000000008d8       0x5c main.o
+ .rodata.cst4   0x0000000000000934        0x4 soc-hw.o
+ *(.rodata1)
+                0x0000000000000938                _erodata = .
+
+.data           0x0000000000000938       0x10
+                0x0000000000000938                . = ALIGN (0x4)
+                0x0000000000000938                _fdata = .
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000000000938        0x0 crt0ram.o
+ .data          0x0000000000000938        0x0 main.o
+ .data          0x0000000000000938       0x10 soc-hw.o
+                0x0000000000000938                uart0
+                0x000000000000093c                timer0
+                0x0000000000000940                gpio0
+                0x0000000000000944                spi0
+ .data          0x0000000000000948        0x0 txdmx.o
+ *(.data1)
+                0x0000000000000950                _gp = ALIGN (0x10)
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+                0x0000000000000948                _edata = .
+
+.bss            0x0000000000000948       0x84
+                0x0000000000000948                . = ALIGN (0x4)
+                0x0000000000000948                _fbss = .
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ *(.scommon)
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x0000000000000948        0x0 crt0ram.o
+ .bss           0x0000000000000948        0x0 main.o
+ .bss           0x0000000000000948        0x0 soc-hw.o
+ .bss           0x0000000000000948        0x0 txdmx.o
+ *(COMMON)
+ COMMON         0x0000000000000948       0x84 soc-hw.o
+                0x0000000000000948                isr_table
+                0x00000000000009c8                tic_msec
+                0x00000000000009cc                _ebss = .
+                0x00000000000009cc                _end = .
+                0x0000000000000ffc                PROVIDE (_fstack, ((ORIGIN (ram) + 0x1000) - 0x4))
+LOAD crt0ram.o
+LOAD main.o
+LOAD soc-hw.o
+LOAD txdmx.o
+OUTPUT(image elf32-lm32)
+
+.debug_abbrev   0x0000000000000000      0x3b4
+ .debug_abbrev  0x0000000000000000       0x6a main.o
+ .debug_abbrev  0x000000000000006a      0x19d soc-hw.o
+ .debug_abbrev  0x0000000000000207      0x1ad txdmx.o
+
+.debug_info     0x0000000000000000      0x94a
+ .debug_info    0x0000000000000000       0xce main.o
+ .debug_info    0x00000000000000ce      0x4f1 soc-hw.o
+ .debug_info    0x00000000000005bf      0x38b txdmx.o
+
+.debug_line     0x0000000000000000      0x78d
+ .debug_line    0x0000000000000000      0x1b4 main.o
+ .debug_line    0x00000000000001b4      0x2d3 soc-hw.o
+ .debug_line    0x0000000000000487      0x306 txdmx.o
+
+.debug_frame    0x0000000000000000      0x1b0
+ .debug_frame   0x0000000000000000       0x20 main.o
+ .debug_frame   0x0000000000000020      0x110 soc-hw.o
+ .debug_frame   0x0000000000000130       0x80 txdmx.o
+
+.debug_loc      0x0000000000000000      0x441
+ .debug_loc     0x0000000000000000      0x168 main.o
+ .debug_loc     0x0000000000000168       0xfc soc-hw.o
+ .debug_loc     0x0000000000000264      0x1dd txdmx.o
+
+.debug_pubnames
+                0x0000000000000000      0x1ca
+ .debug_pubnames
+                0x0000000000000000       0x1b main.o
+ .debug_pubnames
+                0x000000000000001b      0x135 soc-hw.o
+ .debug_pubnames
+                0x0000000000000150       0x7a txdmx.o
+
+.debug_pubtypes
+                0x0000000000000000       0xb9
+ .debug_pubtypes
+                0x0000000000000000       0x1e main.o
+ .debug_pubtypes
+                0x000000000000001e       0x59 soc-hw.o
+ .debug_pubtypes
+                0x0000000000000077       0x42 txdmx.o
+
+.debug_aranges  0x0000000000000000       0x60
+ .debug_aranges
+                0x0000000000000000       0x20 main.o
+ .debug_aranges
+                0x0000000000000020       0x20 soc-hw.o
+ .debug_aranges
+                0x0000000000000040       0x20 txdmx.o
+
+.debug_str      0x0000000000000000      0x250
+ .debug_str     0x0000000000000000       0x8e main.o
+                                         0x9a (size before relaxing)
+ .debug_str     0x000000000000008e      0x160 soc-hw.o
+                                        0x1c6 (size before relaxing)
+ .debug_str     0x00000000000001ee       0x62 txdmx.o
+                                        0x124 (size before relaxing)
+
+.comment        0x0000000000000000       0x11
+ .comment       0x0000000000000000       0x11 main.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000000       0x12 soc-hw.o
+ .comment       0x0000000000000000       0x12 txdmx.o
+
+.debug_ranges   0x0000000000000000       0xe0
+ .debug_ranges  0x0000000000000000       0x18 soc-hw.o
+ .debug_ranges  0x0000000000000018       0xc8 txdmx.o

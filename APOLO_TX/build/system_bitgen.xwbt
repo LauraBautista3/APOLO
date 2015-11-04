@@ -1,0 +1,7 @@
+INFILE=/home/juan/APOLO/APOLO_TX/build/system-routed.ncd
+OUTFILE=/home/juan/APOLO/APOLO_TX/build/system.bit
+FAMILY=Spartan6
+PART=xc6slx16-3csg324
+WORKINGDIR=/home/juan/APOLO/APOLO_TX/build
+LICENSE=WebPack
+USER_INFO=211084337_0_0_656

@@ -1,0 +1,129 @@
+#include "soc-hw.h"
+#include "rxdmx.h"
+
+
+uint32_t datain;
+uint32_t error=0;
+uint32_t dato;
+uint32_t ch1;
+uint32_t ch2;
+uint32_t ch3;
+
+
+void timebreak()
+{
+	uint32_t tcr;
+	timer0->counter1 = 0;
+	timer0->compare1 = (FCPU/1000000)*(88);
+	timer0->tcr1 = TIMER_EN;
+	do {
+ 		tcr = timer0->tcr1;
+ 	} while ( ! ((tcr & TIMER_TRIG) | (gpio->read & 0x01) ) );
+		if !(tcr & TIMER_TRIG)
+			error=1;
+}
+
+void timeMAB()
+{
+	uint32_t tcr;
+	timer0->counter1 = 0;
+	timer0->compare1 = (FCPU/1000000)*(8);
+	timer0->tcr1 = TIMER_EN;
+	do {
+ 		tcr = timer0->tcr1;
+ 	} while ( ! ((tcr & TIMER_TRIG) | !(gpio->read & 0x01) ) );
+		if !(tcr & TIMER_TRIG)
+			error=1;
+}
+
+void sleep2us()
+{
+	uint32_t tcr;
+	timer0->counter1 = 0;
+	timer0->compare1 = (FCPU/1000000)*(2);
+	timer0->tcr1 = TIMER_EN;
+	do {
+ 		tcr = timer0->tcr1;
+ 	} while ( ! (tcr & TIMER_TRIG) );
+		
+}
+
+uint8_t leerdatos()
+{
+	uint8_t valor_bit=0;
+	valor_bit=gpio->read & 0x01;
+	if (valor_bit)
+		error=1;
+	else
+	{
+		valor_bit=0;
+		for(i=0;i<8;i++)
+		{
+			sleep2us();
+			sleep2us();
+			valor_bit=valor_bit<<1;
+			valor_bit=valor_bit + gpio->read & 0x01;
+		}
+		
+		for(i=0;i<2;i++)
+		{
+			sleep2us();
+			sleep2us();
+			if !(gpio->read & 0x01);
+				error=1;
+			
+		}
+	}	
+
+	return valor_bit;
+}
+
+
+void valorchs(){
+	uart_putchar(ch1);
+	uart_putchar(ch2);
+	uart_putchar(ch3);
+}
+
+
+
+
+int main()
+{
+	gpio->dir=0x07;
+	for(;;)
+	{
+		while (gpio->read & 0x01);
+		timebreak();
+		if !(error)
+		{
+			while !(gpio->read & 0x01);
+			timeMAB();
+			if !(error){
+				while (gpio->read & 0x01);
+				sleep2us();
+				dato = leerdatos();
+                        	if !(error) &&(dato ==0)
+				{
+					while (gpio->read & 0x01);
+					sleep2us();
+					ch1 = leerdatos();
+					while (gpio->read & 0x01);
+					sleep2us();
+					ch2 = leerdatos();
+					while (gpio->read & 0x01);
+					sleep2us();
+					ch3 = leerdatos();
+					if !(error)
+					valorchs();
+	
+				}			    	  
+			}
+		}
+		error=0;
+		
+	}
+
+}
+
+
