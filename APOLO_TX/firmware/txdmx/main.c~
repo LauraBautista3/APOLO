@@ -1,5 +1,5 @@
 #include "soc-hw.h"
-#include "mdmx.h"
+#include "txdmx.h"
 
 
 #define DEBUG 

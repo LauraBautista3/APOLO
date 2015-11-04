@@ -2,15 +2,24 @@
 #define _MDMX_H
 
 #define TBIT 4  // in us
-#define DMX_TR 0x70 // GPIO PIN
-
-void aline_dmx();
-
-void dmx_init_receive();
-
-void dmx_channel_out(uint8_t value);
 
 
 
+void timebreak();
+
+void timeMAB();
+void sleep2us();
+void sleep4us();
+
+uint8_t leerdatos();
+
+void valorchs();
+
+extern volatile datain;
+extern volatile error;
+extern volatile dato;
+extern volatile ch1;
+extern volatile ch2;
+extern volatile ch3;
 
 #endif // _MDMX

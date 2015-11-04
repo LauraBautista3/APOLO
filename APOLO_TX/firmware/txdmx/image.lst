@@ -1,8 +1,8 @@
 
-image:     file format elf32-lm32
+image:     formato del fichero elf32-lm32
 
-Sections:
-Idx Name          Size      VMA       LMA       File off  Algn
+Secciones:
+Ind Nombre        Tamaño    VMA       LMA       Desp fich Alin
   0 .text         000008d8  00000000  00000000  00000054  2**2
                   CONTENTS, ALLOC, LOAD, CODE
   1 .rodata       00000060  000008d8  000008d8  0000092c  2**2
@@ -27,14 +27,14 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  11 .debug_aranges 00000060  00000000  00000000  0000269c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_str    00000250  00000000  00000000  000026fc  2**0
+ 12 .debug_str    00000265  00000000  00000000  000026fc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .comment      00000011  00000000  00000000  0000294c  2**0
+ 13 .comment      00000011  00000000  00000000  00002961  2**0
                   CONTENTS, READONLY
- 14 .debug_ranges 000000e0  00000000  00000000  0000295d  2**0
+ 14 .debug_ranges 000000e0  00000000  00000000  00002972  2**0
                   CONTENTS, READONLY, DEBUGGING
 
-Disassembly of section .text:
+Desensamblado de la sección .text:
 
 00000000 <_ftext>:
    0:	98 00 00 00 	xor r0,r0,r0

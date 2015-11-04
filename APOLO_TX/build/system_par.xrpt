@@ -5,35 +5,35 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="par" timeStamp="Tue Nov  3 18:38:51 2015">
+  <application stringID="par" timeStamp="Tue Nov  3 22:04:55 2015">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
         <column stringID="value"/>
         <row stringID="row" value="0">
-          <item stringID="variable" value="LD_LIBRARY_PATH"/>
-          <item stringID="value" value="/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin64:/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/"/>
+          <item stringID="variable" value="PATH"/>
+          <item stringID="value" value="/opt/Xilinx/14.7/ISE_DS/ISE//bin/lin64:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/:/opt/rtems-4.11/bin/"/>
         </row>
         <row stringID="row" value="1">
-          <item stringID="variable" value="PATH"/>
-          <item stringID="value" value="/opt/Xilinx/14.7/ISE_DS/ISE//bin/lin64:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64:/opt/rtems-4.11/bin/"/>
-        </row>
-        <row stringID="row" value="2">
           <item stringID="variable" value="XILINX"/>
           <item stringID="value" value="/opt/Xilinx/14.7/ISE_DS/ISE/"/>
+        </row>
+        <row stringID="row" value="2">
+          <item stringID="variable" value="LD_LIBRARY_PATH"/>
+          <item stringID="value" value="/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin64"/>
         </row>
       </table>
       <item stringID="User_EnvOs" value="OS Information">
         <item stringID="User_EnvOsname" value="Ubuntu"/>
-        <item stringID="User_EnvOsrelease" value="Ubuntu 14.04.3 LTS"/>
+        <item stringID="User_EnvOsrelease" value="Ubuntu 14.10"/>
       </item>
-      <item stringID="User_EnvHost" value="LenovoZ475"/>
+      <item stringID="User_EnvHost" value="laura-Lenovo-Z40-70"/>
       <table stringID="User_EnvCpu">
         <column stringID="arch"/>
         <column stringID="speed"/>
         <row stringID="row" value="0">
-          <item stringID="arch" value="AMD A6-3420M APU with Radeon(tm) HD Graphics"/>
-          <item stringID="speed" value="800.000 MHz"/>
+          <item stringID="arch" value="Intel(R) Core(TM) i5-4200U CPU @ 1.60GHz"/>
+          <item stringID="speed" value="2546.531 MHz"/>
         </row>
       </table>
     </section>
@@ -45,12 +45,12 @@
     </task>
     <task stringID="PAR_PAR">
       <section stringID="PAR_DESIGN_SUMMARY">
-        <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="57 secs "/>
-        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="59 secs "/>
+        <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="26 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="26 secs "/>
         <item dataType="int" stringID="PAR_UNROUTES" value="0"/>
         <item dataType="float" stringID="PAR_TIMING_SCORE" value="27670.000000"/>
-        <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="59 secs "/>
-        <item stringID="PAR_CPU_TIME_COMPLETION_PAR" value="1 mins 1 secs "/>
+        <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="26 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_PAR" value="27 secs "/>
       </section>
     </task>
     <task stringID="PAR_par">
@@ -2286,35 +2286,35 @@
     </task>
   </application>
 
-  <application stringID="Par" timeStamp="Tue Nov  3 18:38:52 2015">
+  <application stringID="Par" timeStamp="Tue Nov  3 22:04:56 2015">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
         <column stringID="value"/>
         <row stringID="row" value="0">
-          <item stringID="variable" value="LD_LIBRARY_PATH"/>
-          <item stringID="value" value="/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin64:/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/"/>
+          <item stringID="variable" value="PATH"/>
+          <item stringID="value" value="/opt/Xilinx/14.7/ISE_DS/ISE//bin/lin64:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/:/opt/rtems-4.11/bin/"/>
         </row>
         <row stringID="row" value="1">
-          <item stringID="variable" value="PATH"/>
-          <item stringID="value" value="/opt/Xilinx/14.7/ISE_DS/ISE//bin/lin64:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64:/opt/rtems-4.11/bin/"/>
-        </row>
-        <row stringID="row" value="2">
           <item stringID="variable" value="XILINX"/>
           <item stringID="value" value="/opt/Xilinx/14.7/ISE_DS/ISE/"/>
+        </row>
+        <row stringID="row" value="2">
+          <item stringID="variable" value="LD_LIBRARY_PATH"/>
+          <item stringID="value" value="/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin64"/>
         </row>
       </table>
       <item stringID="User_EnvOs" value="OS Information">
         <item stringID="User_EnvOsname" value="Ubuntu"/>
-        <item stringID="User_EnvOsrelease" value="Ubuntu 14.04.3 LTS"/>
+        <item stringID="User_EnvOsrelease" value="Ubuntu 14.10"/>
       </item>
-      <item stringID="User_EnvHost" value="LenovoZ475"/>
+      <item stringID="User_EnvHost" value="laura-Lenovo-Z40-70"/>
       <table stringID="User_EnvCpu">
         <column stringID="arch"/>
         <column stringID="speed"/>
         <row stringID="row" value="0">
-          <item stringID="arch" value="AMD A6-3420M APU with Radeon(tm) HD Graphics"/>
-          <item stringID="speed" value="800.000 MHz"/>
+          <item stringID="arch" value="Intel(R) Core(TM) i5-4200U CPU @ 1.60GHz"/>
+          <item stringID="speed" value="2596.933 MHz"/>
         </row>
       </table>
     </section>

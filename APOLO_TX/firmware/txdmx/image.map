@@ -1,17 +1,17 @@
 
-Allocating common symbols
-Common symbol       size              file
+Se asignan símbolos comunes
+Símbolo común       tamaño            fichero
 
 isr_table           0x80              soc-hw.o
 tic_msec            0x4               soc-hw.o
 
-Memory Configuration
+Configuración de la Memoria
 
-Name             Origin             Length             Attributes
+Nombre           Origen             Longitud           Atributos
 ram              0x0000000000000000 0x0000000000001000
 *default*        0x0000000000000000 0xffffffffffffffff
 
-Linker script and memory map
+Guión del enlazador y mapa de memoria
 
                 0x0000000000000000                __DYNAMIC = 0x0
                 0x0000000000000000                _RAM_START = 0x0
@@ -163,17 +163,17 @@ OUTPUT(image elf32-lm32)
  .debug_aranges
                 0x0000000000000040       0x20 txdmx.o
 
-.debug_str      0x0000000000000000      0x250
- .debug_str     0x0000000000000000       0x8e main.o
-                                         0x9a (size before relaxing)
- .debug_str     0x000000000000008e      0x160 soc-hw.o
-                                        0x1c6 (size before relaxing)
- .debug_str     0x00000000000001ee       0x62 txdmx.o
-                                        0x124 (size before relaxing)
+.debug_str      0x0000000000000000      0x265
+ .debug_str     0x0000000000000000       0xa3 main.o
+                                         0xaf (tamaño antes de la relajación)
+ .debug_str     0x00000000000000a3      0x160 soc-hw.o
+                                        0x1db (tamaño antes de la relajación)
+ .debug_str     0x0000000000000203       0x62 txdmx.o
+                                        0x139 (tamaño antes de la relajación)
 
 .comment        0x0000000000000000       0x11
  .comment       0x0000000000000000       0x11 main.o
-                                         0x12 (size before relaxing)
+                                         0x12 (tamaño antes de la relajación)
  .comment       0x0000000000000000       0x12 soc-hw.o
  .comment       0x0000000000000000       0x12 txdmx.o
 
