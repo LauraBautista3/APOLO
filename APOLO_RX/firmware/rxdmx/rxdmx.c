@@ -5,7 +5,9 @@
 volatile uint32_t datain;
 volatile uint32_t error=0;
 volatile uint32_t dato;
-
+volatile uint32_t ch1;
+volatile uint32_t ch2;
+volatile uint32_t ch3;
 
 
 void timebreak()
@@ -26,36 +28,32 @@ void timeMAB()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
-	timer0->compare1 = (FCPU/1000000)*(4);
+	timer0->compare1 = (FCPU/1000000)*(5);
 	timer0->tcr1 = TIMER_EN;
 	do {
  		tcr = timer0->tcr1;
  	} while ( ! ((tcr & TIMER_TRIG)) );
 	timer0->tcr1=0;
-//	while ((gpio0->read & 0x01));
-// 	} while ( ! ((tcr & TIMER_TRIG) | !(gpio0->read & 0x01) ) );
-//		if (!(tcr & TIMER_TRIG))
-//			error=1;
+	while ((gpio0->read & 0x01));
+
 }
 
 void sleep2us()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
-	timer0->compare1 = (FCPU/1000000)*(2);
+	timer0->compare1 = (FCPU/1000000)*(1);
 	timer0->tcr1 = TIMER_EN;
 	do {
  		tcr = timer0->tcr1;
  	} while ( ! (tcr & TIMER_TRIG) );
 		
-}
-
-
-void sleep3us()
+}void sleep4us()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
-	timer0->compare1 = (FCPU/1000000)*(3);
+	timer0->compare1 = 270;
+//	timer0->compare1 = (FCPU/1000000)*(2);
 	timer0->tcr1 = TIMER_EN;
 	do {
  		tcr = timer0->tcr1;
@@ -66,26 +64,23 @@ void sleep3us()
 uint8_t leerdatos()
 {
 	uint8_t valor_bit=0, i;
-	valor_bit=(gpio0->read & 0x01);
-//	if (valor_bit)
-//		error=1;
-	if (!(valor_bit))
+	valor_bit=gpio0->read & 0x01;
+	valor_bit=0;
+	for(i=0;i<8;i++)
 	{
-		valor_bit=0;
-		for(i=0;i<8;i++)
-		{
-			sleep2us();
-			valor_bit=valor_bit<<1;
-			valor_bit=valor_bit + (gpio0->read & 0x01);
-		}
-
-
-	}	
-
+		sleep4us();
+		valor_bit=valor_bit<<1;
+		valor_bit=valor_bit + (gpio0->read & 0x01);
+	}
+	sleep4us();
 	return valor_bit;
 }
 
 
-
+void valorchs(){
+	uart_putchar(ch1);
+	uart_putchar(ch2);
+	uart_putchar(ch3);
+}
 
 

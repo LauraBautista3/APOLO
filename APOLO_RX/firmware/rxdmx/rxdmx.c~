@@ -26,7 +26,7 @@ void timeMAB()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
-	timer0->compare1 = (FCPU/1000000)*(4);
+	timer0->compare1 = (FCPU/1000000)*(5);
 	timer0->tcr1 = TIMER_EN;
 	do {
  		tcr = timer0->tcr1;
@@ -48,14 +48,11 @@ void sleep2us()
  		tcr = timer0->tcr1;
  	} while ( ! (tcr & TIMER_TRIG) );
 		
-}
-
-
-void sleep3us()
+}void sleep4us()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
-	timer0->compare1 = (FCPU/1000000)*(3);
+	timer0->compare1 = (FCPU/1000000)*(4);
 	timer0->tcr1 = TIMER_EN;
 	do {
  		tcr = timer0->tcr1;
@@ -87,6 +84,10 @@ uint8_t leerdatos()
 }
 
 
-
+void valorchs(){
+	uart_putchar(ch1);
+	uart_putchar(ch2);
+	uart_putchar(ch3);
+}
 
 
