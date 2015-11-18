@@ -167,13 +167,13 @@ OUTPUT(image elf32-lm32)
  .debug_aranges
                 0x0000000000000040       0x20 rxdmx.o
 
-.debug_str      0x0000000000000000      0x234
- .debug_str     0x0000000000000000       0x9d main.o
-                                         0xa9 (tamaño antes de la relajación)
- .debug_str     0x000000000000009d      0x13f soc-hw.o
-                                        0x1db (tamaño antes de la relajación)
- .debug_str     0x00000000000001dc       0x58 rxdmx.o
-                                        0x132 (tamaño antes de la relajación)
+.debug_str      0x0000000000000000      0x22b
+ .debug_str     0x0000000000000000       0x94 main.o
+                                         0xa0 (tamaño antes de la relajación)
+ .debug_str     0x0000000000000094      0x13f soc-hw.o
+                                        0x1d2 (tamaño antes de la relajación)
+ .debug_str     0x00000000000001d3       0x58 rxdmx.o
+                                        0x129 (tamaño antes de la relajación)
 
 .comment        0x0000000000000000       0x11
  .comment       0x0000000000000000       0x11 main.o

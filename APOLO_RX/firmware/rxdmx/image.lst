@@ -25,13 +25,13 @@ Ind Nombre        Tamaño    VMA       LMA       Desp fich Alin
                   CONTENTS, READONLY, DEBUGGING
  10 .debug_aranges 00000060  00000000  00000000  00001dc8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    00000234  00000000  00000000  00001e28  2**0
+ 11 .debug_str    0000022b  00000000  00000000  00001e28  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .comment      00000011  00000000  00000000  0000205c  2**0
+ 12 .comment      00000011  00000000  00000000  00002053  2**0
                   CONTENTS, READONLY
- 13 .debug_loc    0000017a  00000000  00000000  0000206d  2**0
+ 13 .debug_loc    0000017a  00000000  00000000  00002064  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_ranges 00000018  00000000  00000000  000021e7  2**0
+ 14 .debug_ranges 00000018  00000000  00000000  000021de  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Desensamblado de la sección .text:

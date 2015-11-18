@@ -65,12 +65,13 @@ int main()
 	     #endif		
 		}
 		dmx_init_send();  //      llamar funcion codificador dmx         
-		
+		sleept1();
 		dmx_channel_send(v_ch1);
-		
+		sleept1();
 		dmx_channel_send(v_ch2);
-		
+		sleept1();
 		dmx_channel_send(v_ch3);
+		sleept1();
 	} 
 
 }
