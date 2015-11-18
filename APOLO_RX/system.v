@@ -378,7 +378,7 @@ wb_gpio gpio0 (
 	.wb_we_i(  gpio0_we     ),
 	.wb_ack_o( gpio0_ack    ), 
 	// GPIO
-	.gpio_io(gpio_io)
+	.gpio_io(gpio0_io)
 );
 
 //----------------------------------------------------------------------------

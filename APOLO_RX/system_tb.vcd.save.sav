@@ -1,30 +1,15 @@
-[*]
-[*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
-[*] Wed Nov  4 08:40:29 2015
-[*]
-[dumpfile] "/home/alejandra/APOLO_copia/APOLO_RX/simulation/system_tb.vcd"
-[dumpfile_mtime] "Wed Nov  4 08:34:26 2015"
-[dumpfile_size] 34344335
-[savefile] "/home/alejandra/APOLO_copia/APOLO_RX/system_tb.vcd.save.sav"
 [timestart] 0
-[size] 1301 744
+[size] 1000 600
 [pos] -1 -1
-*-26.492937 277415000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*0.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] system_tb.
 [treeopen] system_tb.dut.
-[sst_width] 223
-[signals_width] 142
-[sst_expanded] 1
-[sst_vpaned_height] 211
 @22
 system_tb.dut.gpio0.gpio_dir[7:0]
-@28
-(7)system_tb.dut.gpio0.gpio_i[7:0]
-@24
-system_tb.dut.timer0.compare1[31:0]
-system_tb.dut.timer0.trig1
-system_tb.dut.uart0.tx_busy
+system_tb.dut.gpio0.gpio_i[7:0]
+system_tb.dut.gpio0.gpio_io[7:0]
+system_tb.dut.gpio0.gpio_o[7:0]
 @23
-system_tb.dut.uart0.tx_data[7:0]
-[pattern_trace] 1
-[pattern_trace] 0
+system_tb.dut.gpio0.wb_adr_i[31:0]
+system_tb.dut.gpio0.wb_dat_i[31:0]
+system_tb.dut.gpio0.wb_dat_o[31:0]

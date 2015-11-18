@@ -19,9 +19,6 @@ reg        clk;
 reg        rst;
 wire       led;
 
-wire [7:0] Q;
-reg   [7:0] gpio;
-
 //----------------------------------------------------------------------------
 // UART STUFF (testbench uart, simulating a comm. partner)
 //----------------------------------------------------------------------------
@@ -41,14 +38,13 @@ system #(
 	.led(          led    ),
 	// Uart
 	.uart_rxd(  uart_rxd  ),
-	.uart_txd(  uart_txd  ),
-	.gpio_io(Q)
+	.uart_txd(  uart_txd  )
 );
 
 /* Clocking device */
 initial         clk <= 0;
 always #(tck/2) clk <= ~clk;
-assign Q = gpio;
+
 /* Simulation setup */
 initial begin
 
@@ -61,31 +57,8 @@ initial begin
 	// reset
 	#0  rst <= 1;
 	#40 rst <= 0;
- 
-    gpio <=8'h01;
-    #10000 gpio <= 8'h00;
-    #88000 gpio <=8'h01;
-    #8000 gpio <= 8'h00;
-    #36000 gpio <=8'h01;
-    #8000 gpio <= 8'h00;
-    #36000 gpio <=8'h01;
-    #8000 gpio <= 8'h00;
-    #36000 gpio <=8'h01;
-    #8000 gpio <= 8'h00;
-    
-    #4000 gpio <=8'h01;
-    #4000 gpio <=8'h0;
-    #4000 gpio <=8'h01;
-    #4000 gpio <=8'h0;
-    #4000 gpio <=8'h01;
-    #4000 gpio <=8'h0;
-    #4000 gpio <=8'h01;
-    #4000 gpio <=8'h0;
-    
-    
-    #8000 gpio <=8'h01;
 
-	#(tck*15000) $finish;
+	#(tck*10000) $finish;
 end
 
 

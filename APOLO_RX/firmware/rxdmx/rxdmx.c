@@ -2,9 +2,7 @@
 #include "rxdmx.h"
 
 
-volatile uint32_t datain;
 volatile uint32_t error=0;
-volatile uint32_t dato;
 volatile uint32_t ch1;
 volatile uint32_t ch2;
 volatile uint32_t ch3;
@@ -42,7 +40,7 @@ void sleep2us()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
-	timer0->compare1 = (FCPU/1000000)*(1);
+	timer0->compare1 = (FCPU/1000000)*(2);
 	timer0->tcr1 = TIMER_EN;
 	do {
  		tcr = timer0->tcr1;
@@ -84,3 +82,19 @@ void valorchs(){
 }
 
 
+
+void periododmx()
+{
+
+
+}
+
+
+void pwm(uint8_t canal){
+	
+	
+	
+	
+	
+	
+	}

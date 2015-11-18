@@ -8,6 +8,7 @@
 
 int main()
 {
+	uint32_t dato=0;
 	gpio0->dir=0x00;
 	for(;;)
 	{
@@ -27,7 +28,8 @@ int main()
 		ch3 = leerdatos();
 		valorchs();
 
-		error=0;
+
+
 	}
 
 }

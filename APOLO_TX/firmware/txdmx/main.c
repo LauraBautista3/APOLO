@@ -28,19 +28,19 @@ int main()
 		{
 			#ifdef DEBUG
 				uart_putstr("\nok <\n");
-		     #endif	
+		     #endif
 	         
 			tmp_num=uart_getchar();
 			#ifdef DEBUG
 				uart_putstr("\ndebug numero: ");	
 				uart_putchar(tmp_num);
 	
-		     #endif	
+		     #endif
 			tmp_var=uart_getchar();
 			#ifdef DEBUG
 				uart_putstr("\ndebug variable ");
 				uart_putchar(tmp_var);	
-		     #endif	
+		     #endif
 			if (tmp_var == 'c')
 			{
 			if (tmp_num <= 3)
@@ -70,6 +70,9 @@ int main()
 		}
 		else
 		{
+			#ifdef DEBUG
+				uart_putstr("\nok >\n");
+		     #endif
 			dmx_init_send();  //      llamar funcion codificador 	dmx         
 			sleept1();
 			dmx_channel_send(v_ch1);

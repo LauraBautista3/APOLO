@@ -3,35 +3,35 @@ image:     formato del fichero elf32-lm32
 
 Secciones:
 Ind Nombre        Tamaño    VMA       LMA       Desp fich Alin
-  0 .text         00000904  00000000  00000000  00000054  2**2
+  0 .text         0000091c  00000000  00000000  00000054  2**2
                   CONTENTS, ALLOC, LOAD, CODE
-  1 .rodata       00000060  00000904  00000904  00000958  2**2
+  1 .rodata       00000068  0000091c  0000091c  00000970  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .data         00000010  00000964  00000964  000009b8  2**2
+  2 .data         00000010  00000984  00000984  000009d8  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  3 .bss          00000084  00000974  00000974  000009c8  2**2
+  3 .bss          00000084  00000994  00000994  000009e8  2**2
                   ALLOC
-  4 .debug_abbrev 000003d3  00000000  00000000  000009c8  2**0
+  4 .debug_abbrev 000003d3  00000000  00000000  000009e8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000963  00000000  00000000  00000d9b  2**0
+  5 .debug_info   00000963  00000000  00000000  00000dbb  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_line   000007b5  00000000  00000000  000016fe  2**0
+  6 .debug_line   000007bd  00000000  00000000  0000171e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_frame  000001b0  00000000  00000000  00001eb4  2**2
+  7 .debug_frame  000001b0  00000000  00000000  00001edc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    00000436  00000000  00000000  00002064  2**0
+  8 .debug_loc    00000436  00000000  00000000  0000208c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_pubnames 000001ca  00000000  00000000  0000249a  2**0
+  9 .debug_pubnames 000001ca  00000000  00000000  000024c2  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_pubtypes 000000b9  00000000  00000000  00002664  2**0
+ 10 .debug_pubtypes 000000b9  00000000  00000000  0000268c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_aranges 00000060  00000000  00000000  0000271d  2**0
+ 11 .debug_aranges 00000060  00000000  00000000  00002745  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_str    0000025c  00000000  00000000  0000277d  2**0
+ 12 .debug_str    0000025c  00000000  00000000  000027a5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .comment      00000011  00000000  00000000  000029d9  2**0
+ 13 .comment      00000011  00000000  00000000  00002a01  2**0
                   CONTENTS, READONLY
- 14 .debug_ranges 000000e0  00000000  00000000  000029ea  2**0
+ 14 .debug_ranges 000000e0  00000000  00000000  00002a12  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Desensamblado de la sección .text:
@@ -100,7 +100,7 @@ Desensamblado de la sección .text:
   c0:	5b 9d 00 00 	sw (sp+0),ra
   c4:	f8 00 00 2b 	calli 170 <_save_all>
   c8:	90 40 08 00 	rcsr r1,IP
-  cc:	f8 00 00 ed 	calli 480 <irq_handler>
+  cc:	f8 00 00 f3 	calli 498 <irq_handler>
   d0:	78 01 ff ff 	mvhi r1,0xffff
   d4:	38 21 ff ff 	ori r1,r1,0xffff
   d8:	d0 41 00 00 	wcsr IP,r1
@@ -120,11 +120,11 @@ Desensamblado de la sección .text:
  100:	78 1c 00 00 	mvhi sp,0x0
  104:	3b 9c 0f fc 	ori sp,sp,0xffc
  108:	78 1a 00 00 	mvhi gp,0x0
- 10c:	3b 5a 09 80 	ori gp,gp,0x980
+ 10c:	3b 5a 09 a0 	ori gp,gp,0x9a0
  110:	78 01 00 00 	mvhi r1,0x0
- 114:	38 21 09 74 	ori r1,r1,0x974
+ 114:	38 21 09 94 	ori r1,r1,0x994
  118:	78 03 00 00 	mvhi r3,0x0
- 11c:	38 63 09 f8 	ori r3,r3,0x9f8
+ 11c:	38 63 0a 18 	ori r3,r3,0xa18
 
 00000120 <.clearBSS>:
  120:	44 23 00 04 	be r1,r3,130 <.callMain>
@@ -215,7 +215,7 @@ Desensamblado de la sección .text:
 
 int main()
 {
- 208:	37 9c ff b4 	addi sp,sp,-76
+ 208:	37 9c ff b0 	addi sp,sp,-80
  20c:	5b 8b 00 44 	sw (sp+68),r11
  210:	5b 8c 00 40 	sw (sp+64),r12
  214:	5b 8d 00 3c 	sw (sp+60),r13
@@ -237,1146 +237,1138 @@ int main()
 	#ifdef DEBUG
 		uart_putstr("modo debug\n");	
  254:	78 01 00 00 	mvhi r1,0x0
- 258:	38 21 09 04 	ori r1,r1,0x904
- 25c:	5b 82 00 48 	sw (sp+72),r2
+ 258:	38 21 09 1c 	ori r1,r1,0x91c
+ 25c:	5b 82 00 4c 	sw (sp+76),r2
  260:	78 02 00 00 	mvhi r2,0x0
- 264:	5b 82 00 4c 	sw (sp+76),r2
- 268:	f8 00 00 f5 	calli 63c <uart_putstr>
+ 264:	5b 82 00 50 	sw (sp+80),r2
+ 268:	f8 00 00 fb 	calli 654 <uart_putstr>
      	#endif
 	config_dmx();
- 26c:	f8 00 01 39 	calli 750 <config_dmx>
- 270:	2b 81 00 48 	lw r1,(sp+72)
- 274:	2b 82 00 4c 	lw r2,(sp+76)
- 278:	78 15 00 00 	mvhi r21,0x0
- 27c:	78 14 00 00 	mvhi r20,0x0
- 280:	78 13 00 00 	mvhi r19,0x0
- 284:	38 21 09 3c 	ori r1,r1,0x93c
- 288:	38 42 09 50 	ori r2,r2,0x950
+ 26c:	f8 00 01 3f 	calli 768 <config_dmx>
+ 270:	2b 81 00 4c 	lw r1,(sp+76)
+ 274:	2b 82 00 50 	lw r2,(sp+80)
+ 278:	78 16 00 00 	mvhi r22,0x0
+ 27c:	78 15 00 00 	mvhi r21,0x0
+ 280:	78 14 00 00 	mvhi r20,0x0
+ 284:	78 11 00 00 	mvhi r17,0x0
+ 288:	38 21 09 54 	ori r1,r1,0x954
+ 28c:	38 42 09 68 	ori r2,r2,0x968
 	uint8_t tmp_var=0;
 	uint8_t tmp_num=0;
 	uint8_t channel=0;
 	uint8_t v_ch1=0;
 	uint8_t v_ch2=0;
 	uint8_t v_ch3=0;
- 28c:	34 10 00 00 	mvi r16,0
+ 290:	34 10 00 00 	mvi r16,0
 	config_dmx();
 	uint8_t tmp_var=0;
 	uint8_t tmp_num=0;
 	uint8_t channel=0;
 	uint8_t v_ch1=0;
 	uint8_t v_ch2=0;
- 290:	34 0f 00 00 	mvi r15,0
+ 294:	34 0f 00 00 	mvi r15,0
      	#endif
 	config_dmx();
 	uint8_t tmp_var=0;
 	uint8_t tmp_num=0;
 	uint8_t channel=0;
 	uint8_t v_ch1=0;
- 294:	34 0e 00 00 	mvi r14,0
+ 298:	34 0e 00 00 	mvi r14,0
 		uart_putstr("modo debug\n");	
      	#endif
 	config_dmx();
 	uint8_t tmp_var=0;
 	uint8_t tmp_num=0;
 	uint8_t channel=0;
- 298:	34 18 00 00 	mvi r24,0
+ 29c:	34 19 00 00 	mvi r25,0
 {
 	#ifdef DEBUG
 		uart_putstr("modo debug\n");	
      	#endif
 	config_dmx();
 	uint8_t tmp_var=0;
- 29c:	34 0b 00 00 	mvi r11,0
- 2a0:	34 0d 00 01 	mvi r13,1
- 2a4:	34 0c 00 01 	mvi r12,1
- 2a8:	3a b5 09 10 	ori r21,r21,0x910
- 2ac:	3a 94 09 18 	ori r20,r20,0x918
- 2b0:	3a 73 09 28 	ori r19,r19,0x928
- 2b4:	5b 81 00 48 	sw (sp+72),r1
- 2b8:	5b 82 00 4c 	sw (sp+76),r2
+ 2a0:	34 0b 00 00 	mvi r11,0
+ 2a4:	34 0d 00 01 	mvi r13,1
+ 2a8:	34 0c 00 01 	mvi r12,1
+ 2ac:	3a d6 09 28 	ori r22,r22,0x928
+ 2b0:	3a b5 09 30 	ori r21,r21,0x930
+ 2b4:	3a 94 09 40 	ori r20,r20,0x940
+ 2b8:	5b 81 00 4c 	sw (sp+76),r1
+ 2bc:	5b 82 00 50 	sw (sp+80),r2
+ 2c0:	3a 31 09 78 	ori r17,r17,0x978
 	
 	for(;;)
 	{
 		while((tmp_var!='<')&&(tmp_var!='>'))
 			tmp_var=uart_getchar();
 		if(tmp_var=='<')
- 2bc:	34 11 00 3c 	mvi r17,60
+ 2c4:	34 12 00 3c 	mvi r18,60
 			tmp_var=uart_getchar();
 			#ifdef DEBUG
 				uart_putstr("\ndebug variable ");
 				uart_putchar(tmp_var);	
-		     #endif	
+		     #endif
 			if (tmp_var == 'c')
- 2c0:	34 16 00 63 	mvi r22,99
+ 2c8:	34 17 00 63 	mvi r23,99
 			{
 			if (tmp_num <= 3)
 					channel = tmp_num;				
 			}
 			else if (tmp_var == 'w') 
- 2c4:	34 17 00 77 	mvi r23,119
+ 2cc:	34 18 00 77 	mvi r24,119
 
 	   		if (channel==1) 
 				v_ch1 = w_c;
 			else if (channel==2) 
 				v_ch2 = w_c;
 			else if (channel==3) 
- 2c8:	34 19 00 03 	mvi r25,3
+ 2d0:	34 1b 00 03 	mvi fp,3
 	
 //	config_pt();
 	
 	for(;;)
 	{
 		while((tmp_var!='<')&&(tmp_var!='>'))
- 2cc:	a1 ac 10 00 	and r2,r13,r12
- 2d0:	5c 40 00 0f 	bne r2,r0,30c <main+0x104>
+ 2d4:	a1 ac 10 00 	and r2,r13,r12
+ 2d8:	5c 40 00 11 	bne r2,r0,31c <main+0x114>
 			tmp_var=uart_getchar();
 		if(tmp_var=='<')
- 2d4:	45 71 00 13 	be r11,r17,320 <main+0x118>
-		     #endif		
+ 2dc:	45 72 00 15 	be r11,r18,330 <main+0x128>
 			}
 		}
 		else
 		{
+			#ifdef DEBUG
+				uart_putstr("\nok >\n");
+ 2e0:	ba 20 08 00 	mv r1,r17
+ 2e4:	f8 00 00 dc 	calli 654 <uart_putstr>
+		     #endif
 			dmx_init_send();  //      llamar funcion codificador 	dmx         
- 2d8:	f8 00 01 80 	calli 8d8 <dmx_init_send>
+ 2e8:	f8 00 01 82 	calli 8f0 <dmx_init_send>
 			sleept1();
- 2dc:	f8 00 00 e5 	calli 670 <sleept1>
+ 2ec:	f8 00 00 e7 	calli 688 <sleept1>
 			dmx_channel_send(v_ch1);
- 2e0:	b9 c0 08 00 	mv r1,r14
- 2e4:	f8 00 01 47 	calli 800 <dmx_channel_send>
+ 2f0:	b9 c0 08 00 	mv r1,r14
+ 2f4:	f8 00 01 49 	calli 818 <dmx_channel_send>
 			sleept1();
- 2e8:	f8 00 00 e2 	calli 670 <sleept1>
+ 2f8:	f8 00 00 e4 	calli 688 <sleept1>
 			dmx_channel_send(v_ch2);
- 2ec:	b9 e0 08 00 	mv r1,r15
- 2f0:	f8 00 01 44 	calli 800 <dmx_channel_send>
+ 2fc:	b9 e0 08 00 	mv r1,r15
+ 300:	f8 00 01 46 	calli 818 <dmx_channel_send>
 			sleept1();
- 2f4:	f8 00 00 df 	calli 670 <sleept1>
+ 304:	f8 00 00 e1 	calli 688 <sleept1>
 			dmx_channel_send(v_ch3);
- 2f8:	ba 00 08 00 	mv r1,r16
- 2fc:	f8 00 01 41 	calli 800 <dmx_channel_send>
+ 308:	ba 00 08 00 	mv r1,r16
+ 30c:	f8 00 01 43 	calli 818 <dmx_channel_send>
 			sleept1();
- 300:	f8 00 00 dc 	calli 670 <sleept1>
+ 310:	f8 00 00 de 	calli 688 <sleept1>
 	
 //	config_pt();
 	
 	for(;;)
 	{
 		while((tmp_var!='<')&&(tmp_var!='>'))
- 304:	a1 ac 10 00 	and r2,r13,r12
- 308:	44 40 ff f3 	be r2,r0,2d4 <main+0xcc>
+ 314:	a1 ac 10 00 	and r2,r13,r12
+ 318:	44 40 ff f1 	be r2,r0,2dc <main+0xd4>
 			tmp_var=uart_getchar();
- 30c:	f8 00 00 ba 	calli 5f4 <uart_getchar>
- 310:	b8 20 58 00 	mv r11,r1
- 314:	7c 2d 00 3e 	cmpnei r13,r1,62
- 318:	7c 2c 00 3c 	cmpnei r12,r1,60
- 31c:	e3 ff ff ec 	bi 2cc <main+0xc4>
+ 31c:	f8 00 00 bc 	calli 60c <uart_getchar>
+ 320:	b8 20 58 00 	mv r11,r1
+ 324:	7c 2d 00 3e 	cmpnei r13,r1,62
+ 328:	7c 2c 00 3c 	cmpnei r12,r1,60
+ 32c:	e3 ff ff ea 	bi 2d4 <main+0xcc>
 		if(tmp_var=='<')
 		{
 			#ifdef DEBUG
 				uart_putstr("\nok <\n");
- 320:	ba a0 08 00 	mv r1,r21
- 324:	f8 00 00 c6 	calli 63c <uart_putstr>
-		     #endif	
+ 330:	ba c0 08 00 	mv r1,r22
+ 334:	f8 00 00 c8 	calli 654 <uart_putstr>
+		     #endif
 	         
 			tmp_num=uart_getchar();
- 328:	f8 00 00 b3 	calli 5f4 <uart_getchar>
- 32c:	b8 20 90 00 	mv r18,r1
+ 338:	f8 00 00 b5 	calli 60c <uart_getchar>
+ 33c:	b8 20 98 00 	mv r19,r1
 			#ifdef DEBUG
 				uart_putstr("\ndebug numero: ");	
- 330:	ba 80 08 00 	mv r1,r20
- 334:	f8 00 00 c2 	calli 63c <uart_putstr>
+ 340:	ba a0 08 00 	mv r1,r21
+ 344:	f8 00 00 c4 	calli 654 <uart_putstr>
 				uart_putchar(tmp_num);
- 338:	ba 40 08 00 	mv r1,r18
- 33c:	f8 00 00 b7 	calli 618 <uart_putchar>
-	
-		     #endif	
-			tmp_var=uart_getchar();
- 340:	f8 00 00 ad 	calli 5f4 <uart_getchar>
- 344:	b8 20 58 00 	mv r11,r1
-			#ifdef DEBUG
-				uart_putstr("\ndebug variable ");
  348:	ba 60 08 00 	mv r1,r19
- 34c:	f8 00 00 bc 	calli 63c <uart_putstr>
+ 34c:	f8 00 00 b9 	calli 630 <uart_putchar>
+	
+		     #endif
+			tmp_var=uart_getchar();
+ 350:	f8 00 00 af 	calli 60c <uart_getchar>
+ 354:	b8 20 58 00 	mv r11,r1
+			#ifdef DEBUG
+				uart_putstr("\ndebug variable ");
+ 358:	ba 80 08 00 	mv r1,r20
+ 35c:	f8 00 00 be 	calli 654 <uart_putstr>
 				uart_putchar(tmp_var);	
- 350:	b9 60 08 00 	mv r1,r11
-		     #endif	
+ 360:	b9 60 08 00 	mv r1,r11
+		     #endif
 	         
 			tmp_num=uart_getchar();
 			#ifdef DEBUG
 				uart_putstr("\ndebug numero: ");	
 				uart_putchar(tmp_num);
- 354:	ba 40 60 00 	mv r12,r18
+ 364:	ba 60 60 00 	mv r12,r19
 	
-		     #endif	
+		     #endif
 			tmp_var=uart_getchar();
 			#ifdef DEBUG
 				uart_putstr("\ndebug variable ");
 				uart_putchar(tmp_var);	
- 358:	f8 00 00 b0 	calli 618 <uart_putchar>
-		     #endif	
+ 368:	f8 00 00 b2 	calli 630 <uart_putchar>
+		     #endif
 			if (tmp_var == 'c')
- 35c:	45 76 00 05 	be r11,r22,370 <main+0x168>
+ 36c:	45 77 00 05 	be r11,r23,380 <main+0x178>
 			{
 			if (tmp_num <= 3)
 					channel = tmp_num;				
 			}
 			else if (tmp_var == 'w') 
- 360:	45 77 00 0a 	be r11,r23,388 <main+0x180>
- 364:	7d 6d 00 3e 	cmpnei r13,r11,62
- 368:	7d 6c 00 3c 	cmpnei r12,r11,60
- 36c:	e3 ff ff d8 	bi 2cc <main+0xc4>
+ 370:	45 78 00 0a 	be r11,r24,398 <main+0x190>
+ 374:	7d 6d 00 3e 	cmpnei r13,r11,62
+ 378:	7d 6c 00 3c 	cmpnei r12,r11,60
+ 37c:	e3 ff ff d6 	bi 2d4 <main+0xcc>
 				uart_putstr("\ndebug variable ");
 				uart_putchar(tmp_var);	
-		     #endif	
+		     #endif
 			if (tmp_var == 'c')
 			{
 			if (tmp_num <= 3)
- 370:	53 32 00 02 	bgeu r25,r18,378 <main+0x170>
- 374:	e3 ff ff fc 	bi 364 <main+0x15c>
- 378:	7d 6d 00 3e 	cmpnei r13,r11,62
- 37c:	7d 6c 00 3c 	cmpnei r12,r11,60
- 380:	ba 40 c0 00 	mv r24,r18
- 384:	e3 ff ff d2 	bi 2cc <main+0xc4>
+ 380:	53 73 00 02 	bgeu fp,r19,388 <main+0x180>
+ 384:	e3 ff ff fc 	bi 374 <main+0x16c>
+ 388:	7d 6d 00 3e 	cmpnei r13,r11,62
+ 38c:	7d 6c 00 3c 	cmpnei r12,r11,60
+ 390:	ba 60 c8 00 	mv r25,r19
+ 394:	e3 ff ff d0 	bi 2d4 <main+0xcc>
 			}
 			else if (tmp_var == 'w') 
 			{
 				w_c = tmp_num;
 			#ifdef DEBUG
 				uart_putstr("\ndebug asignacion\n");
- 388:	2b 81 00 48 	lw r1,(sp+72)
- 38c:	f8 00 00 ac 	calli 63c <uart_putstr>
+ 398:	2b 81 00 4c 	lw r1,(sp+76)
+ 39c:	f8 00 00 ae 	calli 654 <uart_putstr>
 				uart_putchar(w_c);	
- 390:	ba 40 08 00 	mv r1,r18
- 394:	f8 00 00 a1 	calli 618 <uart_putchar>
+ 3a0:	ba 60 08 00 	mv r1,r19
+ 3a4:	f8 00 00 a3 	calli 630 <uart_putchar>
 		     #endif	
 
 	   		if (channel==1) 
- 398:	34 01 00 01 	mvi r1,1
- 39c:	47 01 00 10 	be r24,r1,3dc <main+0x1d4>
+ 3a8:	34 01 00 01 	mvi r1,1
+ 3ac:	47 21 00 12 	be r25,r1,3f4 <main+0x1ec>
 				v_ch1 = w_c;
 			else if (channel==2) 
- 3a0:	34 02 00 02 	mvi r2,2
- 3a4:	47 02 00 12 	be r24,r2,3ec <main+0x1e4>
+ 3b0:	34 02 00 02 	mvi r2,2
+ 3b4:	47 22 00 14 	be r25,r2,404 <main+0x1fc>
 				v_ch2 = w_c;
 			else if (channel==3) 
- 3a8:	b9 c0 60 00 	mv r12,r14
- 3ac:	b9 e0 d8 00 	mv fp,r15
- 3b0:	ba 00 68 00 	mv r13,r16
- 3b4:	47 19 00 13 	be r24,r25,400 <main+0x1f8>
+ 3b8:	b9 c0 60 00 	mv r12,r14
+ 3bc:	b9 e0 10 00 	mv r2,r15
+ 3c0:	ba 00 68 00 	mv r13,r16
+ 3c4:	47 3b 00 15 	be r25,fp,418 <main+0x210>
 				v_ch3 = w_c;
 			#ifdef DEBUG
 				uart_putstr("\ndebug case\n");
- 3b8:	2b 81 00 4c 	lw r1,(sp+76)
- 3bc:	f8 00 00 a0 	calli 63c <uart_putstr>
+ 3c8:	2b 81 00 50 	lw r1,(sp+80)
+ 3cc:	5b 82 00 48 	sw (sp+72),r2
+ 3d0:	f8 00 00 a1 	calli 654 <uart_putstr>
 				uart_putchar(v_ch1);
- 3c0:	b9 80 08 00 	mv r1,r12
- 3c4:	f8 00 00 95 	calli 618 <uart_putchar>
+ 3d4:	b9 80 08 00 	mv r1,r12
+ 3d8:	f8 00 00 96 	calli 630 <uart_putchar>
 				uart_putchar(v_ch2);
- 3c8:	bb 60 08 00 	mv r1,fp
- 3cc:	f8 00 00 93 	calli 618 <uart_putchar>
+ 3dc:	2b 82 00 48 	lw r2,(sp+72)
+ 3e0:	b8 40 08 00 	mv r1,r2
+ 3e4:	f8 00 00 93 	calli 630 <uart_putchar>
 				uart_putchar(v_ch3);	
- 3d0:	b9 a0 08 00 	mv r1,r13
- 3d4:	f8 00 00 91 	calli 618 <uart_putchar>
- 3d8:	e3 ff ff e3 	bi 364 <main+0x15c>
+ 3e8:	b9 a0 08 00 	mv r1,r13
+ 3ec:	f8 00 00 91 	calli 630 <uart_putchar>
+ 3f0:	e3 ff ff e1 	bi 374 <main+0x16c>
 			#ifdef DEBUG
 				uart_putstr("\ndebug asignacion\n");
 				uart_putchar(w_c);	
 		     #endif	
 
 	   		if (channel==1) 
- 3dc:	b9 e0 d8 00 	mv fp,r15
- 3e0:	ba 00 68 00 	mv r13,r16
+ 3f4:	b9 e0 10 00 	mv r2,r15
+ 3f8:	ba 00 68 00 	mv r13,r16
 		{
 			#ifdef DEBUG
 				uart_putstr("\nok <\n");
-		     #endif	
+		     #endif
 	         
 			tmp_num=uart_getchar();
- 3e4:	ba 40 70 00 	mv r14,r18
- 3e8:	e3 ff ff f4 	bi 3b8 <main+0x1b0>
+ 3fc:	ba 60 70 00 	mv r14,r19
+ 400:	e3 ff ff f2 	bi 3c8 <main+0x1c0>
 				uart_putchar(w_c);	
 		     #endif	
 
 	   		if (channel==1) 
 				v_ch1 = w_c;
 			else if (channel==2) 
- 3ec:	ba 40 d8 00 	mv fp,r18
- 3f0:	ba 00 68 00 	mv r13,r16
- 3f4:	b9 c0 60 00 	mv r12,r14
+ 404:	ba 60 10 00 	mv r2,r19
+ 408:	ba 00 68 00 	mv r13,r16
+ 40c:	b9 c0 60 00 	mv r12,r14
 		{
 			#ifdef DEBUG
 				uart_putstr("\nok <\n");
-		     #endif	
+		     #endif
 	         
 			tmp_num=uart_getchar();
- 3f8:	ba 40 78 00 	mv r15,r18
- 3fc:	e3 ff ff ef 	bi 3b8 <main+0x1b0>
+ 410:	ba 60 78 00 	mv r15,r19
+ 414:	e3 ff ff ed 	bi 3c8 <main+0x1c0>
 
 	   		if (channel==1) 
 				v_ch1 = w_c;
 			else if (channel==2) 
 				v_ch2 = w_c;
 			else if (channel==3) 
- 400:	ba 40 68 00 	mv r13,r18
+ 418:	ba 60 68 00 	mv r13,r19
 		{
 			#ifdef DEBUG
 				uart_putstr("\nok <\n");
-		     #endif	
+		     #endif
 	         
 			tmp_num=uart_getchar();
- 404:	ba 40 80 00 	mv r16,r18
- 408:	e3 ff ff ec 	bi 3b8 <main+0x1b0>
+ 41c:	ba 60 80 00 	mv r16,r19
+ 420:	e3 ff ff ea 	bi 3c8 <main+0x1c0>
 
-0000040c <isr_null>:
+00000424 <isr_null>:
 /***************************************************************************
  * IRQ handling
  */
 void isr_null()
 {
 }
- 40c:	c3 a0 00 00 	ret
+ 424:	c3 a0 00 00 	ret
 
-00000410 <tic_isr>:
-
-uint32_t tic_msec;
-
-void tic_isr()
-{
-	tic_msec++;
- 410:	78 01 00 00 	mvhi r1,0x0
- 414:	38 21 09 f4 	ori r1,r1,0x9f4
- 418:	28 23 00 00 	lw r3,(r1+0)
-	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
- 41c:	78 02 00 00 	mvhi r2,0x0
- 420:	38 42 09 68 	ori r2,r2,0x968
- 424:	28 42 00 00 	lw r2,(r2+0)
+00000428 <tic_isr>:
 
 uint32_t tic_msec;
 
 void tic_isr()
 {
 	tic_msec++;
- 428:	34 63 00 01 	addi r3,r3,1
- 42c:	58 23 00 00 	sw (r1+0),r3
+ 428:	78 01 00 00 	mvhi r1,0x0
+ 42c:	38 21 0a 14 	ori r1,r1,0xa14
+ 430:	28 23 00 00 	lw r3,(r1+0)
 	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
- 430:	34 01 00 0e 	mvi r1,14
- 434:	58 41 00 00 	sw (r2+0),r1
+ 434:	78 02 00 00 	mvhi r2,0x0
+ 438:	38 42 09 88 	ori r2,r2,0x988
+ 43c:	28 42 00 00 	lw r2,(r2+0)
+
+uint32_t tic_msec;
+
+void tic_isr()
+{
+	tic_msec++;
+ 440:	34 63 00 01 	addi r3,r3,1
+ 444:	58 23 00 00 	sw (r1+0),r3
+	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
+ 448:	34 01 00 0e 	mvi r1,14
+ 44c:	58 41 00 00 	sw (r2+0),r1
 }
- 438:	c3 a0 00 00 	ret
+ 450:	c3 a0 00 00 	ret
 
-0000043c <prueba>:
+00000454 <prueba>:
 
 void prueba()
 {
 //	   uart0->rxtx=30;
 //	   timer0->tcr0 = 0xAA;
 	   gpio0->dir=0x0F; 
- 43c:	78 01 00 00 	mvhi r1,0x0
- 440:	38 21 09 6c 	ori r1,r1,0x96c
- 444:	28 21 00 00 	lw r1,(r1+0)
- 448:	34 02 00 0f 	mvi r2,15
- 44c:	58 22 00 08 	sw (r1+8),r2
-}
- 450:	c3 a0 00 00 	ret
-
-00000454 <prueba1>:
-void prueba1()
-{
-           gpio0->write = 0xff;
  454:	78 01 00 00 	mvhi r1,0x0
- 458:	38 21 09 6c 	ori r1,r1,0x96c
+ 458:	38 21 09 8c 	ori r1,r1,0x98c
  45c:	28 21 00 00 	lw r1,(r1+0)
- 460:	34 02 00 ff 	mvi r2,255
- 464:	58 22 00 04 	sw (r1+4),r2
+ 460:	34 02 00 0f 	mvi r2,15
+ 464:	58 22 00 08 	sw (r1+8),r2
 }
  468:	c3 a0 00 00 	ret
 
-0000046c <prueba2>:
+0000046c <prueba1>:
+void prueba1()
+{
+           gpio0->write = 0xff;
+ 46c:	78 01 00 00 	mvhi r1,0x0
+ 470:	38 21 09 8c 	ori r1,r1,0x98c
+ 474:	28 21 00 00 	lw r1,(r1+0)
+ 478:	34 02 00 ff 	mvi r2,255
+ 47c:	58 22 00 04 	sw (r1+4),r2
+}
+ 480:	c3 a0 00 00 	ret
+
+00000484 <prueba2>:
 void prueba2()
 {
            gpio0->write = 0x00;
- 46c:	78 01 00 00 	mvhi r1,0x0
- 470:	38 21 09 6c 	ori r1,r1,0x96c
- 474:	28 21 00 00 	lw r1,(r1+0)
- 478:	58 20 00 04 	sw (r1+4),r0
+ 484:	78 01 00 00 	mvhi r1,0x0
+ 488:	38 21 09 8c 	ori r1,r1,0x98c
+ 48c:	28 21 00 00 	lw r1,(r1+0)
+ 490:	58 20 00 04 	sw (r1+4),r0
 }
- 47c:	c3 a0 00 00 	ret
+ 494:	c3 a0 00 00 	ret
 
-00000480 <irq_handler>:
+00000498 <irq_handler>:
 void isr_null()
 {
 }
 
 void irq_handler(uint32_t pending)
 {
- 480:	37 9c ff f0 	addi sp,sp,-16
- 484:	5b 8b 00 10 	sw (sp+16),r11
- 488:	5b 8c 00 0c 	sw (sp+12),r12
- 48c:	5b 8d 00 08 	sw (sp+8),r13
- 490:	5b 9d 00 04 	sw (sp+4),ra
- 494:	78 0b 00 00 	mvhi r11,0x0
- 498:	39 6b 09 74 	ori r11,r11,0x974
- 49c:	b8 20 60 00 	mv r12,r1
+ 498:	37 9c ff f0 	addi sp,sp,-16
+ 49c:	5b 8b 00 10 	sw (sp+16),r11
+ 4a0:	5b 8c 00 0c 	sw (sp+12),r12
+ 4a4:	5b 8d 00 08 	sw (sp+8),r13
+ 4a8:	5b 9d 00 04 	sw (sp+4),ra
+ 4ac:	78 0b 00 00 	mvhi r11,0x0
+ 4b0:	39 6b 09 94 	ori r11,r11,0x994
+ 4b4:	b8 20 60 00 	mv r12,r1
  */
 void isr_null()
 {
 }
 
 void irq_handler(uint32_t pending)
- 4a0:	35 6d 00 80 	addi r13,r11,128
- 4a4:	e0 00 00 04 	bi 4b4 <irq_handler+0x34>
+ 4b8:	35 6d 00 80 	addi r13,r11,128
+ 4bc:	e0 00 00 04 	bi 4cc <irq_handler+0x34>
 {
 	int i;
 
 	for(i=0; i<32; i++) {
 		if (pending & 0x01) (*isr_table[i])();
- 4a8:	35 6b 00 04 	addi r11,r11,4
-
-void irq_handler(uint32_t pending)
-{
-	int i;
-
-	for(i=0; i<32; i++) {
- 4ac:	45 6d 00 08 	be r11,r13,4cc <irq_handler+0x4c>
-		if (pending & 0x01) (*isr_table[i])();
-		pending >>= 1;
- 4b0:	01 8c 00 01 	srui r12,r12,1
-void irq_handler(uint32_t pending)
-{
-	int i;
-
-	for(i=0; i<32; i++) {
-		if (pending & 0x01) (*isr_table[i])();
- 4b4:	21 81 00 01 	andi r1,r12,0x1
- 4b8:	44 20 ff fc 	be r1,r0,4a8 <irq_handler+0x28>
- 4bc:	29 61 00 00 	lw r1,(r11+0)
  4c0:	35 6b 00 04 	addi r11,r11,4
- 4c4:	d8 20 00 00 	call r1
 
 void irq_handler(uint32_t pending)
 {
 	int i;
 
 	for(i=0; i<32; i++) {
- 4c8:	5d 6d ff fa 	bne r11,r13,4b0 <irq_handler+0x30>
+ 4c4:	45 6d 00 08 	be r11,r13,4e4 <irq_handler+0x4c>
+		if (pending & 0x01) (*isr_table[i])();
+		pending >>= 1;
+ 4c8:	01 8c 00 01 	srui r12,r12,1
+void irq_handler(uint32_t pending)
+{
+	int i;
+
+	for(i=0; i<32; i++) {
+		if (pending & 0x01) (*isr_table[i])();
+ 4cc:	21 81 00 01 	andi r1,r12,0x1
+ 4d0:	44 20 ff fc 	be r1,r0,4c0 <irq_handler+0x28>
+ 4d4:	29 61 00 00 	lw r1,(r11+0)
+ 4d8:	35 6b 00 04 	addi r11,r11,4
+ 4dc:	d8 20 00 00 	call r1
+
+void irq_handler(uint32_t pending)
+{
+	int i;
+
+	for(i=0; i<32; i++) {
+ 4e0:	5d 6d ff fa 	bne r11,r13,4c8 <irq_handler+0x30>
 		if (pending & 0x01) (*isr_table[i])();
 		pending >>= 1;
 	}
 }
- 4cc:	2b 9d 00 04 	lw ra,(sp+4)
- 4d0:	2b 8b 00 10 	lw r11,(sp+16)
- 4d4:	2b 8c 00 0c 	lw r12,(sp+12)
- 4d8:	2b 8d 00 08 	lw r13,(sp+8)
- 4dc:	37 9c 00 10 	addi sp,sp,16
- 4e0:	c3 a0 00 00 	ret
+ 4e4:	2b 9d 00 04 	lw ra,(sp+4)
+ 4e8:	2b 8b 00 10 	lw r11,(sp+16)
+ 4ec:	2b 8c 00 0c 	lw r12,(sp+12)
+ 4f0:	2b 8d 00 08 	lw r13,(sp+8)
+ 4f4:	37 9c 00 10 	addi sp,sp,16
+ 4f8:	c3 a0 00 00 	ret
 
-000004e4 <isr_init>:
+000004fc <isr_init>:
 
 void isr_init()
 {
- 4e4:	78 01 00 00 	mvhi r1,0x0
- 4e8:	78 02 00 00 	mvhi r2,0x0
- 4ec:	38 21 09 74 	ori r1,r1,0x974
- 4f0:	38 42 04 0c 	ori r2,r2,0x40c
+ 4fc:	78 01 00 00 	mvhi r1,0x0
+ 500:	78 02 00 00 	mvhi r2,0x0
+ 504:	38 21 09 94 	ori r1,r1,0x994
+ 508:	38 42 04 24 	ori r2,r2,0x424
 		if (pending & 0x01) (*isr_table[i])();
 		pending >>= 1;
 	}
 }
 
 void isr_init()
- 4f4:	34 23 00 80 	addi r3,r1,128
+ 50c:	34 23 00 80 	addi r3,r1,128
 {
 	int i;
 	for(i=0; i<32; i++)
 		isr_table[i] = &isr_null;
- 4f8:	58 22 00 00 	sw (r1+0),r2
- 4fc:	34 21 00 04 	addi r1,r1,4
+ 510:	58 22 00 00 	sw (r1+0),r2
+ 514:	34 21 00 04 	addi r1,r1,4
 }
 
 void isr_init()
 {
 	int i;
 	for(i=0; i<32; i++)
- 500:	5c 23 ff fe 	bne r1,r3,4f8 <isr_init+0x14>
+ 518:	5c 23 ff fe 	bne r1,r3,510 <isr_init+0x14>
 		isr_table[i] = &isr_null;
 }
- 504:	c3 a0 00 00 	ret
+ 51c:	c3 a0 00 00 	ret
 
-00000508 <isr_register>:
+00000520 <isr_register>:
 
 void isr_register(int irq, isr_ptr_t isr)
 {
 	isr_table[irq] = isr;
- 508:	78 03 00 00 	mvhi r3,0x0
- 50c:	3c 21 00 02 	sli r1,r1,2
- 510:	38 63 09 74 	ori r3,r3,0x974
- 514:	b4 61 18 00 	add r3,r3,r1
- 518:	58 62 00 00 	sw (r3+0),r2
+ 520:	78 03 00 00 	mvhi r3,0x0
+ 524:	3c 21 00 02 	sli r1,r1,2
+ 528:	38 63 09 94 	ori r3,r3,0x994
+ 52c:	b4 61 18 00 	add r3,r3,r1
+ 530:	58 62 00 00 	sw (r3+0),r2
 }
- 51c:	c3 a0 00 00 	ret
+ 534:	c3 a0 00 00 	ret
 
-00000520 <isr_unregister>:
+00000538 <isr_unregister>:
 
 void isr_unregister(int irq)
 {
 	isr_table[irq] = &isr_null;
- 520:	78 03 00 00 	mvhi r3,0x0
- 524:	3c 21 00 02 	sli r1,r1,2
- 528:	38 63 09 74 	ori r3,r3,0x974
- 52c:	78 02 00 00 	mvhi r2,0x0
- 530:	b4 61 18 00 	add r3,r3,r1
- 534:	38 42 04 0c 	ori r2,r2,0x40c
- 538:	58 62 00 00 	sw (r3+0),r2
+ 538:	78 03 00 00 	mvhi r3,0x0
+ 53c:	3c 21 00 02 	sli r1,r1,2
+ 540:	38 63 09 94 	ori r3,r3,0x994
+ 544:	78 02 00 00 	mvhi r2,0x0
+ 548:	b4 61 18 00 	add r3,r3,r1
+ 54c:	38 42 04 24 	ori r2,r2,0x424
+ 550:	58 62 00 00 	sw (r3+0),r2
 }
- 53c:	c3 a0 00 00 	ret
+ 554:	c3 a0 00 00 	ret
 
-00000540 <msleep>:
+00000558 <msleep>:
 void msleep(uint32_t msec)
 {
 	uint32_t tcr;
 
 	// Use timer0.1
 	timer0->compare1 = (FCPU/1000)*msec;
- 540:	78 04 00 00 	mvhi r4,0x0
- 544:	38 84 09 60 	ori r4,r4,0x960
- 548:	28 83 00 00 	lw r3,(r4+0)
- 54c:	78 02 00 00 	mvhi r2,0x0
- 550:	38 42 09 68 	ori r2,r2,0x968
- 554:	28 42 00 00 	lw r2,(r2+0)
- 558:	88 23 08 00 	mul r1,r1,r3
- 55c:	58 41 00 10 	sw (r2+16),r1
+ 558:	78 04 00 00 	mvhi r4,0x0
+ 55c:	38 84 09 80 	ori r4,r4,0x980
+ 560:	28 83 00 00 	lw r3,(r4+0)
+ 564:	78 02 00 00 	mvhi r2,0x0
+ 568:	38 42 09 88 	ori r2,r2,0x988
+ 56c:	28 42 00 00 	lw r2,(r2+0)
+ 570:	88 23 08 00 	mul r1,r1,r3
+ 574:	58 41 00 10 	sw (r2+16),r1
 	timer0->counter1 = 0;
- 560:	58 40 00 14 	sw (r2+20),r0
+ 578:	58 40 00 14 	sw (r2+20),r0
 	timer0->tcr1 = TIMER_EN;
- 564:	34 01 00 08 	mvi r1,8
- 568:	58 41 00 0c 	sw (r2+12),r1
+ 57c:	34 01 00 08 	mvi r1,8
+ 580:	58 41 00 0c 	sw (r2+12),r1
 
 	do {
 		//halt();
  		tcr = timer0->tcr1;
- 56c:	28 41 00 0c 	lw r1,(r2+12)
+ 584:	28 41 00 0c 	lw r1,(r2+12)
  	} while ( ! (tcr & TIMER_TRIG) );
- 570:	20 21 00 01 	andi r1,r1,0x1
- 574:	44 20 ff fe 	be r1,r0,56c <msleep+0x2c>
+ 588:	20 21 00 01 	andi r1,r1,0x1
+ 58c:	44 20 ff fe 	be r1,r0,584 <msleep+0x2c>
 }
- 578:	c3 a0 00 00 	ret
+ 590:	c3 a0 00 00 	ret
 
-0000057c <nsleep>:
+00000594 <nsleep>:
 void nsleep(uint32_t nsec)
 {
 	uint32_t tcr;
 
 	// Use timer0.1
 	timer0->compare1 = (FCPU/1000000)*nsec;
- 57c:	78 02 00 00 	mvhi r2,0x0
- 580:	38 42 09 68 	ori r2,r2,0x968
- 584:	28 42 00 00 	lw r2,(r2+0)
- 588:	08 21 00 64 	muli r1,r1,100
- 58c:	58 41 00 10 	sw (r2+16),r1
+ 594:	78 02 00 00 	mvhi r2,0x0
+ 598:	38 42 09 88 	ori r2,r2,0x988
+ 59c:	28 42 00 00 	lw r2,(r2+0)
+ 5a0:	08 21 00 64 	muli r1,r1,100
+ 5a4:	58 41 00 10 	sw (r2+16),r1
 	timer0->counter1 = 0;
- 590:	58 40 00 14 	sw (r2+20),r0
+ 5a8:	58 40 00 14 	sw (r2+20),r0
 	timer0->tcr1 = TIMER_EN;
- 594:	34 01 00 08 	mvi r1,8
- 598:	58 41 00 0c 	sw (r2+12),r1
+ 5ac:	34 01 00 08 	mvi r1,8
+ 5b0:	58 41 00 0c 	sw (r2+12),r1
 
 	do {
 		//halt();
  		tcr = timer0->tcr1;
- 59c:	28 41 00 0c 	lw r1,(r2+12)
+ 5b4:	28 41 00 0c 	lw r1,(r2+12)
  	} while ( ! (tcr & TIMER_TRIG) );
- 5a0:	20 21 00 01 	andi r1,r1,0x1
- 5a4:	44 20 ff fe 	be r1,r0,59c <nsleep+0x20>
+ 5b8:	20 21 00 01 	andi r1,r1,0x1
+ 5bc:	44 20 ff fe 	be r1,r0,5b4 <nsleep+0x20>
 }
- 5a8:	c3 a0 00 00 	ret
+ 5c0:	c3 a0 00 00 	ret
 
-000005ac <tic_init>:
+000005c4 <tic_init>:
 void tic_init()
 {
 	tic_msec = 0;
 
 	// Setup timer0.0
 	timer0->compare0 = (FCPU/10000);
- 5ac:	78 01 00 00 	mvhi r1,0x0
- 5b0:	38 21 09 68 	ori r1,r1,0x968
- 5b4:	28 23 00 00 	lw r3,(r1+0)
- 5b8:	34 02 27 10 	mvi r2,10000
+ 5c4:	78 01 00 00 	mvhi r1,0x0
+ 5c8:	38 21 09 88 	ori r1,r1,0x988
+ 5cc:	28 23 00 00 	lw r3,(r1+0)
+ 5d0:	34 02 27 10 	mvi r2,10000
 	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
 }
 
 void tic_init()
 {
 	tic_msec = 0;
- 5bc:	78 01 00 00 	mvhi r1,0x0
-
-	// Setup timer0.0
-	timer0->compare0 = (FCPU/10000);
- 5c0:	58 62 00 04 	sw (r3+4),r2
-	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
-}
-
-void tic_init()
-{
-	tic_msec = 0;
- 5c4:	38 21 09 f4 	ori r1,r1,0x9f4
-
-	// Setup timer0.0
-	timer0->compare0 = (FCPU/10000);
-	timer0->counter0 = 0;
- 5c8:	58 60 00 08 	sw (r3+8),r0
-	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
-}
-
-void tic_init()
-{
-	tic_msec = 0;
- 5cc:	58 20 00 00 	sw (r1+0),r0
-		isr_table[i] = &isr_null;
-}
-
-void isr_register(int irq, isr_ptr_t isr)
-{
-	isr_table[irq] = isr;
- 5d0:	78 02 00 00 	mvhi r2,0x0
  5d4:	78 01 00 00 	mvhi r1,0x0
+
+	// Setup timer0.0
+	timer0->compare0 = (FCPU/10000);
+ 5d8:	58 62 00 04 	sw (r3+4),r2
+	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
+}
+
+void tic_init()
+{
 	tic_msec = 0;
+ 5dc:	38 21 0a 14 	ori r1,r1,0xa14
 
 	// Setup timer0.0
 	timer0->compare0 = (FCPU/10000);
 	timer0->counter0 = 0;
+ 5e0:	58 60 00 08 	sw (r3+8),r0
 	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
- 5d8:	34 04 00 0e 	mvi r4,14
- 5dc:	58 64 00 00 	sw (r3+0),r4
+}
+
+void tic_init()
+{
+	tic_msec = 0;
+ 5e4:	58 20 00 00 	sw (r1+0),r0
 		isr_table[i] = &isr_null;
 }
 
 void isr_register(int irq, isr_ptr_t isr)
 {
 	isr_table[irq] = isr;
- 5e0:	38 21 09 74 	ori r1,r1,0x974
- 5e4:	38 42 04 10 	ori r2,r2,0x410
- 5e8:	58 22 00 04 	sw (r1+4),r2
+ 5e8:	78 02 00 00 	mvhi r2,0x0
+ 5ec:	78 01 00 00 	mvhi r1,0x0
+	tic_msec = 0;
+
+	// Setup timer0.0
+	timer0->compare0 = (FCPU/10000);
+	timer0->counter0 = 0;
+	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
+ 5f0:	34 04 00 0e 	mvi r4,14
+ 5f4:	58 64 00 00 	sw (r3+0),r4
+		isr_table[i] = &isr_null;
+}
+
+void isr_register(int irq, isr_ptr_t isr)
+{
+	isr_table[irq] = isr;
+ 5f8:	38 21 09 94 	ori r1,r1,0x994
+ 5fc:	38 42 04 28 	ori r2,r2,0x428
+ 600:	58 22 00 04 	sw (r1+4),r2
 	timer0->compare0 = (FCPU/10000);
 	timer0->counter0 = 0;
 	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
 
 	isr_register(1, &tic_isr);
 }
- 5ec:	c3 a0 00 00 	ret
+ 604:	c3 a0 00 00 	ret
 
-000005f0 <uart_init>:
+00000608 <uart_init>:
 	//uart0->lcr = 0x03;  // Line Control Register:    8N1
 	//uart0->mcr = 0x00;  // Modem Control Register
 
 	// Setup Divisor register (Fclk / Baud)
 	//uart0->div = (FCPU/(57600*16));
 }
- 5f0:	c3 a0 00 00 	ret
+ 608:	c3 a0 00 00 	ret
 
-000005f4 <uart_getchar>:
+0000060c <uart_getchar>:
 
 char uart_getchar()
 {   
- 5f4:	78 01 00 00 	mvhi r1,0x0
- 5f8:	38 21 09 64 	ori r1,r1,0x964
- 5fc:	28 22 00 00 	lw r2,(r1+0)
+ 60c:	78 01 00 00 	mvhi r1,0x0
+ 610:	38 21 09 84 	ori r1,r1,0x984
+ 614:	28 22 00 00 	lw r2,(r1+0)
 	while (! (uart0->ucr & UART_DR)) ;
- 600:	28 41 00 00 	lw r1,(r2+0)
- 604:	20 21 00 01 	andi r1,r1,0x1
- 608:	44 20 ff fe 	be r1,r0,600 <uart_getchar+0xc>
+ 618:	28 41 00 00 	lw r1,(r2+0)
+ 61c:	20 21 00 01 	andi r1,r1,0x1
+ 620:	44 20 ff fe 	be r1,r0,618 <uart_getchar+0xc>
 	return uart0->rxtx;
- 60c:	28 41 00 04 	lw r1,(r2+4)
+ 624:	28 41 00 04 	lw r1,(r2+4)
 }
- 610:	20 21 00 ff 	andi r1,r1,0xff
- 614:	c3 a0 00 00 	ret
+ 628:	20 21 00 ff 	andi r1,r1,0xff
+ 62c:	c3 a0 00 00 	ret
 
-00000618 <uart_putchar>:
+00000630 <uart_putchar>:
 
 void uart_putchar(char c)
 {
- 618:	78 02 00 00 	mvhi r2,0x0
- 61c:	38 42 09 64 	ori r2,r2,0x964
- 620:	28 43 00 00 	lw r3,(r2+0)
- 624:	20 21 00 ff 	andi r1,r1,0xff
+ 630:	78 02 00 00 	mvhi r2,0x0
+ 634:	38 42 09 84 	ori r2,r2,0x984
+ 638:	28 43 00 00 	lw r3,(r2+0)
+ 63c:	20 21 00 ff 	andi r1,r1,0xff
 	while (uart0->ucr & UART_BUSY) ;
- 628:	28 62 00 00 	lw r2,(r3+0)
- 62c:	20 42 00 10 	andi r2,r2,0x10
- 630:	5c 40 ff fe 	bne r2,r0,628 <uart_putchar+0x10>
+ 640:	28 62 00 00 	lw r2,(r3+0)
+ 644:	20 42 00 10 	andi r2,r2,0x10
+ 648:	5c 40 ff fe 	bne r2,r0,640 <uart_putchar+0x10>
 	uart0->rxtx = c;
- 634:	58 61 00 04 	sw (r3+4),r1
+ 64c:	58 61 00 04 	sw (r3+4),r1
 }
- 638:	c3 a0 00 00 	ret
+ 650:	c3 a0 00 00 	ret
 
-0000063c <uart_putstr>:
+00000654 <uart_putstr>:
 
 void uart_putstr(char *str)
 {
 	char *c = str;
 	while(*c) {
- 63c:	40 24 00 00 	lbu r4,(r1+0)
- 640:	44 80 00 0b 	be r4,r0,66c <uart_putstr+0x30>
- 644:	78 02 00 00 	mvhi r2,0x0
- 648:	38 42 09 64 	ori r2,r2,0x964
- 64c:	28 43 00 00 	lw r3,(r2+0)
+ 654:	40 24 00 00 	lbu r4,(r1+0)
+ 658:	44 80 00 0b 	be r4,r0,684 <uart_putstr+0x30>
+ 65c:	78 02 00 00 	mvhi r2,0x0
+ 660:	38 42 09 84 	ori r2,r2,0x984
+ 664:	28 43 00 00 	lw r3,(r2+0)
 	return uart0->rxtx;
 }
 
 void uart_putchar(char c)
 {
 	while (uart0->ucr & UART_BUSY) ;
- 650:	28 62 00 00 	lw r2,(r3+0)
- 654:	20 42 00 10 	andi r2,r2,0x10
- 658:	5c 40 ff fe 	bne r2,r0,650 <uart_putstr+0x14>
+ 668:	28 62 00 00 	lw r2,(r3+0)
+ 66c:	20 42 00 10 	andi r2,r2,0x10
+ 670:	5c 40 ff fe 	bne r2,r0,668 <uart_putstr+0x14>
 	uart0->rxtx = c;
- 65c:	58 64 00 04 	sw (r3+4),r4
+ 674:	58 64 00 04 	sw (r3+4),r4
 void uart_putstr(char *str)
 {
 	char *c = str;
 	while(*c) {
 		uart_putchar(*c);
 		c++;
- 660:	34 21 00 01 	addi r1,r1,1
+ 678:	34 21 00 01 	addi r1,r1,1
 }
 
 void uart_putstr(char *str)
 {
 	char *c = str;
 	while(*c) {
- 664:	40 24 00 00 	lbu r4,(r1+0)
- 668:	5c 82 ff fa 	bne r4,r2,650 <uart_putstr+0x14>
- 66c:	c3 a0 00 00 	ret
+ 67c:	40 24 00 00 	lbu r4,(r1+0)
+ 680:	5c 82 ff fa 	bne r4,r2,668 <uart_putstr+0x14>
+ 684:	c3 a0 00 00 	ret
 
-00000670 <sleept1>:
-
-
-void sleept1()
-{
-	uint32_t tcr;
-	timer0->counter1 = 0;
- 670:	78 01 00 00 	mvhi r1,0x0
- 674:	38 21 09 68 	ori r1,r1,0x968
- 678:	28 22 00 00 	lw r2,(r1+0)
-	timer0->tcr1 = TIMER_EN;
- 67c:	34 01 00 08 	mvi r1,8
+00000688 <sleept1>:
 
 
 void sleept1()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
- 680:	58 40 00 14 	sw (r2+20),r0
+ 688:	78 01 00 00 	mvhi r1,0x0
+ 68c:	38 21 09 88 	ori r1,r1,0x988
+ 690:	28 22 00 00 	lw r2,(r1+0)
 	timer0->tcr1 = TIMER_EN;
- 684:	58 41 00 0c 	sw (r2+12),r1
+ 694:	34 01 00 08 	mvi r1,8
+
+
+void sleept1()
+{
+	uint32_t tcr;
+	timer0->counter1 = 0;
+ 698:	58 40 00 14 	sw (r2+20),r0
+	timer0->tcr1 = TIMER_EN;
+ 69c:	58 41 00 0c 	sw (r2+12),r1
 	do {
  		tcr = timer0->tcr1;
- 688:	28 41 00 0c 	lw r1,(r2+12)
+ 6a0:	28 41 00 0c 	lw r1,(r2+12)
  	} while ( ! (tcr & TIMER_TRIG) );
- 68c:	20 21 00 01 	andi r1,r1,0x1
- 690:	44 20 ff fe 	be r1,r0,688 <sleept1+0x18>
+ 6a4:	20 21 00 01 	andi r1,r1,0x1
+ 6a8:	44 20 ff fe 	be r1,r0,6a0 <sleept1+0x18>
 }
- 694:	c3 a0 00 00 	ret
+ 6ac:	c3 a0 00 00 	ret
 
-00000698 <set_pin>:
+000006b0 <set_pin>:
 
 
 void set_pin(uint8_t pin_act)
 {
- 698:	20 21 00 ff 	andi r1,r1,0xff
+ 6b0:	20 21 00 ff 	andi r1,r1,0xff
      if (pin_act)
- 69c:	5c 20 00 09 	bne r1,r0,6c0 <set_pin+0x28>
+ 6b4:	5c 20 00 09 	bne r1,r0,6d8 <set_pin+0x28>
 		gpio0->write = gpio0->read | DMX_PIN;
 	else
 		gpio0->write = gpio0->read & (~DMX_PIN);
- 6a0:	78 01 00 00 	mvhi r1,0x0
- 6a4:	38 21 09 6c 	ori r1,r1,0x96c
- 6a8:	28 21 00 00 	lw r1,(r1+0)
- 6ac:	34 02 ff fe 	mvi r2,-2
- 6b0:	28 23 00 00 	lw r3,(r1+0)
- 6b4:	a0 62 10 00 	and r2,r3,r2
- 6b8:	58 22 00 04 	sw (r1+4),r2
- 6bc:	c3 a0 00 00 	ret
+ 6b8:	78 01 00 00 	mvhi r1,0x0
+ 6bc:	38 21 09 8c 	ori r1,r1,0x98c
+ 6c0:	28 21 00 00 	lw r1,(r1+0)
+ 6c4:	34 02 ff fe 	mvi r2,-2
+ 6c8:	28 23 00 00 	lw r3,(r1+0)
+ 6cc:	a0 62 10 00 	and r2,r3,r2
+ 6d0:	58 22 00 04 	sw (r1+4),r2
+ 6d4:	c3 a0 00 00 	ret
 
 
 void set_pin(uint8_t pin_act)
 {
      if (pin_act)
 		gpio0->write = gpio0->read | DMX_PIN;
- 6c0:	78 01 00 00 	mvhi r1,0x0
- 6c4:	38 21 09 6c 	ori r1,r1,0x96c
- 6c8:	28 21 00 00 	lw r1,(r1+0)
- 6cc:	28 22 00 00 	lw r2,(r1+0)
- 6d0:	38 42 00 01 	ori r2,r2,0x1
- 6d4:	58 22 00 04 	sw (r1+4),r2
- 6d8:	c3 a0 00 00 	ret
+ 6d8:	78 01 00 00 	mvhi r1,0x0
+ 6dc:	38 21 09 8c 	ori r1,r1,0x98c
+ 6e0:	28 21 00 00 	lw r1,(r1+0)
+ 6e4:	28 22 00 00 	lw r2,(r1+0)
+ 6e8:	38 42 00 01 	ori r2,r2,0x1
+ 6ec:	58 22 00 04 	sw (r1+4),r2
+ 6f0:	c3 a0 00 00 	ret
 
-000006dc <pin_inv>:
+000006f4 <pin_inv>:
 }
 void pin_inv(uint32_t num)
 {
 	uint32_t i;
 	uint32_t pin_act;
 	pin_act = (~gpio0->read) & DMX_PIN;
- 6dc:	78 02 00 00 	mvhi r2,0x0
- 6e0:	38 42 09 6c 	ori r2,r2,0x96c
- 6e4:	28 42 00 00 	lw r2,(r2+0)
- 6e8:	28 43 00 00 	lw r3,(r2+0)
- 6ec:	20 63 00 01 	andi r3,r3,0x1
+ 6f4:	78 02 00 00 	mvhi r2,0x0
+ 6f8:	38 42 09 8c 	ori r2,r2,0x98c
+ 6fc:	28 42 00 00 	lw r2,(r2+0)
+ 700:	28 43 00 00 	lw r3,(r2+0)
+ 704:	20 63 00 01 	andi r3,r3,0x1
 }
 
 
 void set_pin(uint8_t pin_act)
 {
      if (pin_act)
- 6f0:	5c 60 00 12 	bne r3,r0,738 <pin_inv+0x5c>
+ 708:	5c 60 00 12 	bne r3,r0,750 <pin_inv+0x5c>
 		gpio0->write = gpio0->read | DMX_PIN;
- 6f4:	28 43 00 00 	lw r3,(r2+0)
- 6f8:	38 63 00 01 	ori r3,r3,0x1
- 6fc:	58 43 00 04 	sw (r2+4),r3
+ 70c:	28 43 00 00 	lw r3,(r2+0)
+ 710:	38 63 00 01 	ori r3,r3,0x1
+ 714:	58 43 00 04 	sw (r2+4),r3
 {
 	uint32_t i;
 	uint32_t pin_act;
 	pin_act = (~gpio0->read) & DMX_PIN;
      set_pin(pin_act);
 	for(i=0;i<num;i++)
- 700:	44 20 00 13 	be r1,r0,74c <pin_inv+0x70>
+ 718:	44 20 00 13 	be r1,r0,764 <pin_inv+0x70>
 void set_pin(uint8_t pin_act)
 {
      if (pin_act)
 		gpio0->write = gpio0->read | DMX_PIN;
 	else
 		gpio0->write = gpio0->read & (~DMX_PIN);
- 704:	78 02 00 00 	mvhi r2,0x0
- 708:	38 42 09 68 	ori r2,r2,0x968
- 70c:	28 43 00 00 	lw r3,(r2+0)
+ 71c:	78 02 00 00 	mvhi r2,0x0
+ 720:	38 42 09 88 	ori r2,r2,0x988
+ 724:	28 43 00 00 	lw r3,(r2+0)
 {
 	uint32_t i;
 	uint32_t pin_act;
 	pin_act = (~gpio0->read) & DMX_PIN;
      set_pin(pin_act);
 	for(i=0;i<num;i++)
- 710:	34 04 00 00 	mvi r4,0
+ 728:	34 04 00 00 	mvi r4,0
 
 void sleept1()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
 	timer0->tcr1 = TIMER_EN;
- 714:	34 05 00 08 	mvi r5,8
+ 72c:	34 05 00 08 	mvi r5,8
 
 
 void sleept1()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
- 718:	58 60 00 14 	sw (r3+20),r0
+ 730:	58 60 00 14 	sw (r3+20),r0
 	timer0->tcr1 = TIMER_EN;
- 71c:	58 65 00 0c 	sw (r3+12),r5
+ 734:	58 65 00 0c 	sw (r3+12),r5
 	do {
  		tcr = timer0->tcr1;
- 720:	28 62 00 0c 	lw r2,(r3+12)
+ 738:	28 62 00 0c 	lw r2,(r3+12)
  	} while ( ! (tcr & TIMER_TRIG) );
- 724:	20 42 00 01 	andi r2,r2,0x1
- 728:	44 40 ff fe 	be r2,r0,720 <pin_inv+0x44>
+ 73c:	20 42 00 01 	andi r2,r2,0x1
+ 740:	44 40 ff fe 	be r2,r0,738 <pin_inv+0x44>
 {
 	uint32_t i;
 	uint32_t pin_act;
 	pin_act = (~gpio0->read) & DMX_PIN;
      set_pin(pin_act);
 	for(i=0;i<num;i++)
- 72c:	34 84 00 01 	addi r4,r4,1
- 730:	54 24 ff fa 	bgu r1,r4,718 <pin_inv+0x3c>
- 734:	c3 a0 00 00 	ret
+ 744:	34 84 00 01 	addi r4,r4,1
+ 748:	54 24 ff fa 	bgu r1,r4,730 <pin_inv+0x3c>
+ 74c:	c3 a0 00 00 	ret
 void set_pin(uint8_t pin_act)
 {
      if (pin_act)
 		gpio0->write = gpio0->read | DMX_PIN;
 	else
 		gpio0->write = gpio0->read & (~DMX_PIN);
- 738:	28 44 00 00 	lw r4,(r2+0)
- 73c:	34 03 ff fe 	mvi r3,-2
- 740:	a0 83 18 00 	and r3,r4,r3
- 744:	58 43 00 04 	sw (r2+4),r3
+ 750:	28 44 00 00 	lw r4,(r2+0)
+ 754:	34 03 ff fe 	mvi r3,-2
+ 758:	a0 83 18 00 	and r3,r4,r3
+ 75c:	58 43 00 04 	sw (r2+4),r3
 {
 	uint32_t i;
 	uint32_t pin_act;
 	pin_act = (~gpio0->read) & DMX_PIN;
      set_pin(pin_act);
 	for(i=0;i<num;i++)
- 748:	5c 20 ff ef 	bne r1,r0,704 <pin_inv+0x28>
- 74c:	c3 a0 00 00 	ret
+ 760:	5c 20 ff ef 	bne r1,r0,71c <pin_inv+0x28>
+ 764:	c3 a0 00 00 	ret
 
-00000750 <config_dmx>:
-
-
-void config_dmx()
-{
-//configurar pin DMX_PIN como pin de salida 
-	gpio0->dir |= DMX_PIN;
- 750:	78 01 00 00 	mvhi r1,0x0
- 754:	38 21 09 6c 	ori r1,r1,0x96c
- 758:	28 21 00 00 	lw r1,(r1+0)
-    //   gpio0->dir = gpio0->dir  | DMX_PIN;
-    // config Use timer 1
-	timer0->compare1 = (FCPU/1000000)*(TBIT)-80; // for usecond
- 75c:	78 02 00 00 	mvhi r2,0x0
- 760:	38 42 09 68 	ori r2,r2,0x968
+00000768 <config_dmx>:
 
 
 void config_dmx()
 {
 //configurar pin DMX_PIN como pin de salida 
 	gpio0->dir |= DMX_PIN;
- 764:	28 23 00 08 	lw r3,(r1+8)
+ 768:	78 01 00 00 	mvhi r1,0x0
+ 76c:	38 21 09 8c 	ori r1,r1,0x98c
+ 770:	28 21 00 00 	lw r1,(r1+0)
     //   gpio0->dir = gpio0->dir  | DMX_PIN;
     // config Use timer 1
 	timer0->compare1 = (FCPU/1000000)*(TBIT)-80; // for usecond
- 768:	28 42 00 00 	lw r2,(r2+0)
+ 774:	78 02 00 00 	mvhi r2,0x0
+ 778:	38 42 09 88 	ori r2,r2,0x988
 
 
 void config_dmx()
 {
 //configurar pin DMX_PIN como pin de salida 
 	gpio0->dir |= DMX_PIN;
- 76c:	38 63 00 01 	ori r3,r3,0x1
- 770:	58 23 00 08 	sw (r1+8),r3
+ 77c:	28 23 00 08 	lw r3,(r1+8)
     //   gpio0->dir = gpio0->dir  | DMX_PIN;
     // config Use timer 1
 	timer0->compare1 = (FCPU/1000000)*(TBIT)-80; // for usecond
- 774:	34 03 01 40 	mvi r3,320
- 778:	58 43 00 10 	sw (r2+16),r3
+ 780:	28 42 00 00 	lw r2,(r2+0)
+
+
+void config_dmx()
+{
+//configurar pin DMX_PIN como pin de salida 
+	gpio0->dir |= DMX_PIN;
+ 784:	38 63 00 01 	ori r3,r3,0x1
+ 788:	58 23 00 08 	sw (r1+8),r3
+    //   gpio0->dir = gpio0->dir  | DMX_PIN;
+    // config Use timer 1
+	timer0->compare1 = (FCPU/1000000)*(TBIT)-80; // for usecond
+ 78c:	34 03 01 40 	mvi r3,320
+ 790:	58 43 00 10 	sw (r2+16),r3
 	gpio0->write = gpio0->read | DMX_PIN;
- 77c:	28 22 00 00 	lw r2,(r1+0)
- 780:	38 42 00 01 	ori r2,r2,0x1
- 784:	58 22 00 04 	sw (r1+4),r2
+ 794:	28 22 00 00 	lw r2,(r1+0)
+ 798:	38 42 00 01 	ori r2,r2,0x1
+ 79c:	58 22 00 04 	sw (r1+4),r2
  
 }
- 788:	c3 a0 00 00 	ret
+ 7a0:	c3 a0 00 00 	ret
 
-0000078c <config_pt>:
+000007a4 <config_pt>:
  }
 
 void config_pt()
 {
 	uint32_t pin_act;
 	gpio0->write = gpio0->read | DMX_PIN;
- 78c:	78 01 00 00 	mvhi r1,0x0
- 790:	38 21 09 6c 	ori r1,r1,0x96c
- 794:	28 23 00 00 	lw r3,(r1+0)
- 798:	78 01 00 00 	mvhi r1,0x0
- 79c:	38 21 09 68 	ori r1,r1,0x968
- 7a0:	28 64 00 00 	lw r4,(r3+0)
- 7a4:	28 22 00 00 	lw r2,(r1+0)
+ 7a4:	78 01 00 00 	mvhi r1,0x0
+ 7a8:	38 21 09 8c 	ori r1,r1,0x98c
+ 7ac:	28 23 00 00 	lw r3,(r1+0)
+ 7b0:	78 01 00 00 	mvhi r1,0x0
+ 7b4:	38 21 09 88 	ori r1,r1,0x988
+ 7b8:	28 64 00 00 	lw r4,(r3+0)
+ 7bc:	28 22 00 00 	lw r2,(r1+0)
 void set_pin(uint8_t pin_act)
 {
      if (pin_act)
 		gpio0->write = gpio0->read | DMX_PIN;
 	else
 		gpio0->write = gpio0->read & (~DMX_PIN);
- 7a8:	34 05 ff fe 	mvi r5,-2
+ 7c0:	34 05 ff fe 	mvi r5,-2
  }
 
 void config_pt()
 {
 	uint32_t pin_act;
 	gpio0->write = gpio0->read | DMX_PIN;
- 7ac:	38 81 00 01 	ori r1,r4,0x1
- 7b0:	58 61 00 04 	sw (r3+4),r1
+ 7c4:	38 81 00 01 	ori r1,r4,0x1
+ 7c8:	58 61 00 04 	sw (r3+4),r1
 
 for(;;)
 {    
      pin_act = (~gpio0->read) & DMX_PIN;
- 7b4:	28 61 00 00 	lw r1,(r3+0)
+ 7cc:	28 61 00 00 	lw r1,(r3+0)
 
 void sleept1()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
 	timer0->tcr1 = TIMER_EN;
- 7b8:	34 04 00 08 	mvi r4,8
+ 7d0:	34 04 00 08 	mvi r4,8
 	uint32_t pin_act;
 	gpio0->write = gpio0->read | DMX_PIN;
 
 for(;;)
 {    
      pin_act = (~gpio0->read) & DMX_PIN;
- 7bc:	20 21 00 01 	andi r1,r1,0x1
+ 7d4:	20 21 00 01 	andi r1,r1,0x1
 }
 
 
 void set_pin(uint8_t pin_act)
 {
      if (pin_act)
- 7c0:	5c 20 00 0c 	bne r1,r0,7f0 <config_pt+0x64>
+ 7d8:	5c 20 00 0c 	bne r1,r0,808 <config_pt+0x64>
 		gpio0->write = gpio0->read | DMX_PIN;
- 7c4:	28 61 00 00 	lw r1,(r3+0)
- 7c8:	38 21 00 01 	ori r1,r1,0x1
- 7cc:	58 61 00 04 	sw (r3+4),r1
+ 7dc:	28 61 00 00 	lw r1,(r3+0)
+ 7e0:	38 21 00 01 	ori r1,r1,0x1
+ 7e4:	58 61 00 04 	sw (r3+4),r1
 
 
 void sleept1()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
- 7d0:	58 40 00 14 	sw (r2+20),r0
+ 7e8:	58 40 00 14 	sw (r2+20),r0
 	timer0->tcr1 = TIMER_EN;
- 7d4:	58 44 00 0c 	sw (r2+12),r4
+ 7ec:	58 44 00 0c 	sw (r2+12),r4
 	do {
  		tcr = timer0->tcr1;
- 7d8:	28 41 00 0c 	lw r1,(r2+12)
+ 7f0:	28 41 00 0c 	lw r1,(r2+12)
  	} while ( ! (tcr & TIMER_TRIG) );
- 7dc:	20 21 00 01 	andi r1,r1,0x1
- 7e0:	44 20 ff fe 	be r1,r0,7d8 <config_pt+0x4c>
+ 7f4:	20 21 00 01 	andi r1,r1,0x1
+ 7f8:	44 20 ff fe 	be r1,r0,7f0 <config_pt+0x4c>
 	uint32_t pin_act;
 	gpio0->write = gpio0->read | DMX_PIN;
 
 for(;;)
 {    
      pin_act = (~gpio0->read) & DMX_PIN;
- 7e4:	28 61 00 00 	lw r1,(r3+0)
- 7e8:	20 21 00 01 	andi r1,r1,0x1
+ 7fc:	28 61 00 00 	lw r1,(r3+0)
+ 800:	20 21 00 01 	andi r1,r1,0x1
 }
 
 
 void set_pin(uint8_t pin_act)
 {
      if (pin_act)
- 7ec:	44 20 ff f6 	be r1,r0,7c4 <config_pt+0x38>
+ 804:	44 20 ff f6 	be r1,r0,7dc <config_pt+0x38>
 		gpio0->write = gpio0->read | DMX_PIN;
 	else
 		gpio0->write = gpio0->read & (~DMX_PIN);
- 7f0:	28 61 00 00 	lw r1,(r3+0)
- 7f4:	a0 25 08 00 	and r1,r1,r5
- 7f8:	58 61 00 04 	sw (r3+4),r1
- 7fc:	e3 ff ff f5 	bi 7d0 <config_pt+0x44>
+ 808:	28 61 00 00 	lw r1,(r3+0)
+ 80c:	a0 25 08 00 	and r1,r1,r5
+ 810:	58 61 00 04 	sw (r3+4),r1
+ 814:	e3 ff ff f5 	bi 7e8 <config_pt+0x44>
 
-00000800 <dmx_channel_send>:
+00000818 <dmx_channel_send>:
      sleept1();
 }
 }
 
 void dmx_channel_send(uint8_t value)
 {
- 800:	37 9c ff f8 	addi sp,sp,-8
- 804:	5b 8b 00 08 	sw (sp+8),r11
- 808:	5b 9d 00 04 	sw (sp+4),ra
- 80c:	20 2b 00 ff 	andi r11,r1,0xff
+ 818:	37 9c ff f8 	addi sp,sp,-8
+ 81c:	5b 8b 00 08 	sw (sp+8),r11
+ 820:	5b 9d 00 04 	sw (sp+4),ra
+ 824:	20 2b 00 ff 	andi r11,r1,0xff
 	uint8_t bit, i;
        pin_inv(1); // bita start
- 810:	34 01 00 01 	mvi r1,1
- 814:	fb ff ff b2 	calli 6dc <pin_inv>
- 818:	78 02 00 00 	mvhi r2,0x0
- 81c:	78 01 00 00 	mvhi r1,0x0
- 820:	38 42 09 68 	ori r2,r2,0x968
- 824:	38 21 09 6c 	ori r1,r1,0x96c
+ 828:	34 01 00 01 	mvi r1,1
+ 82c:	fb ff ff b2 	calli 6f4 <pin_inv>
+ 830:	78 02 00 00 	mvhi r2,0x0
+ 834:	78 01 00 00 	mvhi r1,0x0
+ 838:	38 42 09 88 	ori r2,r2,0x988
+ 83c:	38 21 09 8c 	ori r1,r1,0x98c
 }
 
 
 void set_pin(uint8_t pin_act)
 {
      if (pin_act)
- 828:	21 63 00 01 	andi r3,r11,0x1
+ 840:	21 63 00 01 	andi r3,r11,0x1
 }
 
 void dmx_channel_send(uint8_t value)
 {
 	uint8_t bit, i;
        pin_inv(1); // bita start
- 82c:	28 42 00 00 	lw r2,(r2+0)
- 830:	28 21 00 00 	lw r1,(r1+0)
- 834:	34 04 00 08 	mvi r4,8
+ 844:	28 42 00 00 	lw r2,(r2+0)
+ 848:	28 21 00 00 	lw r1,(r1+0)
+ 84c:	34 04 00 08 	mvi r4,8
 void set_pin(uint8_t pin_act)
 {
      if (pin_act)
 		gpio0->write = gpio0->read | DMX_PIN;
 	else
 		gpio0->write = gpio0->read & (~DMX_PIN);
- 838:	34 06 ff fe 	mvi r6,-2
+ 850:	34 06 ff fe 	mvi r6,-2
 
 void sleept1()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
 	timer0->tcr1 = TIMER_EN;
- 83c:	34 05 00 08 	mvi r5,8
+ 854:	34 05 00 08 	mvi r5,8
 }
 
 
 void set_pin(uint8_t pin_act)
 {
      if (pin_act)
- 840:	44 60 00 0f 	be r3,r0,87c <dmx_channel_send+0x7c>
+ 858:	44 60 00 0f 	be r3,r0,894 <dmx_channel_send+0x7c>
 		gpio0->write = gpio0->read | DMX_PIN;
- 844:	28 23 00 00 	lw r3,(r1+0)
- 848:	38 63 00 01 	ori r3,r3,0x1
- 84c:	58 23 00 04 	sw (r1+4),r3
+ 85c:	28 23 00 00 	lw r3,(r1+0)
+ 860:	38 63 00 01 	ori r3,r3,0x1
+ 864:	58 23 00 04 	sw (r1+4),r3
 
 
 void sleept1()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
- 850:	58 40 00 14 	sw (r2+20),r0
+ 868:	58 40 00 14 	sw (r2+20),r0
 	timer0->tcr1 = TIMER_EN;
- 854:	58 45 00 0c 	sw (r2+12),r5
+ 86c:	58 45 00 0c 	sw (r2+12),r5
 	do {
  		tcr = timer0->tcr1;
- 858:	28 43 00 0c 	lw r3,(r2+12)
+ 870:	28 43 00 0c 	lw r3,(r2+12)
  	} while ( ! (tcr & TIMER_TRIG) );
- 85c:	20 63 00 01 	andi r3,r3,0x1
- 860:	44 60 ff fe 	be r3,r0,858 <dmx_channel_send+0x58>
- 864:	34 84 ff ff 	addi r4,r4,-1
- 868:	20 84 00 ff 	andi r4,r4,0xff
+ 874:	20 63 00 01 	andi r3,r3,0x1
+ 878:	44 60 ff fe 	be r3,r0,870 <dmx_channel_send+0x58>
+ 87c:	34 84 ff ff 	addi r4,r4,-1
+ 880:	20 84 00 ff 	andi r4,r4,0xff
 void dmx_channel_send(uint8_t value)
 {
 	uint8_t bit, i;
        pin_inv(1); // bita start
  	//nsleep(4000);
 	for(i=0;i<8;i++)
- 86c:	44 80 00 08 	be r4,r0,88c <dmx_channel_send+0x8c>
+ 884:	44 80 00 08 	be r4,r0,8a4 <dmx_channel_send+0x8c>
 	{
 		bit=value & 0x01;
  		set_pin(bit);	
 		value=value>>1;
- 870:	01 6b 00 01 	srui r11,r11,1
+ 888:	01 6b 00 01 	srui r11,r11,1
 }
 
 
 void set_pin(uint8_t pin_act)
 {
      if (pin_act)
- 874:	21 63 00 01 	andi r3,r11,0x1
- 878:	5c 60 ff f3 	bne r3,r0,844 <dmx_channel_send+0x44>
+ 88c:	21 63 00 01 	andi r3,r11,0x1
+ 890:	5c 60 ff f3 	bne r3,r0,85c <dmx_channel_send+0x44>
 		gpio0->write = gpio0->read | DMX_PIN;
 	else
 		gpio0->write = gpio0->read & (~DMX_PIN);
- 87c:	28 23 00 00 	lw r3,(r1+0)
- 880:	a0 66 18 00 	and r3,r3,r6
- 884:	58 23 00 04 	sw (r1+4),r3
- 888:	e3 ff ff f2 	bi 850 <dmx_channel_send+0x50>
+ 894:	28 23 00 00 	lw r3,(r1+0)
+ 898:	a0 66 18 00 	and r3,r3,r6
+ 89c:	58 23 00 04 	sw (r1+4),r3
+ 8a0:	e3 ff ff f2 	bi 868 <dmx_channel_send+0x50>
 		bit=value & 0x01;
  		set_pin(bit);	
 		value=value>>1;
 		sleept1();
         }
 	gpio0->write = gpio0->read | DMX_PIN;
- 88c:	28 23 00 00 	lw r3,(r1+0)
- 890:	38 63 00 01 	ori r3,r3,0x1
- 894:	58 23 00 04 	sw (r1+4),r3
-
-
-void sleept1()
-{
-	uint32_t tcr;
-	timer0->counter1 = 0;
- 898:	58 40 00 14 	sw (r2+20),r0
-	timer0->tcr1 = TIMER_EN;
- 89c:	34 01 00 08 	mvi r1,8
- 8a0:	58 41 00 0c 	sw (r2+12),r1
-	do {
- 		tcr = timer0->tcr1;
- 8a4:	28 41 00 0c 	lw r1,(r2+12)
- 	} while ( ! (tcr & TIMER_TRIG) );
- 8a8:	20 21 00 01 	andi r1,r1,0x1
- 8ac:	44 20 ff fe 	be r1,r0,8a4 <dmx_channel_send+0xa4>
+ 8a4:	28 23 00 00 	lw r3,(r1+0)
+ 8a8:	38 63 00 01 	ori r3,r3,0x1
+ 8ac:	58 23 00 04 	sw (r1+4),r3
 
 
 void sleept1()
@@ -1392,38 +1384,54 @@ void sleept1()
  8bc:	28 41 00 0c 	lw r1,(r2+12)
  	} while ( ! (tcr & TIMER_TRIG) );
  8c0:	20 21 00 01 	andi r1,r1,0x1
- 8c4:	44 20 ff fe 	be r1,r0,8bc <dmx_channel_send+0xbc>
+ 8c4:	44 20 ff fe 	be r1,r0,8bc <dmx_channel_send+0xa4>
+
+
+void sleept1()
+{
+	uint32_t tcr;
+	timer0->counter1 = 0;
+ 8c8:	58 40 00 14 	sw (r2+20),r0
+	timer0->tcr1 = TIMER_EN;
+ 8cc:	34 01 00 08 	mvi r1,8
+ 8d0:	58 41 00 0c 	sw (r2+12),r1
+	do {
+ 		tcr = timer0->tcr1;
+ 8d4:	28 41 00 0c 	lw r1,(r2+12)
+ 	} while ( ! (tcr & TIMER_TRIG) );
+ 8d8:	20 21 00 01 	andi r1,r1,0x1
+ 8dc:	44 20 ff fe 	be r1,r0,8d4 <dmx_channel_send+0xbc>
         }
 	gpio0->write = gpio0->read | DMX_PIN;
 	sleept1();
 	sleept1();
 	
 	}
- 8c8:	2b 9d 00 04 	lw ra,(sp+4)
- 8cc:	2b 8b 00 08 	lw r11,(sp+8)
- 8d0:	37 9c 00 08 	addi sp,sp,8
- 8d4:	c3 a0 00 00 	ret
+ 8e0:	2b 9d 00 04 	lw ra,(sp+4)
+ 8e4:	2b 8b 00 08 	lw r11,(sp+8)
+ 8e8:	37 9c 00 08 	addi sp,sp,8
+ 8ec:	c3 a0 00 00 	ret
 
-000008d8 <dmx_init_send>:
+000008f0 <dmx_init_send>:
 	gpio0->write = gpio0->read | DMX_PIN;
  
 }
 
 void dmx_init_send()
 {
- 8d8:	37 9c ff fc 	addi sp,sp,-4
- 8dc:	5b 9d 00 04 	sw (sp+4),ra
+ 8f0:	37 9c ff fc 	addi sp,sp,-4
+ 8f4:	5b 9d 00 04 	sw (sp+4),ra
 	pin_inv(22);
- 8e0:	34 01 00 16 	mvi r1,22
- 8e4:	fb ff ff 7e 	calli 6dc <pin_inv>
+ 8f8:	34 01 00 16 	mvi r1,22
+ 8fc:	fb ff ff 7e 	calli 6f4 <pin_inv>
 	pin_inv(2);
- 8e8:	34 01 00 02 	mvi r1,2
- 8ec:	fb ff ff 7c 	calli 6dc <pin_inv>
+ 900:	34 01 00 02 	mvi r1,2
+ 904:	fb ff ff 7c 	calli 6f4 <pin_inv>
 	dmx_channel_send(0);
- 8f0:	34 01 00 00 	mvi r1,0
- 8f4:	fb ff ff c3 	calli 800 <dmx_channel_send>
+ 908:	34 01 00 00 	mvi r1,0
+ 90c:	fb ff ff c3 	calli 818 <dmx_channel_send>
      	
  }
- 8f8:	2b 9d 00 04 	lw ra,(sp+4)
- 8fc:	37 9c 00 04 	addi sp,sp,4
- 900:	c3 a0 00 00 	ret
+ 910:	2b 9d 00 04 	lw ra,(sp+4)
+ 914:	37 9c 00 04 	addi sp,sp,4
+ 918:	c3 a0 00 00 	ret
