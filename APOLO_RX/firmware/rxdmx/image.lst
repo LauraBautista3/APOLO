@@ -27,11 +27,11 @@ Ind Nombre        Tamaño    VMA       LMA       Desp fich Alin
                   CONTENTS, READONLY, DEBUGGING
  11 .debug_aranges 00000060  00000000  00000000  00001fa5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_str    0000023e  00000000  00000000  00002005  2**0
+ 12 .debug_str    00000235  00000000  00000000  00002005  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .comment      00000011  00000000  00000000  00002243  2**0
+ 13 .comment      00000011  00000000  00000000  0000223a  2**0
                   CONTENTS, READONLY
- 14 .debug_ranges 00000018  00000000  00000000  00002254  2**0
+ 14 .debug_ranges 00000018  00000000  00000000  0000224b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Desensamblado de la sección .text:
@@ -211,7 +211,7 @@ Desensamblado de la sección .text:
 00000208 <main>:
 
 
-//#define DEBUG 
+#define DEBUG
 
 int main()
 {
@@ -280,9 +280,6 @@ int main()
  2b8:	59 81 00 00 	sw (r12+0),r1
 		valorchs();
  2bc:	f8 00 00 f6 	calli 694 <valorchs>
-
-
-
 	}
  2c0:	e3 ff ff e2 	bi 248 <main+0x40>
 
@@ -819,28 +816,29 @@ void sleep2us()
  5e4:	20 42 00 01 	andi r2,r2,0x1
  5e8:	44 40 ff fe 	be r2,r0,5e0 <sleep2us+0x20>
 		
-}void sleep4us()
+}void sleep3us()
  5ec:	c3 a0 00 00 	ret
 
-000005f0 <sleep4us>:
+000005f0 <sleep3us>:
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
  5f0:	78 01 00 00 	mvhi r1,0x0
  5f4:	38 21 06 f4 	ori r1,r1,0x6f4
  5f8:	28 21 00 00 	lw r1,(r1+0)
-	timer0->compare1 = 270;
+//	timer0->compare1 = 270;
+	timer0->compare1 = ((FCPU/1000000)*(2))+70 ;
  5fc:	34 02 01 0e 	mvi r2,270
  	} while ( ! (tcr & TIMER_TRIG) );
 		
-}void sleep4us()
+}void sleep3us()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
  600:	58 20 00 14 	sw (r1+20),r0
-	timer0->compare1 = 270;
+//	timer0->compare1 = 270;
+	timer0->compare1 = ((FCPU/1000000)*(2))+70 ;
  604:	58 22 00 10 	sw (r1+16),r2
-//	timer0->compare1 = (FCPU/1000000)*(2);
 	timer0->tcr1 = TIMER_EN;
  608:	34 02 00 08 	mvi r2,8
  60c:	58 22 00 0c 	sw (r1+12),r2
@@ -849,7 +847,7 @@ void sleep2us()
  610:	28 22 00 0c 	lw r2,(r1+12)
  	} while ( ! (tcr & TIMER_TRIG) );
  614:	20 42 00 01 	andi r2,r2,0x1
- 618:	44 40 ff fe 	be r2,r0,610 <sleep4us+0x20>
+ 618:	44 40 ff fe 	be r2,r0,610 <sleep3us+0x20>
 
 }
  61c:	c3 a0 00 00 	ret
@@ -881,8 +879,8 @@ uint8_t leerdatos()
 	valor_bit=0;
 	for(i=0;i<8;i++)
 	{
-		sleep4us();
- 64c:	fb ff ff e9 	calli 5f0 <sleep4us>
+		sleep3us();
+ 64c:	fb ff ff e9 	calli 5f0 <sleep3us>
 		valor_bit=valor_bit<<1;
 		valor_bit=valor_bit + (gpio0->read & 0x01);
  650:	29 81 00 00 	lw r1,(r12+0)
@@ -890,7 +888,7 @@ uint8_t leerdatos()
 	valor_bit=0;
 	for(i=0;i<8;i++)
 	{
-		sleep4us();
+		sleep3us();
 		valor_bit=valor_bit<<1;
  654:	3d ad 00 01 	sli r13,r13,1
 		valor_bit=valor_bit + (gpio0->read & 0x01);
@@ -908,12 +906,12 @@ uint8_t leerdatos()
 	for(i=0;i<8;i++)
  670:	5d 60 ff f7 	bne r11,r0,64c <leerdatos+0x2c>
 	{
-		sleep4us();
+		sleep3us();
 		valor_bit=valor_bit<<1;
 		valor_bit=valor_bit + (gpio0->read & 0x01);
 	}
-	sleep4us();
- 674:	fb ff ff df 	calli 5f0 <sleep4us>
+	sleep3us();
+ 674:	fb ff ff df 	calli 5f0 <sleep3us>
 	return valor_bit;
 }
  678:	b9 a0 08 00 	mv r1,r13

@@ -1,7 +1,6 @@
 #include "soc-hw.h"
 #include "txdmx.h"
 
-
 #define DEBUG 
 
 int main()
@@ -17,9 +16,17 @@ int main()
 	uint8_t v_ch2=0;
 	uint8_t v_ch3=0;
 	uint8_t w_c=0;
-	
-//	config_pt();
-	
+
+
+//	gpio0->dir = 0xFF;
+//	gpio0->write = 0xFF;
+
+//	tic_init0();
+
+//	irq_set_mask(0x02);
+//	irq_enable();
+
+		
 	for(;;)
 	{
 		while((tmp_var!='<')&&(tmp_var!='>'))
@@ -32,13 +39,13 @@ int main()
 	         
 			tmp_num=uart_getchar();
 			#ifdef DEBUG
-				uart_putstr("\ndebug numero: ");	
+//				uart_putstr("\ndebug numero: ");	
 				uart_putchar(tmp_num);
 	
 		     #endif
 			tmp_var=uart_getchar();
 			#ifdef DEBUG
-				uart_putstr("\ndebug variable ");
+//				uart_putstr("\ndebug variable ");
 				uart_putchar(tmp_var);	
 		     #endif
 			if (tmp_var == 'c')
@@ -49,30 +56,27 @@ int main()
 			else if (tmp_var == 'w') 
 			{
 				w_c = tmp_num;
-			#ifdef DEBUG
-				uart_putstr("\ndebug asignacion\n");
-				uart_putchar(w_c);	
-		     #endif	
 
-	   		if (channel==1) 
-				v_ch1 = w_c;
-			else if (channel==2) 
-				v_ch2 = w_c;
-			else if (channel==3) 
-				v_ch3 = w_c;
-			#ifdef DEBUG
-				uart_putstr("\ndebug case\n");
-				uart_putchar(v_ch1);
-				uart_putchar(v_ch2);
-				uart_putchar(v_ch3);	
-		     #endif		
+	   			if (channel==1) 
+					v_ch1 = w_c;
+				else if (channel==2) 
+					v_ch2 = w_c;
+				else if (channel==3) 
+					v_ch3 = w_c;
+
+				#ifdef DEBUG
+					uart_putstr("\ndebug case\n");
+					uart_putchar(v_ch1);
+					uart_putchar(v_ch2);
+					uart_putchar(v_ch3);	
+		     	#endif		
 			}
 		}
 		else
 		{
-			#ifdef DEBUG
-				uart_putstr("\nok >\n");
-		     #endif
+//			#ifdef DEBUG
+//				uart_putstr("\nok >\n");
+//		     #endif
 			dmx_init_send();  //      llamar funcion codificador 	dmx         
 			sleept1();
 			dmx_channel_send(v_ch1);
@@ -81,6 +85,7 @@ int main()
 			sleept1();
 			dmx_channel_send(v_ch3);
 			sleept1();
+
 		} 
 	
 	}

@@ -2,12 +2,11 @@
 #include "rxdmx.h"
 
 
-
-
-//#define DEBUG 
+#define DEBUG 
 
 int main()
 {
+	uint32_t dato=0;
 	gpio0->dir=0x00;
 	for(;;)
 	{
@@ -26,8 +25,6 @@ int main()
 		sleep2us();
 		ch3 = leerdatos();
 		valorchs();
-
-
 
 	}
 

@@ -166,6 +166,9 @@ Elaborating module <lm32_addsub>.
 
 Elaborating module <lm32_logic_op>.
 
+Elaborating module <lm32_shifter>.
+WARNING:HDLCompiler:413 - "/home/laura/Documentos/APOLO/APOLO_TX/rtl/lm32/lm32_shifter.v" Line 123: Result of 64-bit expression is truncated to fit in 32-bit target.
+
 Elaborating module <lm32_multiplier>.
 
 Elaborating module <lm32_mc_arithmetic>.
@@ -202,7 +205,6 @@ WARNING:HDLCompiler:634 - "/home/laura/Documentos/APOLO/APOLO_TX/system.v" Line 
 WARNING:HDLCompiler:634 - "/home/laura/Documentos/APOLO/APOLO_TX/system.v" Line 127: Net <lm32d_rty> does not have a driver.
 WARNING:HDLCompiler:634 - "/home/laura/Documentos/APOLO/APOLO_TX/system.v" Line 129: Net <lm32i_err> does not have a driver.
 WARNING:HDLCompiler:634 - "/home/laura/Documentos/APOLO/APOLO_TX/system.v" Line 130: Net <lm32d_err> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/laura/Documentos/APOLO/APOLO_TX/system.v" Line 147: Net <gpio0_intr> does not have a driver.
 WARNING:HDLCompiler:552 - "/home/laura/Documentos/APOLO/APOLO_TX/system.v" Line 161: Input port m0_cti_i[2] is not connected on this instance
 WARNING:Xst:2972 - "/home/laura/Documentos/APOLO/APOLO_TX/rtl/lm32/lm32_cpu.v" line 483. All outputs of instance <simtrace> of block <lm32_simtrace> are unconnected in block <lm32_cpu>. Underlying logic will be removed.
 
@@ -243,7 +245,6 @@ WARNING:Xst:653 - Signal <lm32i_rty> is used but never assigned. This sourceless
 WARNING:Xst:653 - Signal <lm32d_rty> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <lm32i_err> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <lm32d_err> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <gpio0_intr> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Summary:
 	no macro.
 Unit <system> synthesized.
@@ -329,10 +330,10 @@ INFO:Xst:3210 - "/home/laura/Documentos/APOLO/APOLO_TX/rtl/lm32/lm32_cpu.v" line
     Found 1-bit register for signal <valid_w>.
     Found 1-bit register for signal <x_result_sel_csr_x>.
     Found 1-bit register for signal <x_result_sel_mc_arith_x>.
-    Found 1-bit register for signal <x_result_sel_shift_x>.
     Found 1-bit register for signal <x_result_sel_sext_x>.
     Found 1-bit register for signal <x_result_sel_add_x>.
     Found 1-bit register for signal <m_result_sel_compare_x>.
+    Found 1-bit register for signal <m_result_sel_shift_x>.
     Found 1-bit register for signal <w_result_sel_load_x>.
     Found 1-bit register for signal <w_result_sel_mul_x>.
     Found 1-bit register for signal <x_bypass_enable_x>.
@@ -343,12 +344,14 @@ INFO:Xst:3210 - "/home/laura/Documentos/APOLO/APOLO_TX/rtl/lm32/lm32_cpu.v" line
     Found 1-bit register for signal <sign_extend_x>.
     Found 1-bit register for signal <adder_op_x>.
     Found 1-bit register for signal <adder_op_x_n>.
+    Found 1-bit register for signal <direction_x>.
     Found 1-bit register for signal <branch_x>.
     Found 1-bit register for signal <system_call_exception>.
     Found 1-bit register for signal <eret_x>.
     Found 1-bit register for signal <instruction_bus_error_exception>.
     Found 1-bit register for signal <csr_write_enable_x>.
     Found 1-bit register for signal <m_result_sel_compare_m>.
+    Found 1-bit register for signal <m_result_sel_shift_m>.
     Found 1-bit register for signal <w_result_sel_load_m>.
     Found 1-bit register for signal <w_result_sel_mul_m>.
     Found 1-bit register for signal <m_bypass_enable_m>.
@@ -377,7 +380,7 @@ INFO:Xst:3210 - "/home/laura/Documentos/APOLO/APOLO_TX/rtl/lm32/lm32_cpu.v" line
     Summary:
 	inferred   2 RAM(s).
 	inferred   1 Adder/Subtractor(s).
-	inferred 311 D-type flip-flop(s).
+	inferred 313 D-type flip-flop(s).
 	inferred   8 Comparator(s).
 	inferred  37 Multiplexer(s).
 Unit <lm32_cpu> synthesized.
@@ -414,7 +417,7 @@ Unit <lm32_instruction_unit> synthesized.
 Synthesizing Unit <lm32_decoder>.
     Related source file is "/home/laura/Documentos/APOLO/APOLO_TX/rtl/lm32/lm32_decoder.v".
     Summary:
-	inferred  19 Multiplexer(s).
+	inferred  14 Multiplexer(s).
 Unit <lm32_decoder> synthesized.
 
 Synthesizing Unit <lm32_load_store_unit>.
@@ -506,6 +509,18 @@ Synthesizing Unit <lm32_logic_op>.
 	inferred  32 Multiplexer(s).
 Unit <lm32_logic_op> synthesized.
 
+Synthesizing Unit <lm32_shifter>.
+    Related source file is "/home/laura/Documentos/APOLO/APOLO_TX/rtl/lm32/lm32_shifter.v".
+WARNING:Xst:647 - Input <operand_1_x<31:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32-bit register for signal <right_shift_result>.
+    Found 1-bit register for signal <direction_m>.
+    Found 64-bit shifter logical right for signal <n0026> created at line 123
+    Summary:
+	inferred  33 D-type flip-flop(s).
+	inferred   3 Multiplexer(s).
+	inferred   1 Combinational logic shifter(s).
+Unit <lm32_shifter> synthesized.
+
 Synthesizing Unit <lm32_multiplier>.
     Related source file is "/home/laura/Documentos/APOLO/APOLO_TX/rtl/lm32/lm32_multiplier.v".
     Found 32-bit register for signal <multiplier>.
@@ -541,7 +556,7 @@ Synthesizing Unit <lm32_mc_arithmetic>.
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
     Found 33-bit subtractor for signal <t> created at line 130.
-    Found 6-bit subtractor for signal <cycles[5]_GND_19_o_sub_20_OUT> created at line 224.
+    Found 6-bit subtractor for signal <cycles[5]_GND_20_o_sub_20_OUT> created at line 224.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred 135 D-type flip-flop(s).
@@ -597,30 +612,30 @@ WARNING:Xst:647 - Input <wb_dat_i<31:8>> is never used. This port will be preser
     Found 1-bit register for signal <tx_wr>.
     Found 1-bit register for signal <rx_ack>.
     Found 1-bit register for signal <ack>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<25><2:2>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<29><25:25>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<18><29:29>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<16><18:18>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<10><16:16>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<9><10:10>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<31><9:9>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<23><31:31>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<21><23:23>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<20><21:21>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<19><20:20>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<15><19:19>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<13><15:15>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<11><13:13>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<8><11:11>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<30><8:8>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<28><30:30>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<29><2:2>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<16><29:29>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<12><16:16>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<11><12:12>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<14><11:11>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<19><14:14>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<24><19:19>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<23><24:24>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<31><23:23>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<30><31:31>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<26><30:30>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<25><26:26>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<22><25:25>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<18><22:22>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<17><18:18>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<13><17:17>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<9><13:13>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<8><9:9>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<28><8:8>> (without init value) have a constant value of 0 in block <wb_uart>.
     WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<27><28:28>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<26><27:27>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<24><26:26>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<22><24:24>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<17><22:22>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<14><17:17>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<12><14:14>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<21><27:27>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<20><21:21>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<15><20:20>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<10><15:15>> (without init value) have a constant value of 0 in block <wb_uart>.
     Summary:
 	inferred  11 D-type flip-flop(s).
 	inferred   1 Multiplexer(s).
@@ -645,11 +660,11 @@ Synthesizing Unit <uart>.
     Found 4-bit register for signal <tx_bitcount>.
     Found 4-bit register for signal <tx_count16>.
     Found 16-bit register for signal <enable16_counter>.
-    Found 4-bit adder for signal <rx_count16[3]_GND_23_o_add_11_OUT> created at line 88.
-    Found 4-bit adder for signal <rx_bitcount[3]_GND_23_o_add_13_OUT> created at line 91.
-    Found 4-bit adder for signal <tx_count16[3]_GND_23_o_add_41_OUT> created at line 135.
-    Found 4-bit adder for signal <tx_bitcount[3]_GND_23_o_add_43_OUT> created at line 138.
-    Found 16-bit subtractor for signal <GND_23_o_GND_23_o_sub_3_OUT<15:0>> created at line 39.
+    Found 4-bit adder for signal <rx_count16[3]_GND_24_o_add_11_OUT> created at line 88.
+    Found 4-bit adder for signal <rx_bitcount[3]_GND_24_o_add_13_OUT> created at line 91.
+    Found 4-bit adder for signal <tx_count16[3]_GND_24_o_add_41_OUT> created at line 135.
+    Found 4-bit adder for signal <tx_bitcount[3]_GND_24_o_add_43_OUT> created at line 138.
+    Found 16-bit subtractor for signal <GND_24_o_GND_24_o_sub_3_OUT<15:0>> created at line 39.
     Summary:
 	inferred   5 Adder/Subtractor(s).
 	inferred  63 D-type flip-flop(s).
@@ -672,8 +687,8 @@ WARNING:Xst:647 - Input <wb_sel_i> is never used. This port will be preserved an
     Found 32-bit register for signal <wb_dat_o>.
     Found 8-bit register for signal <spi_cs>.
     Found 1-bit register for signal <ack>.
-    Found 8-bit adder for signal <prescaler[7]_GND_24_o_add_2_OUT> created at line 57.
-    Found 3-bit adder for signal <bitcount[2]_GND_24_o_add_6_OUT> created at line 63.
+    Found 8-bit adder for signal <prescaler[7]_GND_25_o_add_2_OUT> created at line 57.
+    Found 3-bit adder for signal <bitcount[2]_GND_25_o_add_6_OUT> created at line 63.
     Found 8-bit comparator equal for signal <prescaler[7]_divisor[7]_equal_4_o> created at line 58
     Summary:
 	inferred   2 Adder/Subtractor(s).
@@ -701,8 +716,8 @@ WARNING:Xst:647 - Input <wb_sel_i> is never used. This port will be preserved an
     Found 1-bit register for signal <irqen0>.
     Found 1-bit register for signal <irqen1>.
     Found 1-bit register for signal <ack>.
-    Found 32-bit adder for signal <counter0[31]_GND_25_o_add_6_OUT> created at line 92.
-    Found 32-bit adder for signal <counter1[31]_GND_25_o_add_9_OUT> created at line 98.
+    Found 32-bit adder for signal <counter0[31]_GND_26_o_add_6_OUT> created at line 92.
+    Found 32-bit adder for signal <counter1[31]_GND_26_o_add_9_OUT> created at line 98.
     Found 32-bit 7-to-1 multiplexer for signal <_n0180> created at line 109.
     Found 32-bit comparator equal for signal <match0> created at line 64
     Found 32-bit comparator equal for signal <match1> created at line 65
@@ -759,14 +774,14 @@ Macro Statistics
  4-bit adder                                           : 4
  6-bit subtractor                                      : 1
  8-bit adder                                           : 1
-# Registers                                            : 152
- 1-bit register                                        : 86
+# Registers                                            : 156
+ 1-bit register                                        : 89
  16-bit register                                       : 1
  2-bit register                                        : 3
  24-bit register                                       : 1
  3-bit register                                        : 3
  30-bit register                                       : 7
- 32-bit register                                       : 31
+ 32-bit register                                       : 32
  4-bit register                                        : 7
  5-bit register                                        : 3
  6-bit register                                        : 1
@@ -776,20 +791,22 @@ Macro Statistics
  32-bit comparator equal                               : 3
  5-bit comparator equal                                : 6
  8-bit comparator equal                                : 1
-# Multiplexers                                         : 142
- 1-bit 2-to-1 multiplexer                              : 45
+# Multiplexers                                         : 140
+ 1-bit 2-to-1 multiplexer                              : 41
  1-bit 4-to-1 multiplexer                              : 32
  1-bit 8-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 1
  2-bit 2-to-1 multiplexer                              : 1
  3-bit 2-to-1 multiplexer                              : 2
  30-bit 2-to-1 multiplexer                             : 3
- 32-bit 2-to-1 multiplexer                             : 46
+ 32-bit 2-to-1 multiplexer                             : 48
  32-bit 3-to-1 multiplexer                             : 3
  32-bit 7-to-1 multiplexer                             : 1
  5-bit 2-to-1 multiplexer                              : 3
  6-bit 2-to-1 multiplexer                              : 1
  8-bit 2-to-1 multiplexer                              : 3
+# Logic shifters                                       : 1
+ 64-bit shifter logical right                          : 1
 # Tristates                                            : 8
  1-bit tristate buffer                                 : 8
 # FSMs                                                 : 2
@@ -956,25 +973,27 @@ Macro Statistics
  4-bit up counter                                      : 4
  6-bit down counter                                    : 1
  8-bit up counter                                      : 1
-# Registers                                            : 1359
- Flip-Flops                                            : 1359
+# Registers                                            : 1394
+ Flip-Flops                                            : 1394
 # Comparators                                          : 11
  1-bit comparator equal                                : 1
  32-bit comparator equal                               : 3
  5-bit comparator equal                                : 6
  8-bit comparator equal                                : 1
-# Multiplexers                                         : 246
- 1-bit 2-to-1 multiplexer                              : 156
+# Multiplexers                                         : 275
+ 1-bit 2-to-1 multiplexer                              : 184
  1-bit 4-to-1 multiplexer                              : 32
  1-bit 8-to-1 multiplexer                              : 1
  2-bit 2-to-1 multiplexer                              : 1
  3-bit 2-to-1 multiplexer                              : 2
  30-bit 2-to-1 multiplexer                             : 3
- 32-bit 2-to-1 multiplexer                             : 43
+ 32-bit 2-to-1 multiplexer                             : 44
  32-bit 3-to-1 multiplexer                             : 3
  32-bit 7-to-1 multiplexer                             : 1
  5-bit 2-to-1 multiplexer                              : 3
  8-bit 2-to-1 multiplexer                              : 1
+# Logic shifters                                       : 1
+ 64-bit shifter logical right                          : 1
 # FSMs                                                 : 2
 
 =========================================================================
@@ -1107,6 +1126,8 @@ Optimizing unit <lm32_instruction_unit> ...
 
 Optimizing unit <lm32_load_store_unit> ...
 INFO:Xst:2261 - The FF/Latch <d_stb_o> in Unit <lm32_load_store_unit> is equivalent to the following FF/Latch, which will be removed : <d_cyc_o> 
+
+Optimizing unit <lm32_shifter> ...
 
 Optimizing unit <lm32_multiplier> ...
 
@@ -1245,6 +1266,7 @@ INFO:Xst:2261 - The FF/Latch <lm0/multiplier/multiplier_7> in Unit <system> is e
 INFO:Xst:2261 - The FF/Latch <lm0/multiplier/multiplier_8> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/operand_1_x_8> 
 INFO:Xst:2261 - The FF/Latch <lm0/multiplier/multiplier_9> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/operand_1_x_9> 
 INFO:Xst:2261 - The FF/Latch <lm0/logic_op_x_2> in Unit <system> is equivalent to the following 2 FFs/Latches, which will be removed : <lm0/sign_extend_x> <lm0/condition_x_2> 
+INFO:Xst:2261 - The FF/Latch <lm0/logic_op_x_3> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/direction_x> 
 INFO:Xst:2261 - The FF/Latch <lm0/multiplier/muliplicand_0> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/operand_0_x_0> 
 INFO:Xst:2261 - The FF/Latch <lm0/multiplier/muliplicand_1> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/operand_0_x_1> 
 INFO:Xst:2261 - The FF/Latch <lm0/multiplier/muliplicand_2> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/operand_0_x_2> 
@@ -1283,7 +1305,7 @@ INFO:Xst:2261 - The FF/Latch <lm0/multiplier/multiplier_29> in Unit <system> is 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block system, actual ratio is 25.
+Found area constraint ratio of 100 (+ 0) on block system, actual ratio is 28.
 Forward register balancing over carry chain lm0/Mcompar_cmp_zero_cy<0>
 Forward register balancing over carry chain spi0/Mcount_prescaler_cy<0>
 INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_0> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_8_BRB1> <lm0/load_store_unit/store_data_m_16_BRB0> <lm0/load_store_unit/store_data_m_24_BRB4> 
@@ -1295,8 +1317,9 @@ INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_5> in Unit <syste
 INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_6> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_14_BRB1> <lm0/load_store_unit/store_data_m_22_BRB0> <lm0/load_store_unit/store_data_m_30_BRB4> 
 INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_7> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_15_BRB1> <lm0/load_store_unit/store_data_m_23_BRB0> <lm0/load_store_unit/store_data_m_31_BRB4> 
 INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/size_m_1> in Unit <system> is equivalent to the following 16 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_15_BRB0> <lm0/load_store_unit/store_data_m_14_BRB0> <lm0/load_store_unit/store_data_m_13_BRB0> <lm0/load_store_unit/store_data_m_12_BRB0> <lm0/load_store_unit/store_data_m_11_BRB0> <lm0/load_store_unit/store_data_m_10_BRB0> <lm0/load_store_unit/store_data_m_9_BRB0> <lm0/load_store_unit/store_data_m_8_BRB0> <lm0/load_store_unit/store_data_m_31_BRB0> <lm0/load_store_unit/store_data_m_30_BRB0> <lm0/load_store_unit/store_data_m_29_BRB0> <lm0/load_store_unit/store_data_m_28_BRB0> <lm0/load_store_unit/store_data_m_27_BRB0> <lm0/load_store_unit/store_data_m_26_BRB0> <lm0/load_store_unit/store_data_m_25_BRB0> <lm0/load_store_unit/store_data_m_24_BRB0> 
-INFO:Xst:2261 - The FF/Latch <lm0/x_bypass_enable_x> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/m_bypass_enable_x_BRB0> 
-INFO:Xst:2261 - The FF/Latch <lm0/m_result_sel_compare_x> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/m_bypass_enable_x_BRB1> 
+INFO:Xst:2261 - The FF/Latch <lm0/m_result_sel_shift_x> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/m_bypass_enable_x_BRB0> 
+INFO:Xst:2261 - The FF/Latch <lm0/x_bypass_enable_x> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/m_bypass_enable_x_BRB1> 
+INFO:Xst:2261 - The FF/Latch <lm0/m_result_sel_compare_x> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/m_bypass_enable_x_BRB2> 
 INFO:Xst:2261 - The FF/Latch <lm0/size_x_1> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/w_result_sel_mul_x_BRB0> 
 
 Pipelining and Register Balancing Report ...
@@ -1349,8 +1372,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1219
- Flip-Flops                                            : 1219
+# Registers                                            : 1253
+ Flip-Flops                                            : 1253
 
 =========================================================================
 
@@ -1373,23 +1396,23 @@ Top Level Output File Name         : system.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1995
+# BELS                             : 2128
 #      GND                         : 1
 #      INV                         : 22
 #      LUT1                        : 99
-#      LUT2                        : 185
-#      LUT3                        : 195
-#      LUT4                        : 189
-#      LUT5                        : 249
-#      LUT6                        : 555
+#      LUT2                        : 184
+#      LUT3                        : 233
+#      LUT4                        : 94
+#      LUT5                        : 400
+#      LUT6                        : 593
 #      MUXCY                       : 261
-#      MUXF7                       : 2
+#      MUXF7                       : 4
 #      VCC                         : 1
 #      XORCY                       : 236
-# FlipFlops/Latches                : 1219
+# FlipFlops/Latches                : 1253
 #      FD                          : 36
 #      FDC                         : 121
-#      FDCE                        : 712
+#      FDCE                        : 746
 #      FDE                         : 78
 #      FDPE                        : 34
 #      FDR                         : 35
@@ -1415,17 +1438,17 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1207  out of  18224     6%  
- Number of Slice LUTs:                 1622  out of   9112    17%  
-    Number used as Logic:              1494  out of   9112    16%  
+ Number of Slice Registers:            1241  out of  18224     6%  
+ Number of Slice LUTs:                 1753  out of   9112    19%  
+    Number used as Logic:              1625  out of   9112    17%  
     Number used as Memory:              128  out of   2176     5%  
        Number used as RAM:              128
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1850
-   Number with an unused Flip Flop:     643  out of   1850    34%  
-   Number with an unused LUT:           228  out of   1850    12%  
-   Number of fully used LUT-FF pairs:   979  out of   1850    52%  
+ Number of LUT Flip Flop pairs used:   1988
+   Number with an unused Flip Flop:     747  out of   1988    37%  
+   Number with an unused LUT:           235  out of   1988    11%  
+   Number of fully used LUT-FF pairs:  1006  out of   1988    50%  
    Number of unique control sets:        40
 
 IO Utilization: 
@@ -1460,7 +1483,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 1285  |
+clk                                | BUFGP                  | 1319  |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -1471,8 +1494,8 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 12.519ns (Maximum Frequency: 79.882MHz)
-   Minimum input arrival time before clock: 5.736ns
+   Minimum period: 13.097ns (Maximum Frequency: 76.353MHz)
+   Minimum input arrival time before clock: 5.744ns
    Maximum output required time after clock: 4.419ns
    Maximum combinational path delay: No path found
 
@@ -1482,33 +1505,33 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 12.519ns (frequency: 79.882MHz)
-  Total number of paths / destination ports: 1314691 / 3134
+  Clock period: 13.097ns (frequency: 76.353MHz)
+  Total number of paths / destination ports: 1323322 / 3202
 -------------------------------------------------------------------------
-Delay:               12.519ns (Levels of Logic = 3)
-  Source:            lm0/multiplier/muliplicand_7 (FF)
+Delay:               13.097ns (Levels of Logic = 3)
+  Source:            lm0/multiplier/multiplier_3 (FF)
   Destination:       lm0/multiplier/product_31 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: lm0/multiplier/muliplicand_7 to lm0/multiplier/product_31
+  Data Path: lm0/multiplier/multiplier_3 to lm0/multiplier/product_31
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             9   0.447   0.829  lm0/multiplier/muliplicand_7 (lm0/multiplier/muliplicand_7)
-     DSP48A1:A7->P47      18   4.560   1.049  lm0/multiplier/Mmult_n0019 (lm0/multiplier/Mmult_n0019_P47_to_Mmult_n00191)
+     FDCE:C->Q            54   0.447   1.573  lm0/multiplier/multiplier_3 (lm0/multiplier/multiplier_3)
+     DSP48A1:B3->P47      18   4.394   1.049  lm0/multiplier/Mmult_n0019 (lm0/multiplier/Mmult_n0019_P47_to_Mmult_n00191)
      DSP48A1:C30->PCOUT47    1   2.689   0.000  lm0/multiplier/Mmult_n00191 (lm0/multiplier/Mmult_n00191_PCOUT_to_Mmult_n00192_PCIN_47)
      DSP48A1:PCIN47->P14    1   2.264   0.579  lm0/multiplier/Mmult_n00192 (lm0/multiplier/n0019<31>)
      FDCE:D                    0.102          lm0/multiplier/product_31
     ----------------------------------------
-    Total                     12.519ns (10.062ns logic, 2.456ns route)
-                                       (80.4% logic, 19.6% route)
+    Total                     13.097ns (9.896ns logic, 3.201ns route)
+                                       (75.6% logic, 24.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 1250 / 1233
+  Total number of paths / destination ports: 1284 / 1267
 -------------------------------------------------------------------------
-Offset:              5.736ns (Levels of Logic = 2)
+Offset:              5.744ns (Levels of Logic = 2)
   Source:            rst (PAD)
   Destination:       timer0/wb_dat_o_31 (FF)
   Destination Clock: clk rising
@@ -1517,11 +1540,11 @@ Offset:              5.736ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          1074   1.222   2.589  rst_IBUF (rst_IBUF)
+     IBUF:I->O          1107   1.222   2.597  rst_IBUF (rst_IBUF)
      LUT6:I0->O           32   0.203   1.291  timer0/_n0187<7>3 (timer0/_n0187)
      FDRE:R                    0.430          timer0/wb_dat_o_0
     ----------------------------------------
-    Total                      5.736ns (1.855ns logic, 3.881ns route)
+    Total                      5.744ns (1.855ns logic, 3.889ns route)
                                        (32.3% logic, 67.7% route)
 
 =========================================================================
@@ -1554,21 +1577,21 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |   12.519|         |         |         |
+clk            |   13.097|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 14.00 secs
-Total CPU time to Xst completion: 14.55 secs
+Total REAL time to Xst completion: 50.00 secs
+Total CPU time to Xst completion: 46.49 secs
  
 --> 
 
 
-Total memory usage is 411756 kilobytes
+Total memory usage is 413972 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  325 (   0 filtered)
-Number of infos    :  109 (   0 filtered)
+Number of infos    :  111 (   0 filtered)
 

@@ -2,9 +2,7 @@
 #include "rxdmx.h"
 
 
-
-
-//#define DEBUG 
+#define DEBUG
 
 int main()
 {
@@ -27,11 +25,5 @@ int main()
 		sleep2us();
 		ch3 = leerdatos();
 		valorchs();
-
-
-
 	}
-
 }
-
-

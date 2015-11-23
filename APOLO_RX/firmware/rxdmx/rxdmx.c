@@ -46,12 +46,12 @@ void sleep2us()
  		tcr = timer0->tcr1;
  	} while ( ! (tcr & TIMER_TRIG) );
 		
-}void sleep4us()
+}void sleep3us()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
-	timer0->compare1 = 270;
-//	timer0->compare1 = (FCPU/1000000)*(2);
+//	timer0->compare1 = 270;
+	timer0->compare1 = ((FCPU/1000000)*(2))+70 ;
 	timer0->tcr1 = TIMER_EN;
 	do {
  		tcr = timer0->tcr1;
@@ -66,11 +66,11 @@ uint8_t leerdatos()
 	valor_bit=0;
 	for(i=0;i<8;i++)
 	{
-		sleep4us();
+		sleep3us();
 		valor_bit=valor_bit<<1;
 		valor_bit=valor_bit + (gpio0->read & 0x01);
 	}
-	sleep4us();
+	sleep3us();
 	return valor_bit;
 }
 

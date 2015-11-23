@@ -57,7 +57,7 @@ Guión del enlazador y mapa de memoria
                 0x0000000000000528                timebreak
                 0x0000000000000574                timeMAB
                 0x00000000000005c0                sleep2us
-                0x00000000000005f0                sleep4us
+                0x00000000000005f0                sleep3us
                 0x0000000000000620                leerdatos
                 0x0000000000000694                valorchs
                 0x00000000000006e4                periododmx
@@ -170,13 +170,13 @@ OUTPUT(image elf32-lm32)
  .debug_aranges
                 0x0000000000000040       0x20 rxdmx.o
 
-.debug_str      0x0000000000000000      0x23e
- .debug_str     0x0000000000000000       0x97 main.o
-                                         0xa3 (tamaño antes de la relajación)
- .debug_str     0x0000000000000097      0x13f soc-hw.o
-                                        0x1db (tamaño antes de la relajación)
- .debug_str     0x00000000000001d6       0x68 rxdmx.o
-                                        0x137 (tamaño antes de la relajación)
+.debug_str      0x0000000000000000      0x235
+ .debug_str     0x0000000000000000       0x8e main.o
+                                         0x9a (tamaño antes de la relajación)
+ .debug_str     0x000000000000008e      0x13f soc-hw.o
+                                        0x1d2 (tamaño antes de la relajación)
+ .debug_str     0x00000000000001cd       0x68 rxdmx.o
+                                        0x12e (tamaño antes de la relajación)
 
 .comment        0x0000000000000000       0x11
  .comment       0x0000000000000000       0x11 main.o

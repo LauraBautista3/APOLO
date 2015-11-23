@@ -63,22 +63,32 @@ typedef struct {
 } timer_t;
 
 void msleep(uint32_t msec);
+void usleep(uint32_t usec);
 void nsleep(uint32_t nsec);
 
-void prueba();
-void prueba1();
-void tic_init();
+
+void tic_init0();
+void tic_isr();
 
 
 /***************************************************************************
  * GPIO0
  */
+#define PIN_R 0x02
+#define PIN_G 0x04
+#define PIN_B 0x08
+#define PIN4 0x01
+
 typedef struct {
 	volatile uint32_t read;
 	volatile uint32_t write;
 	volatile uint32_t dir;
 
 } gpio_t;
+
+void set_pin(uint8_t value, uint8_t npin);
+void pin_inv(uint8_t npin);
+
 
 /***************************************************************************
  * UART0
@@ -93,7 +103,7 @@ typedef struct {
 			} 
 uart_t;
 
-void uart_init();
+//void uart_init();
 void uart_putchar(char c);
 void uart_putstr(char *str);
 char uart_getchar();
@@ -122,5 +132,8 @@ extern timer_t  *timer0;
 extern uart_t   *uart0; 
 extern gpio_t   *gpio0; 
 extern uint32_t *sram0; 
+
+
+extern int contador;
 
 #endif // SPIKEHW_H

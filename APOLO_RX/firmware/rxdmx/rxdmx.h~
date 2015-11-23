@@ -4,6 +4,12 @@
 #define TBIT 4  // in us
 
 
+extern volatile uint32_t error;
+extern volatile uint32_t ch1;
+extern volatile uint32_t ch2;
+extern volatile uint32_t ch3;
+
+
 void timebreak();
 
 void timeMAB();
@@ -13,10 +19,5 @@ uint8_t leerdatos();
 
 void valorchs();
 
-extern volatile uint32_t datain;
-extern volatile uint32_t error;
-extern volatile uint32_t dato;
-extern volatile uint32_t ch1;
-extern volatile uint32_t ch2;
-extern volatile uint32_t ch3;
+
 #endif // _MDMX
