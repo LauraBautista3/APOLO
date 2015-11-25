@@ -14,6 +14,7 @@ void timebreak();
 
 void timeMAB();
 void sleep2us();
+void sleep4us();
 
 uint8_t leerdatos();
 

@@ -64,7 +64,7 @@ void main()
 
 				#ifdef DEBUG
 					uart_putstr("\ndebug case\n");
-					uart_putchar(w_c);
+//					uart_putchar(w_c);
 					uart_putchar(v_ch1);
 					uart_putchar(v_ch2);
 					uart_putchar(v_ch3);	
@@ -73,8 +73,8 @@ void main()
 		}
 		else
 		{
-	irq_enable();
-
+			irq_enable();
+			tmp_var=0;
 //			#ifdef DEBUG
 //				uart_putstr("\nok >\n");
 //		     #endif

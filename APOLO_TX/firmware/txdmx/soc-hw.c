@@ -10,9 +10,6 @@ spi_t   *spi0   = (spi_t *)    0x50000000;
 int v_ch1=0;
 int v_ch2=125;
 int v_ch3=255;
-
-
-
 int contador;
 
 

@@ -144,7 +144,7 @@ wire [1:0]   lm32i_bte,
 wire [31:0]  intr_n;
 wire         uart0_intr = 0;
 wire   [1:0] timer0_intr;
-wire         gpio0_intr;
+wire         gpio0_intr = 0;
 
 assign intr_n = { 28'hFFFFFFF, ~timer0_intr[1], ~gpio0_intr, ~timer0_intr[0], ~uart0_intr };
 

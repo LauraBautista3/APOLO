@@ -20,8 +20,8 @@ void main()
 
 	tic_init0();
 
-//	irq_set_mask(0x02);
-//	irq_enable();
+	irq_set_mask(0x02);
+	irq_enable();
 
 
 	for(;;)
@@ -30,6 +30,7 @@ void main()
 			tmp_var=uart_getchar();
 		if(tmp_var=='<')
 		{
+			irq_disable();
 			#ifdef DEBUG
 				uart_putstr("\nok <\n");
 		     #endif
@@ -72,6 +73,8 @@ void main()
 		}
 		else
 		{
+			irq_enable();
+			tmp_var=0;
 //			#ifdef DEBUG
 //				uart_putstr("\nok >\n");
 //		     #endif
