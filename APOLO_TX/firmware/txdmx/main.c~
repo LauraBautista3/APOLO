@@ -1,9 +1,9 @@
 #include "soc-hw.h"
 #include "txdmx.h"
 
-#define DEBUG 
+ #define DEBUG 
 
-int main()
+void main()
 {
 	#ifdef DEBUG
 		uart_putstr("modo debug\n");	
@@ -12,10 +12,7 @@ int main()
 	uint8_t tmp_var=0;
 	uint8_t tmp_num=0;
 	uint8_t channel=0;
-	uint8_t v_ch1=0;
-	uint8_t v_ch2=0;
-	uint8_t v_ch3=0;
-	uint8_t w_c=0;
+	int w_c=0;
 
 
 	gpio0->dir = 0xFF;
@@ -23,10 +20,10 @@ int main()
 
 	tic_init0();
 
-	irq_set_mask(0x02);
-	irq_enable();
+//	irq_set_mask(0x02);
+//	irq_enable();
 
-		
+
 	for(;;)
 	{
 		while((tmp_var!='<')&&(tmp_var!='>'))
@@ -66,6 +63,7 @@ int main()
 
 				#ifdef DEBUG
 					uart_putstr("\ndebug case\n");
+					uart_putchar(w_c);
 					uart_putchar(v_ch1);
 					uart_putchar(v_ch2);
 					uart_putchar(v_ch3);	

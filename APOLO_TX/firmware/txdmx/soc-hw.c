@@ -7,10 +7,10 @@ spi_t   *spi0   = (spi_t *)    0x50000000;
 
 //isr_ptr_t isr_table[32];
 
-uint8_t v_ch1=0;
-uint8_t v_ch2=0;
-uint8_t v_ch3=0;
-uint8_t estado_actual=0;
+int v_ch1=0;
+int v_ch2=125;
+int v_ch3=255;
+
 
 
 int contador;
@@ -28,7 +28,16 @@ void irq_handler(uint32_t pending)
 //		if (pending & 0x01) (*isr_table[i])();
 //		pending >>= 1;
 //	}
-	tic_isr();
+	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
+	contador =contador+1;
+     if (contador >255)
+		contador =0;
+	//uart_putchar(contador);
+
+
+	tic_isr(PIN_R, v_ch1);
+	tic_isr(PIN_G, v_ch2);
+	tic_isr(PIN_B, v_ch3);
 }
 
 /*void isr_init()
@@ -101,7 +110,7 @@ void nsleep(uint32_t nsec)
 
 //uint32_t tic_msec;
 
-void tic_isr()
+/*void tic_isr()
 {
 //	tic_msec++;
 //	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
@@ -116,6 +125,19 @@ void tic_isr()
     		set_pin(0,PIN_G);
 	
 	contador =contador+1;
+     
+}
+*/
+
+void tic_isr(uint8_t PINRGB, uint8_t Valor_C)
+{
+	
+
+	if (contador < Valor_C)
+    		set_pin(1,PINRGB);
+	else 
+    		set_pin(0,PINRGB);
+	
      
 }
 

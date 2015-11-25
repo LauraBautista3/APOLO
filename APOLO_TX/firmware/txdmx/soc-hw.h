@@ -68,7 +68,8 @@ void nsleep(uint32_t nsec);
 
 
 void tic_init0();
-void tic_isr();
+//void tic_isr();
+void tic_isr(uint8_t PINRGB, uint8_t Valor_C);
 
 
 /***************************************************************************
@@ -135,5 +136,10 @@ extern uint32_t *sram0;
 
 
 extern int contador;
+
+extern int v_ch1;
+extern int v_ch2;
+extern int v_ch3;
+
 
 #endif // SPIKEHW_H

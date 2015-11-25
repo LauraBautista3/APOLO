@@ -25,10 +25,23 @@ void config_dmx()
  
 }
 
+
+void pin_inv_old(uint32_t num)
+{
+	uint32_t i;
+	uint32_t pin_act;
+	pin_act = (~gpio0->read) & DMX_PIN;
+     set_pin(pin_act, DMX_PIN);
+	for(i=0;i<num;i++)
+		sleept1();
+}
+
+
+
 void dmx_init_send()
 {
-	pin_inv(22);
-	pin_inv(2);
+	pin_inv_old(22);
+	pin_inv_old(2);
 	dmx_channel_send(0);    	
  }
 
@@ -37,7 +50,7 @@ void dmx_init_send()
 void dmx_channel_send(uint8_t value)
 {
 	uint8_t bit, i;
-       pin_inv(1); // bita start
+       pin_inv_old(1); // bita start
  	//nsleep(4000);
 	for(i=0;i<8;i++)
 	{

@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="Map" timeStamp="Mon Nov 23 18:44:12 2015">
+  <application stringID="Map" timeStamp="Tue Nov 24 20:03:27 2015">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -33,7 +33,7 @@
         <column stringID="speed"/>
         <row stringID="row" value="0">
           <item stringID="arch" value="Intel(R) Core(TM) i5-4200U CPU @ 1.60GHz"/>
-          <item stringID="speed" value="799.968 MHz"/>
+          <item stringID="speed" value="2582.917 MHz"/>
         </row>
       </table>
     </section>
@@ -94,9 +94,9 @@
         <item dataType="int" stringID="MAP_NUM_ERRORS" value="0"/>
         <item dataType="int" stringID="MAP_FILTERED_WARNINGS" value="0"/>
         <item dataType="int" stringID="MAP_NUM_WARNINGS" value="0"/>
-        <item UNITS="KB" dataType="int" stringID="MAP_PEAK_MEMORY" value="765140"/>
-        <item stringID="MAP_TOTAL_REAL_TIME" value="1 mins 51 secs "/>
-        <item stringID="MAP_TOTAL_CPU_TIME" value="1 mins 48 secs "/>
+        <item UNITS="KB" dataType="int" stringID="MAP_PEAK_MEMORY" value="765136"/>
+        <item stringID="MAP_TOTAL_REAL_TIME" value="36 secs "/>
+        <item stringID="MAP_TOTAL_CPU_TIME" value="35 secs "/>
       </section>
       <section stringID="MAP_SLICE_REPORTING">
         <item AVAILABLE="18224" dataType="int" label="Number of Slice Registers" stringID="MAP_SLICE_REGISTERS" value="1242">
