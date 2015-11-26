@@ -6,8 +6,22 @@
 
 int main()
 {
+
 	uint32_t dato=0;
-	gpio0->dir=0x00;
+
+
+	gpio0->dir = 0xFF;
+	gpio0->write = 0xFF;
+
+	tic_init0();
+
+	irq_set_mask(0x02);
+	irq_enable();
+
+
+
+
+
 	for(;;)
 	{
 		while (gpio0->read & 0x01);

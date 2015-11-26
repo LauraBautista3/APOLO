@@ -9,6 +9,8 @@ int main()
 
 	uint32_t dato=0;
 
+//falta la entrada gpio del dmx
+
 
 	gpio0->dir = 0xFF;
 	gpio0->write = 0xFF;

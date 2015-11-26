@@ -8,11 +8,11 @@ void main()
 	#ifdef DEBUG
 		uart_putstr("modo debug\n");	
      	#endif
-//	config_dmx();
-	uint8_t tmp_var=0;
-	uint8_t tmp_num=0;
-	uint8_t channel=0;
-	int w_c=0;
+	config_dmx();
+//	uint8_t tmp_var=0;
+//	uint8_t tmp_num=0;
+//	uint8_t channel=0;
+//	int w_c=0;
 
 
 	gpio0->dir = 0xFF;
@@ -26,7 +26,7 @@ void main()
 
 	for(;;)
 	{
-		while((tmp_var!='<')&&(tmp_var!='>'))
+/*		//while((tmp_var!='<')&&(tmp_var!='>'))
 			tmp_var=uart_getchar();
 		if(tmp_var=='<')
 		{
@@ -64,7 +64,6 @@ void main()
 
 				#ifdef DEBUG
 					uart_putstr("\ndebug case\n");
-					uart_putchar(w_c);
 					uart_putchar(v_ch1);
 					uart_putchar(v_ch2);
 					uart_putchar(v_ch3);	
@@ -78,17 +77,12 @@ void main()
 //			#ifdef DEBUG
 //				uart_putstr("\nok >\n");
 //		     #endif
-//			dmx_init_send();  //      llamar funcion codificador 	dmx         
-//			sleept1();
-//			dmx_channel_send(v_ch1);
-//			sleept1();
-//			dmx_channel_send(v_ch2);
-//			sleept1();
-//			dmx_channel_send(v_ch3);
-//			sleept1();
 
-		} 
+
+*/
+
+//		} 
 	
-	}
+//	}
 }
 
