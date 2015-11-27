@@ -38,7 +38,6 @@ void pin_inv_old(uint32_t num)
 
 
 
-
 void dmx_init_send()
 {
 	pin_inv_old(22);

@@ -13,6 +13,8 @@
 
 #define UART_RXBUFSIZE 32
 
+void leer_datos();
+
 
 /****************************************************************************
  * Types
@@ -68,7 +70,7 @@ void nsleep(uint32_t nsec);
 
 
 void tic_init0();
-void tic_isr(uint8_t PINRGB, uint8_t Valor_C);
+void pwm(uint8_t PINRGB, int Valor_C);
 
 
 /***************************************************************************

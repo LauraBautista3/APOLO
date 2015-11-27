@@ -8,6 +8,8 @@ void sleept1();
 
 void config_dmx();
 
+void pin_inv_old();
+
 void dmx_init_send();
 
 void dmx_channel_send(uint8_t value);

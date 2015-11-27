@@ -5,11 +5,9 @@ timer_t *timer0 = (timer_t *)  0x30000000;
 gpio_t  *gpio0  = (gpio_t *)   0x40000000;
 spi_t   *spi0   = (spi_t *)    0x50000000;
 
-//isr_ptr_t isr_table[32];
-
-int v_ch1=0;
-int v_ch2=125;
-int v_ch3=255;
+int v_ch1=1;
+int v_ch2=2;
+int v_ch3=3;
 int contador;
 
 
@@ -22,7 +20,7 @@ void irq_handler(uint32_t pending)
 
 	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
 	contador =contador+1;
-     if (contador >255)
+     if (contador > 255)
 		contador =0;
 	//uart_putchar(contador);
 	pwm(PIN_R, v_ch1);
@@ -31,8 +29,16 @@ void irq_handler(uint32_t pending)
 
 	if ( uart0->ucr & UART_DR)
 		leer_datos();
-
 	
+}
+
+
+void pwm(uint8_t PINRGB, int Valor_C)
+{
+	if (contador < Valor_C)
+    		set_pin(1,PINRGB);
+	else 
+    		set_pin(0,PINRGB);     
 }
 
 
@@ -71,10 +77,6 @@ void leer_datos()
 		{
 		irq_enable();
 		}
-
-
-
-
 }
 
 /***************************************************************************
@@ -122,38 +124,6 @@ void nsleep(uint32_t nsec)
 }
 
 
-//uint32_t tic_msec;
-
-/*void tic_isr()
-{
-//	tic_msec++;
-//	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
-
-
-	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
-	pin_inv(PIN_R);
-//	pin_inv(PIN_G);
-	if (contador && 1)
-    		set_pin(1,PIN_G);
-	else 
-    		set_pin(0,PIN_G);
-	
-	contador =contador+1;
-     
-}
-*/
-
-void pwm(uint8_t PINRGB, uint8_t Valor_C)
-{
-	
-
-	if (contador < Valor_C)
-    		set_pin(1,PINRGB);
-	else 
-    		set_pin(0,PINRGB);
-	
-     
-}
 
 void tic_init0()
 {
@@ -189,8 +159,6 @@ void pin_inv(uint8_t npin)
 /***************************************************************************
  * UART Functions
  */
-
-
 
 char uart_getchar()
 {   
