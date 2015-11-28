@@ -6,10 +6,15 @@ gpio_t  *gpio0  = (gpio_t *)   0x40000000;
 spi_t   *spi0   = (spi_t *)    0x50000000;
 
 int v_ch1=1;
-int v_ch2=2;
+int v_ch2=0;
 int v_ch3=3;
 int contador;
+int status=0;
 
+uint8_t tmp_var=0;
+uint8_t tmp_num=0;
+uint8_t channel=1;
+int w_c=0;
 
 /***************************************************************************
  * IRQ handling
@@ -23,13 +28,18 @@ void irq_handler(uint32_t pending)
      if (contador > 255)
 		contador =0;
 	//uart_putchar(contador);
+	if ( uart0->ucr & UART_DR)
+	{
+         status =1;
+	}
+
+	else{
+
 	pwm(PIN_R, v_ch1);
 	pwm(PIN_G, v_ch2);
 	pwm(PIN_B, v_ch3);
 
-	if ( uart0->ucr & UART_DR)
-		leer_datos();
-	
+ 	}
 }
 
 
@@ -44,18 +54,14 @@ void pwm(uint8_t PINRGB, int Valor_C)
 
 void leer_datos()
 {
-	uint8_t tmp_var=0;
-	uint8_t tmp_num=0;
-	uint8_t channel=0;
-	int w_c=0;
-	
-
 	tmp_var=uart_getchar();
-		if(tmp_var=='<')
+	if(tmp_var=='<')
 		{
-			irq_disable();	         
+			uart_putstr("\nok <\n");
 			tmp_num=uart_getchar();
+				uart_putchar(tmp_num);
 			tmp_var=uart_getchar();
+				uart_putchar(tmp_var);
 			if (tmp_var == 'c')
 			{
 			if (tmp_num <= 3)
@@ -64,19 +70,25 @@ void leer_datos()
 			else if (tmp_var == 'w') 
 			{
 				w_c = tmp_num;
-
-	   			if (channel==1) 
+	   			if (channel==1)
 					v_ch1 = w_c;
 				else if (channel==2) 
 					v_ch2 = w_c;
 				else if (channel==3) 
 					v_ch3 = w_c;
+
+				uart_putstr("\n asignacion \n");
+				uart_putchar(v_ch1);
+				uart_putchar(v_ch2);
+				uart_putchar(v_ch3);	
+	
 			}
 		}
-		else
-		{
-		irq_enable();
-		}
+	else if (tmp_var=='>')
+	{
+	status=0;
+	}
+//	status=0;
 }
 
 /***************************************************************************
@@ -127,11 +139,10 @@ void nsleep(uint32_t nsec)
 
 void tic_init0()
 {
-	timer0->compare0 = (FCPU/1000000)*5;
+	timer0->compare0 = (FCPU/1000000)*10;
 	timer0->counter0 = 0;
 	timer0->tcr0     = TIMER_EN | TIMER_AR| TIMER_IRQEN;
 	contador=0;
-
 }
 
 /**********************************************************

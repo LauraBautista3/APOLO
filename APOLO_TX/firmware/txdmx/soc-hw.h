@@ -137,10 +137,17 @@ extern uint32_t *sram0;
 
 
 extern int contador;
+extern int status;
 
 extern int v_ch1;
 extern int v_ch2;
 extern int v_ch3;
+
+extern uint8_t tmp_var;
+extern uint8_t tmp_num;
+extern uint8_t channel;
+extern int w_c;
+
 
 
 #endif // SPIKEHW_H
