@@ -63,6 +63,3 @@ void dmx_channel_send(uint8_t value)
 	sleept1();
 	sleept1();
 }
-
-
-

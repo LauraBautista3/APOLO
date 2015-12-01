@@ -64,9 +64,7 @@ typedef struct {
 	volatile uint32_t counter1;
 } timer_t;
 
-void msleep(uint32_t msec);
-void usleep(uint32_t usec);
-void nsleep(uint32_t nsec);
+
 
 
 void tic_init0();

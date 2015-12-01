@@ -44,7 +44,6 @@ void     isr_unregister(int irq);
 void     halt();
 void     jump(uint32_t addr);
 
-
 /****************************************************************************
  * Timer
  */
@@ -68,7 +67,6 @@ void nsleep(uint32_t nsec);
 
 
 void tic_init0();
-//void tic_isr();
 void tic_isr(uint8_t PINRGB, uint8_t Valor_C);
 
 
@@ -136,8 +134,6 @@ extern uint32_t *sram0;
 
 
 extern int contador;
-
-
 
 
 #endif // SPIKEHW_H

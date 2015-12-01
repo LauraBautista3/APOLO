@@ -5,9 +5,9 @@ timer_t *timer0 = (timer_t *)  0x30000000;
 gpio_t  *gpio0  = (gpio_t *)   0x40000000;
 spi_t   *spi0   = (spi_t *)    0x50000000;
 
-int v_ch1=1;
-int v_ch2=0;
-int v_ch3=3;
+int v_ch1=250;
+int v_ch2=125;
+int v_ch3=40;
 int contador;
 int status=0;
 
@@ -94,47 +94,6 @@ void leer_datos()
 /***************************************************************************
  * TIMER Functions
  */
-void msleep(uint32_t msec)
-{
-	uint32_t tcr;
-
-	timer0->compare0 = (FCPU/1000)*msec;
-	timer0->counter0 = 0;
-	timer0->tcr0 = TIMER_EN;
-
-	do {
- 		tcr = timer0->tcr0;
- 	} while ( ! (tcr & TIMER_TRIG) );
-}
-
-
-void usleep(uint32_t usec)
-{
-	uint32_t tcr;
-
-	timer0->compare0 = (FCPU/1000000)*usec;
-	timer0->counter0 = 0;
-	timer0->tcr0 = TIMER_EN   ;
-
-	do {
- 		tcr = timer0->tcr0;
- 	} while ( ! (tcr & TIMER_TRIG) );
-}
-
-
-void nsleep(uint32_t nsec)
-{
-	uint32_t tcr;
-
-	timer0->compare0 = (FCPU/1000000)*nsec;
-	timer0->counter0 = 0;
-	timer0->tcr0 = TIMER_EN;
-
-	do {
- 		tcr = timer0->tcr0;
- 	} while ( ! (tcr & TIMER_TRIG) );
-}
-
 
 
 void tic_init0()

@@ -9,19 +9,13 @@ int main()
 
 	uint32_t dato=0;
 
-//falta la entrada gpio del dmx
-
-
-	gpio0->dir = 0xFF;
-	gpio0->write = 0xFF;
+	gpio0->dir = 0x7F; // 0111 1111 pin 1 para la entrada del dmx 
+	gpio0->write = 0x7F; 
 
 	tic_init0();
 
 	irq_set_mask(0x02);
 	irq_enable();
-
-
-
 
 
 	for(;;)

@@ -2,7 +2,7 @@
 #include "rxdmx.h"
 
 
-volatile uint32_t error=0;
+//volatile uint32_t error=0;
 volatile uint32_t ch1;
 volatile uint32_t ch2;
 volatile uint32_t ch3;
@@ -82,19 +82,3 @@ void valorchs(){
 }
 
 
-
-void periododmx()
-{
-
-
-}
-
-
-void pwm(uint8_t canal){
-	
-	
-	
-	
-	
-	
-	}

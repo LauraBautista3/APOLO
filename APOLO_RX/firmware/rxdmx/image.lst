@@ -222,15 +222,14 @@ int main()
 
 	uint32_t dato=0;
 
-
-	gpio0->dir = 0xFF;
+	gpio0->dir = 0x7F; // 0111 1111 pin 1 para la entrada del dmx 
  220:	78 0b 00 00 	mvhi r11,0x0
  224:	39 6b 07 5c 	ori r11,r11,0x75c
  228:	29 62 00 00 	lw r2,(r11+0)
- 22c:	34 01 00 ff 	mvi r1,255
+ 22c:	34 01 00 7f 	mvi r1,127
  230:	78 0e 00 00 	mvhi r14,0x0
  234:	58 41 00 08 	sw (r2+8),r1
-	gpio0->write = 0xFF;
+	gpio0->write = 0x7F; 
  238:	58 41 00 04 	sw (r2+4),r1
 
 	tic_init0();
@@ -247,7 +246,6 @@ int main()
  258:	39 ad 07 64 	ori r13,r13,0x764
  25c:	39 8c 07 6c 	ori r12,r12,0x76c
  260:	29 62 00 00 	lw r2,(r11+0)
-
 
 
 	for(;;)

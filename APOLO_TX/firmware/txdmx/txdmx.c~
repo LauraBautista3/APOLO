@@ -62,8 +62,7 @@ void dmx_channel_send(uint8_t value)
 	gpio0->write = gpio0->read | DMX_PIN;
 	sleept1();
 	sleept1();
-	
-	}
+}
 
 
 
