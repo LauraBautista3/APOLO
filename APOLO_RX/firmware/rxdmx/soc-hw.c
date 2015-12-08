@@ -3,34 +3,70 @@
 uart_t  *uart0  = (uart_t *)   0x20000000;
 timer_t *timer0 = (timer_t *)  0x30000000;
 gpio_t  *gpio0  = (gpio_t *)   0x40000000;
+//uart_t  *uart1  = (uart_t *)   0x20000000;
 spi_t   *spi0   = (spi_t *)    0x50000000;
+//i2c_t   *i2c0   = (i2c_t *)    0x70000000;
+
+isr_ptr_t isr_table[32];
 
 
 
-volatile uint32_t ch1=0;
-volatile uint32_t ch2=255;
-volatile uint32_t ch3=0;
-int contador;
+
+void prueba()
+{
+//	   uart0->rxtx=30;
+//	   timer0->tcr0 = 0xAA;
+	   gpio0->dir=0x0F; 
+}
+void prueba1()
+{
+           gpio0->write = 0xff;
+}
+void prueba2()
+{
+           gpio0->write = 0x00;
+}
+//	   spi0->rxtx=1;
+//	   spi0->nop1=2;
+//	   spi0->cs=3;
+//	   spi0->divisor=4;
+//	   spi0->nop2=5;
 
 
+void tic_isr();
 /***************************************************************************
  * IRQ handling
  */
+void isr_null()
+{
+}
 
 void irq_handler(uint32_t pending)
 {
-	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
-	contador =contador+1;
-     if (contador >255)
-		contador =0;
-	//uart_putchar(contador);
+	int i;
 
-
-	tic_isr(PIN_R, ch1);
-	tic_isr(PIN_G, ch2);
-	tic_isr(PIN_B, ch3);
+	for(i=0; i<32; i++) {
+		if (pending & 0x01) (*isr_table[i])();
+		pending >>= 1;
+	}
 }
 
+void isr_init()
+{
+	int i;
+	for(i=0; i<32; i++)
+		isr_table[i] = &isr_null;
+}
+
+void isr_register(int irq, isr_ptr_t isr)
+{
+	isr_table[irq] = isr;
+}
+
+void isr_unregister(int irq)
+{
+	isr_table[irq] = &isr_null;
+}
 
 /***************************************************************************
  * TIMER Functions
@@ -39,91 +75,66 @@ void msleep(uint32_t msec)
 {
 	uint32_t tcr;
 
+	// Use timer0.1
 	timer0->compare1 = (FCPU/1000)*msec;
 	timer0->counter1 = 0;
 	timer0->tcr1 = TIMER_EN;
 
 	do {
-
-		tcr = timer0->tcr1;
- 	} while ( ! (tcr & TIMER_TRIG) );
-}
-
-
-void usleep(uint32_t usec)
-{
-	uint32_t tcr;
-
-	timer0->compare1 = (FCPU/1000000)*usec;
-	timer0->counter1 = 0;
-	timer0->tcr1 = TIMER_EN   ;
-
-	do {
+		//halt();
  		tcr = timer0->tcr1;
  	} while ( ! (tcr & TIMER_TRIG) );
 }
-
 
 void nsleep(uint32_t nsec)
 {
 	uint32_t tcr;
 
+	// Use timer0.1
 	timer0->compare1 = (FCPU/1000000)*nsec;
 	timer0->counter1 = 0;
 	timer0->tcr1 = TIMER_EN;
 
 	do {
+		//halt();
  		tcr = timer0->tcr1;
  	} while ( ! (tcr & TIMER_TRIG) );
 }
 
 
-void tic_isr(uint8_t PINRGB, uint8_t Valor_C)
-{
-	
+uint32_t tic_msec;
 
-	if (contador < Valor_C)
-    		set_pin(1,PINRGB);
-	else 
-    		set_pin(0,PINRGB);
-	
-     
+void tic_isr()
+{
+	tic_msec++;
+	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
 }
 
-void tic_init0()
+void tic_init()
 {
-	timer0->compare0 = (FCPU/1000000)*5;
+	tic_msec = 0;
+
+	// Setup timer0.0
+	timer0->compare0 = (FCPU/10000);
 	timer0->counter0 = 0;
-	timer0->tcr0     = TIMER_EN | TIMER_AR| TIMER_IRQEN;
-	contador=0;
+	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
 
+	isr_register(1, &tic_isr);
 }
-
-/**********************************************************
- * GPIO Functions
- */
-
-void set_pin(uint8_t value, uint8_t npin)
-{
-     if (value)
-		gpio0->write = gpio0->read | npin;
-	else
-		gpio0->write = gpio0->read & (~npin);
-
-}
-
-void pin_inv(uint8_t npin)
-{
-	uint32_t val;
-	val = (~gpio0->read) & npin;
-    set_pin(val,npin);
-}
-
 
 
 /***************************************************************************
  * UART Functions
  */
+void uart_init()
+{
+	//uart0->ier = 0x00;  // Interrupt Enable Register
+	//uart0->lcr = 0x03;  // Line Control Register:    8N1
+	//uart0->mcr = 0x00;  // Modem Control Register
+
+	// Setup Divisor register (Fclk / Baud)
+	//uart0->div = (FCPU/(57600*16));
+}
 
 char uart_getchar()
 {   

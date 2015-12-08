@@ -1,7 +1,6 @@
 #include "soc-hw.h"
 #include "txdmx.h"
 
-//#define DEBUG 
 
 int main()
 {
@@ -24,10 +23,9 @@ int main()
 			sleept1();
 			dmx_channel_send(v_ch3);
 			sleept1();
-		if (status)
-		{
-			leer_datos();
-		}			
+			if ( uart0->ucr & UART_DR)
+				leer_datos();
+				
 	}
 }
 

@@ -87,6 +87,7 @@ typedef struct {
 } gpio_t;
 
 void set_pin(uint8_t value, uint8_t npin);
+void set_pinDMX(uint8_t value);
 void pin_inv(uint8_t npin);
 
 

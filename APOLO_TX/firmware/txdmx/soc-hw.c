@@ -5,9 +5,9 @@ timer_t *timer0 = (timer_t *)  0x30000000;
 gpio_t  *gpio0  = (gpio_t *)   0x40000000;
 spi_t   *spi0   = (spi_t *)    0x50000000;
 
-int v_ch1=250;
-int v_ch2=125;
-int v_ch3=40;
+int v_ch1=255;
+int v_ch2=170;
+int v_ch3=0;
 int contador;
 int status=0;
 
@@ -24,22 +24,19 @@ void irq_handler(uint32_t pending)
 {
 
 	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
-	contador =contador+1;
-     if (contador > 255)
-		contador =0;
+     
+//	contador =contador+1;
+  //   if (contador > 255)
+	//	contador =0;
 	//uart_putchar(contador);
-	if ( uart0->ucr & UART_DR)
-	{
-         status =1;
-	}
 
-	else{
+	//else{
 
-	pwm(PIN_R, v_ch1);
-	pwm(PIN_G, v_ch2);
-	pwm(PIN_B, v_ch3);
+//	pwm(PIN_R, v_ch1);
+//	pwm(PIN_G, v_ch2);
+//	pwm(PIN_B, v_ch3);
 
- 	}
+ //	}
 }
 
 
@@ -114,6 +111,15 @@ void set_pin(uint8_t value, uint8_t npin)
 		gpio0->write = gpio0->read | npin;
 	else
 		gpio0->write = gpio0->read & (~npin);
+
+}
+
+void set_pinDMX(uint8_t value)
+{
+     if (value)
+		gpio0->write = gpio0->read | 0x01;
+	else
+		gpio0->write = gpio0->read & 0xFE;
 
 }
 

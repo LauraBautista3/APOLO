@@ -44,6 +44,7 @@ void     isr_unregister(int irq);
 void     halt();
 void     jump(uint32_t addr);
 
+
 /****************************************************************************
  * Timer
  */
@@ -62,32 +63,22 @@ typedef struct {
 } timer_t;
 
 void msleep(uint32_t msec);
-void usleep(uint32_t usec);
 void nsleep(uint32_t nsec);
 
-
-void tic_init0();
-void tic_isr(uint8_t PINRGB, uint8_t Valor_C);
+void prueba();
+void prueba1();
+void tic_init();
 
 
 /***************************************************************************
  * GPIO0
  */
-#define PIN_R 0x02
-#define PIN_G 0x04
-#define PIN_B 0x08
-#define PIN4 0x01
-
 typedef struct {
 	volatile uint32_t read;
 	volatile uint32_t write;
 	volatile uint32_t dir;
 
 } gpio_t;
-
-void set_pin(uint8_t value, uint8_t npin);
-void pin_inv(uint8_t npin);
-
 
 /***************************************************************************
  * UART0
@@ -131,9 +122,5 @@ extern timer_t  *timer0;
 extern uart_t   *uart0; 
 extern gpio_t   *gpio0; 
 extern uint32_t *sram0; 
-
-
-extern int contador;
-
 
 #endif // SPIKEHW_H

@@ -8,10 +8,10 @@ int main()
 	gpio0->dir = 0xFF;
 	gpio0->write = 0xFF;
 
-	tic_init0();
+//	tic_init0();
 
-	irq_set_mask(0x02);
-	irq_enable();
+//	irq_set_mask(0x02);
+//	irq_enable();
 
 	for(;;)
 	{
@@ -23,10 +23,9 @@ int main()
 			sleept1();
 			dmx_channel_send(v_ch3);
 			sleept1();
-		if (status)
-		{
-			leer_datos();
-		}			
+			if ( uart0->ucr & UART_DR)
+				leer_datos();
+				
 	}
 }
 
