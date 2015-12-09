@@ -14,6 +14,7 @@
 #define UART_RXBUFSIZE 32
 
 
+
 /****************************************************************************
  * Types
  */
@@ -62,23 +63,31 @@ typedef struct {
 	volatile uint32_t counter1;
 } timer_t;
 
-void msleep(uint32_t msec);
-void nsleep(uint32_t nsec);
 
-void prueba();
-void prueba1();
-void tic_init();
+
+
+void tic_init0();
+void pwm(uint8_t PINRGB, int Valor_C);
 
 
 /***************************************************************************
  * GPIO0
  */
+#define PIN_R 0x02
+#define PIN_G 0x04
+#define PIN_B 0x08
+
 typedef struct {
 	volatile uint32_t read;
 	volatile uint32_t write;
 	volatile uint32_t dir;
 
 } gpio_t;
+
+void set_pin(uint8_t value, uint8_t npin);
+void set_pinDMX(uint8_t value);
+void pin_inv(uint8_t npin);
+
 
 /***************************************************************************
  * UART0
@@ -93,7 +102,7 @@ typedef struct {
 			} 
 uart_t;
 
-void uart_init();
+//void uart_init();
 void uart_putchar(char c);
 void uart_putstr(char *str);
 char uart_getchar();
@@ -122,5 +131,14 @@ extern timer_t  *timer0;
 extern uart_t   *uart0; 
 extern gpio_t   *gpio0; 
 extern uint32_t *sram0; 
+
+
+extern int contador;
+
+
+extern uint32_t ch1_;
+extern uint32_t ch2_;
+extern uint32_t ch3_;
+
 
 #endif // SPIKEHW_H

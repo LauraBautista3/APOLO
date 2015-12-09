@@ -3,9 +3,9 @@
 
 volatile uint32_t dato;
 volatile uint32_t error=0;
-volatile uint32_t ch1;
-volatile uint32_t ch2;
-volatile uint32_t ch3;
+uint32_t ch1;
+uint32_t ch2;
+uint32_t ch3;
 
 
 void timebreak()
@@ -23,23 +23,22 @@ void timebreak()
 		error = 1;
 	else
 		while (!(gpio0->read & 0x01));
+	timer0->counter1 = 0;
 }
 
 
 void timeMAB()
 {
 	uint32_t tcr;
-     uint8_t p =gpio0->read & 0x01;
 	timer0->counter1 = 0;
 	timer0->compare1 = (FCPU/1000000)*(8);
 	timer0->tcr1 = TIMER_EN;
 	do {
  		tcr = timer0->tcr1;
- 	} while ( (! (tcr & TIMER_TRIG)) && (!p) );
+ 	} while ( ! ((tcr & TIMER_TRIG)) );
 	timer0->tcr1=0;
-
 	while ((gpio0->read & 0x01));
-
+	timer0->counter1 = 0;
 }
 
 void sleep2us()
@@ -52,8 +51,11 @@ void sleep2us()
 	do {
  		tcr = timer0->tcr1;
  	} while ( ! (tcr & TIMER_TRIG) );
-		
-}void sleep4us()
+	timer0->counter1 = 0;		
+}
+
+
+void sleep4us()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
@@ -63,7 +65,7 @@ void sleep2us()
 	do {
  		tcr = timer0->tcr1;
  	} while ( ! (tcr & TIMER_TRIG) );
-
+	timer0->counter1 = 0;
 }
 
 uint8_t leerdatos()

@@ -3,9 +3,9 @@
 
 volatile uint32_t dato;
 volatile uint32_t error=0;
-volatile uint32_t ch1;
-volatile uint32_t ch2;
-volatile uint32_t ch3;
+uint32_t ch1;
+uint32_t ch2;
+uint32_t ch3;
 
 
 void timebreak()

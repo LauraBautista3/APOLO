@@ -26,7 +26,7 @@
 //---------------------------------------------------------------------------
 
 module wb_timer #(
-	parameter          clk_freq = 50000000
+	parameter          clk_freq = 100000000
 ) (
 	input              clk,
 	input              reset,

@@ -27,7 +27,4 @@ NET "gpio_io[7]" LOC = "V11"    | IOSTANDARD = "LVCMOS33";
 NET "spi_miso"	LOC = "N11"	| IOSTANDARD = "LVCMOS33";		
 NET "spi_mosi"	LOC = "R11"	| IOSTANDARD = "LVCMOS33";		
 NET "spi_clk"	LOC = "T11"	| IOSTANDARD = "LVCMOS33";		
-
-# ==== I2C ====
-#NET "i2c_sda"	LOC = "V16"	| IOSTANDARD = "LVCMOS33";		
-#NET "i2c_clk"	LOC = "U15"	| IOSTANDARD = "LVCMOS33";	
+	

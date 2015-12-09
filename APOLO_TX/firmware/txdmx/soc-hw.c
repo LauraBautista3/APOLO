@@ -9,7 +9,6 @@ int v_ch1=255;
 int v_ch2=170;
 int v_ch3=0;
 int contador;
-int status=0;
 
 uint8_t tmp_var=0;
 uint8_t tmp_num=0;
@@ -25,18 +24,16 @@ void irq_handler(uint32_t pending)
 
 	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
      
-//	contador =contador+1;
-  //   if (contador > 255)
-	//	contador =0;
-	//uart_putchar(contador);
+	contador =contador+1;
+     if (contador > 255)
+		contador =0;
 
-	//else{
 
-//	pwm(PIN_R, v_ch1);
-//	pwm(PIN_G, v_ch2);
-//	pwm(PIN_B, v_ch3);
+	pwm(PIN_R, v_ch1);
+	pwm(PIN_G, v_ch2);
+	pwm(PIN_B, v_ch3);
 
- //	}
+
 }
 
 
@@ -81,11 +78,6 @@ void leer_datos()
 	
 			}
 		}
-	else if (tmp_var=='>')
-	{
-	status=0;
-	}
-//	status=0;
 }
 
 /***************************************************************************

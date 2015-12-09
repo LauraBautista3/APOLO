@@ -136,7 +136,7 @@ extern uint32_t *sram0;
 
 
 extern int contador;
-extern int status;
+
 
 extern int v_ch1;
 extern int v_ch2;

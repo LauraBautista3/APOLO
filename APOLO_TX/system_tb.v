@@ -58,7 +58,7 @@ initial begin
 	#0  rst <= 1;
 	#40 rst <= 0;
 
-	#(tck*500000) $finish;
+	#(tck*300000) $finish;
 end
 
 
