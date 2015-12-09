@@ -6,7 +6,7 @@ int main()
 {
 	config_dmx();
 	gpio0->dir = 0xFF;
-	gpio0->write = 0x0F;
+	gpio0->write = 0xFF;
 
 //	tic_init0();
 

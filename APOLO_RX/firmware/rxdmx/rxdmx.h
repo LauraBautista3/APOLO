@@ -8,15 +8,15 @@ void timebreak();
 
 void timeMAB();
 void sleep2us();
-
+void sleep4us();
 uint8_t leerdatos();
 
 void valorchs();
 
 
-extern volatile uint32_t error;
-extern volatile uint32_t dato;
-extern  uint32_t ch1;
-extern  uint32_t ch2;
-extern  uint32_t ch3;
+extern int error;
+extern uint32_t dato;
+extern int ch1;
+extern int ch2;
+extern int ch3;
 #endif // _MDMX

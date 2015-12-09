@@ -77,7 +77,7 @@ void pwm(uint8_t PINRGB, int Valor_C);
 #define PIN_R 0x02
 #define PIN_G 0x04
 #define PIN_B 0x08
-#define PIN4 0x01
+
 
 typedef struct {
 	volatile uint32_t read;

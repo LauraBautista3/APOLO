@@ -3,31 +3,31 @@ image:     formato del fichero elf32-lm32
 
 Secciones:
 Ind Nombre        Tamaño    VMA       LMA       Desp fich Alin
-  0 .text         0000071c  00000000  00000000  00000054  2**2
+  0 .text         000006e0  00000000  00000000  00000054  2**2
                   CONTENTS, ALLOC, LOAD, CODE
-  1 .data         00000018  0000071c  0000071c  00000770  2**2
+  1 .data         00000014  000006e0  000006e0  00000734  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          0000001c  00000734  00000734  00000788  2**2
+  2 .bss          00000020  000006f4  000006f4  00000748  2**2
                   ALLOC
-  3 .debug_abbrev 00000362  00000000  00000000  00000788  2**0
+  3 .debug_abbrev 00000371  00000000  00000000  00000748  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_info   000008b9  00000000  00000000  00000aea  2**0
+  4 .debug_info   0000089d  00000000  00000000  00000ab9  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_line   0000054b  00000000  00000000  000013a3  2**0
+  5 .debug_line   00000529  00000000  00000000  00001356  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_frame  00000130  00000000  00000000  000018f0  2**2
+  6 .debug_frame  00000120  00000000  00000000  00001880  2**2
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_loc    00000238  00000000  00000000  00001a20  2**0
+  7 .debug_loc    0000021a  00000000  00000000  000019a0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_pubnames 00000188  00000000  00000000  00001c58  2**0
+  8 .debug_pubnames 0000017c  00000000  00000000  00001bba  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_pubtypes 000000c3  00000000  00000000  00001de0  2**0
+  9 .debug_pubtypes 000000c3  00000000  00000000  00001d36  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_aranges 00000060  00000000  00000000  00001ea3  2**0
+ 10 .debug_aranges 00000060  00000000  00000000  00001df9  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    000001ea  00000000  00000000  00001f03  2**0
+ 11 .debug_str    000001f6  00000000  00000000  00001e59  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .comment      00000011  00000000  00000000  000020ed  2**0
+ 12 .comment      00000011  00000000  00000000  0000204f  2**0
                   CONTENTS, READONLY
 
 Desensamblado de la sección .text:
@@ -96,7 +96,7 @@ Desensamblado de la sección .text:
   c0:	5b 9d 00 00 	sw (sp+0),ra
   c4:	f8 00 00 2b 	calli 170 <_save_all>
   c8:	90 40 08 00 	rcsr r1,IP
-  cc:	f8 00 00 9a 	calli 334 <irq_handler>
+  cc:	f8 00 00 9b 	calli 338 <irq_handler>
   d0:	78 01 ff ff 	mvhi r1,0xffff
   d4:	38 21 ff ff 	ori r1,r1,0xffff
   d8:	d0 41 00 00 	wcsr IP,r1
@@ -116,11 +116,11 @@ Desensamblado de la sección .text:
  100:	78 1c 00 00 	mvhi sp,0x0
  104:	3b 9c 0f fc 	ori sp,sp,0xffc
  108:	78 1a 00 00 	mvhi gp,0x0
- 10c:	3b 5a 07 40 	ori gp,gp,0x740
+ 10c:	3b 5a 07 00 	ori gp,gp,0x700
  110:	78 01 00 00 	mvhi r1,0x0
- 114:	38 21 07 34 	ori r1,r1,0x734
+ 114:	38 21 06 f4 	ori r1,r1,0x6f4
  118:	78 03 00 00 	mvhi r3,0x0
- 11c:	38 63 07 50 	ori r3,r3,0x750
+ 11c:	38 63 07 14 	ori r3,r3,0x714
 
 00000120 <.clearBSS>:
  120:	44 23 00 04 	be r1,r3,130 <.callMain>
@@ -220,711 +220,683 @@ int main()
  220:	5b 90 00 08 	sw (sp+8),r16
  224:	5b 9d 00 04 	sw (sp+4),ra
 	uint32_t dato=0;
-	gpio0->dir=0x7e;
+	gpio0->dir=0xFE;
  228:	78 0c 00 00 	mvhi r12,0x0
- 22c:	39 8c 07 24 	ori r12,r12,0x724
+ 22c:	39 8c 06 e8 	ori r12,r12,0x6e8
  230:	29 82 00 00 	lw r2,(r12+0)
- 234:	78 0d 00 00 	mvhi r13,0x0
- 238:	78 10 00 00 	mvhi r16,0x0
- 23c:	78 0f 00 00 	mvhi r15,0x0
- 240:	78 0e 00 00 	mvhi r14,0x0
- 244:	34 01 00 7e 	mvi r1,126
- 248:	58 41 00 08 	sw (r2+8),r1
- 24c:	39 ad 07 38 	ori r13,r13,0x738
- 250:	3a 10 07 4c 	ori r16,r16,0x74c
- 254:	39 ef 07 44 	ori r15,r15,0x744
- 258:	39 ce 07 40 	ori r14,r14,0x740
- 25c:	29 81 00 00 	lw r1,(r12+0)
+ 234:	34 01 00 fe 	mvi r1,254
+ 238:	78 0d 00 00 	mvhi r13,0x0
+ 23c:	58 41 00 08 	sw (r2+8),r1
+ 240:	78 10 00 00 	mvhi r16,0x0
+ 244:	78 0f 00 00 	mvhi r15,0x0
+ 248:	78 0e 00 00 	mvhi r14,0x0
+	gpio0->write=0xFE;
+ 24c:	58 41 00 04 	sw (r2+4),r1
+ 250:	39 ad 06 fc 	ori r13,r13,0x6fc
+ 254:	3a 10 07 10 	ori r16,r16,0x710
+ 258:	39 ef 07 08 	ori r15,r15,0x708
+ 25c:	39 ce 07 04 	ori r14,r14,0x704
+ 260:	29 81 00 00 	lw r1,(r12+0)
 
 
 
 	for(;;)
 	{
 		while (gpio0->read & 0x01);
- 260:	28 2b 00 00 	lw r11,(r1+0)
- 264:	21 6b 00 01 	andi r11,r11,0x1
- 268:	5d 60 ff fe 	bne r11,r0,260 <main+0x58>
+ 264:	28 2b 00 00 	lw r11,(r1+0)
+ 268:	21 6b 00 01 	andi r11,r11,0x1
+ 26c:	5d 60 ff fe 	bne r11,r0,264 <main+0x5c>
 		timebreak();
- 26c:	f8 00 00 b1 	calli 530 <timebreak>
+ 270:	f8 00 00 a1 	calli 4f4 <timebreak>
 		timeMAB();
- 270:	f8 00 00 ce 	calli 5a8 <timeMAB>
+ 274:	f8 00 00 be 	calli 56c <timeMAB>
  		sleep2us();
- 274:	f8 00 00 e0 	calli 5f4 <sleep2us>
+ 278:	f8 00 00 d0 	calli 5b8 <sleep2us>
 		dato = leerdatos();
- 278:	f8 00 00 f7 	calli 654 <leerdatos>
+ 27c:	f8 00 00 e7 	calli 618 <leerdatos>
 		if (error==0)
- 27c:	29 a1 00 00 	lw r1,(r13+0)
- 280:	5c 2b 00 17 	bne r1,r11,2dc <main+0xd4>
- 284:	29 82 00 00 	lw r2,(r12+0)
+ 280:	29 a1 00 00 	lw r1,(r13+0)
+ 284:	5c 2b 00 17 	bne r1,r11,2e0 <main+0xd8>
+ 288:	29 82 00 00 	lw r2,(r12+0)
 		{
 			while (gpio0->read & 0x01);
- 288:	28 41 00 00 	lw r1,(r2+0)
- 28c:	20 21 00 01 	andi r1,r1,0x1
- 290:	5c 20 ff fe 	bne r1,r0,288 <main+0x80>
+ 28c:	28 41 00 00 	lw r1,(r2+0)
+ 290:	20 21 00 01 	andi r1,r1,0x1
+ 294:	5c 20 ff fe 	bne r1,r0,28c <main+0x84>
 			sleep2us();
- 294:	f8 00 00 d8 	calli 5f4 <sleep2us>
+ 298:	f8 00 00 c8 	calli 5b8 <sleep2us>
 			ch1 = leerdatos();
- 298:	f8 00 00 ef 	calli 654 <leerdatos>
- 29c:	29 82 00 00 	lw r2,(r12+0)
- 2a0:	5a 01 00 00 	sw (r16+0),r1
+ 29c:	f8 00 00 df 	calli 618 <leerdatos>
+ 2a0:	29 82 00 00 	lw r2,(r12+0)
+ 2a4:	5a 01 00 00 	sw (r16+0),r1
 			while (gpio0->read & 0x01);
- 2a4:	28 41 00 00 	lw r1,(r2+0)
- 2a8:	20 21 00 01 	andi r1,r1,0x1
- 2ac:	5c 20 ff fe 	bne r1,r0,2a4 <main+0x9c>
+ 2a8:	28 41 00 00 	lw r1,(r2+0)
+ 2ac:	20 21 00 01 	andi r1,r1,0x1
+ 2b0:	5c 20 ff fe 	bne r1,r0,2a8 <main+0xa0>
 			sleep2us();
- 2b0:	f8 00 00 d1 	calli 5f4 <sleep2us>
+ 2b4:	f8 00 00 c1 	calli 5b8 <sleep2us>
 			ch2 = leerdatos();
- 2b4:	f8 00 00 e8 	calli 654 <leerdatos>
- 2b8:	29 82 00 00 	lw r2,(r12+0)
- 2bc:	59 e1 00 00 	sw (r15+0),r1
+ 2b8:	f8 00 00 d8 	calli 618 <leerdatos>
+ 2bc:	29 82 00 00 	lw r2,(r12+0)
+ 2c0:	59 e1 00 00 	sw (r15+0),r1
 			while (gpio0->read & 0x01);
- 2c0:	28 41 00 00 	lw r1,(r2+0)
- 2c4:	20 21 00 01 	andi r1,r1,0x1
- 2c8:	5c 20 ff fe 	bne r1,r0,2c0 <main+0xb8>
+ 2c4:	28 41 00 00 	lw r1,(r2+0)
+ 2c8:	20 21 00 01 	andi r1,r1,0x1
+ 2cc:	5c 20 ff fe 	bne r1,r0,2c4 <main+0xbc>
 			sleep2us();
- 2cc:	f8 00 00 ca 	calli 5f4 <sleep2us>
+ 2d0:	f8 00 00 ba 	calli 5b8 <sleep2us>
 			ch3 = leerdatos();
- 2d0:	f8 00 00 e1 	calli 654 <leerdatos>
- 2d4:	59 c1 00 00 	sw (r14+0),r1
+ 2d4:	f8 00 00 d1 	calli 618 <leerdatos>
+ 2d8:	59 c1 00 00 	sw (r14+0),r1
 			valorchs();
- 2d8:	f8 00 00 fc 	calli 6c8 <valorchs>
+ 2dc:	f8 00 00 ec 	calli 68c <valorchs>
 		}
 		error=0;
- 2dc:	59 a0 00 00 	sw (r13+0),r0
+ 2e0:	59 a0 00 00 	sw (r13+0),r0
 	}
- 2e0:	e3 ff ff df 	bi 25c <main+0x54>
+ 2e4:	e3 ff ff df 	bi 260 <main+0x58>
 
-000002e4 <pwm>:
+000002e8 <pwm>:
 }
 
 
 void pwm(uint8_t PINRGB, int Valor_C)
 {
 	if (contador < Valor_C)
- 2e4:	78 03 00 00 	mvhi r3,0x0
- 2e8:	38 63 07 3c 	ori r3,r3,0x73c
- 2ec:	28 63 00 00 	lw r3,(r3+0)
+ 2e8:	78 03 00 00 	mvhi r3,0x0
+ 2ec:	38 63 07 00 	ori r3,r3,0x700
+ 2f0:	28 63 00 00 	lw r3,(r3+0)
 
 }
 
 
 void pwm(uint8_t PINRGB, int Valor_C)
 {
- 2f0:	20 21 00 ff 	andi r1,r1,0xff
+ 2f4:	20 21 00 ff 	andi r1,r1,0xff
 	if (contador < Valor_C)
- 2f4:	4c 62 00 08 	bge r3,r2,314 <pwm+0x30>
+ 2f8:	4c 62 00 08 	bge r3,r2,318 <pwm+0x30>
  */
 
 void set_pin(uint8_t value, uint8_t npin)
 {
      if (value)
 		gpio0->write = gpio0->read | npin;
- 2f8:	78 02 00 00 	mvhi r2,0x0
- 2fc:	38 42 07 24 	ori r2,r2,0x724
- 300:	28 42 00 00 	lw r2,(r2+0)
- 304:	28 43 00 00 	lw r3,(r2+0)
- 308:	b8 23 08 00 	or r1,r1,r3
- 30c:	58 41 00 04 	sw (r2+4),r1
- 310:	c3 a0 00 00 	ret
+ 2fc:	78 02 00 00 	mvhi r2,0x0
+ 300:	38 42 06 e8 	ori r2,r2,0x6e8
+ 304:	28 42 00 00 	lw r2,(r2+0)
+ 308:	28 43 00 00 	lw r3,(r2+0)
+ 30c:	b8 23 08 00 	or r1,r1,r3
+ 310:	58 41 00 04 	sw (r2+4),r1
+ 314:	c3 a0 00 00 	ret
 	else
 		gpio0->write = gpio0->read & (~npin);
- 314:	78 02 00 00 	mvhi r2,0x0
- 318:	38 42 07 24 	ori r2,r2,0x724
- 31c:	28 42 00 00 	lw r2,(r2+0)
- 320:	a4 20 08 00 	not r1,r1
- 324:	28 43 00 00 	lw r3,(r2+0)
- 328:	a0 23 08 00 	and r1,r1,r3
- 32c:	58 41 00 04 	sw (r2+4),r1
- 330:	c3 a0 00 00 	ret
+ 318:	78 02 00 00 	mvhi r2,0x0
+ 31c:	38 42 06 e8 	ori r2,r2,0x6e8
+ 320:	28 42 00 00 	lw r2,(r2+0)
+ 324:	a4 20 08 00 	not r1,r1
+ 328:	28 43 00 00 	lw r3,(r2+0)
+ 32c:	a0 23 08 00 	and r1,r1,r3
+ 330:	58 41 00 04 	sw (r2+4),r1
+ 334:	c3 a0 00 00 	ret
 
-00000334 <irq_handler>:
+00000338 <irq_handler>:
 /***************************************************************************
  * IRQ handling
  */
 
 void irq_handler(uint32_t pending)
 {
- 334:	37 9c ff fc 	addi sp,sp,-4
- 338:	5b 9d 00 04 	sw (sp+4),ra
+ 338:	37 9c ff fc 	addi sp,sp,-4
+ 33c:	5b 9d 00 04 	sw (sp+4),ra
 
 	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
      
 	contador =contador+1;
- 33c:	78 01 00 00 	mvhi r1,0x0
- 340:	38 21 07 3c 	ori r1,r1,0x73c
+ 340:	78 01 00 00 	mvhi r1,0x0
+ 344:	38 21 07 00 	ori r1,r1,0x700
  */
 
 void irq_handler(uint32_t pending)
 {
 
 	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
- 344:	78 02 00 00 	mvhi r2,0x0
+ 348:	78 02 00 00 	mvhi r2,0x0
      
 	contador =contador+1;
- 348:	28 24 00 00 	lw r4,(r1+0)
+ 34c:	28 24 00 00 	lw r4,(r1+0)
  */
 
 void irq_handler(uint32_t pending)
 {
 
 	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
- 34c:	38 42 07 20 	ori r2,r2,0x720
- 350:	28 43 00 00 	lw r3,(r2+0)
+ 350:	38 42 06 e4 	ori r2,r2,0x6e4
+ 354:	28 43 00 00 	lw r3,(r2+0)
      
 	contador =contador+1;
- 354:	34 82 00 01 	addi r2,r4,1
+ 358:	34 82 00 01 	addi r2,r4,1
  */
 
 void irq_handler(uint32_t pending)
 {
 
 	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
- 358:	34 04 00 0e 	mvi r4,14
- 35c:	58 64 00 00 	sw (r3+0),r4
+ 35c:	34 04 00 0e 	mvi r4,14
+ 360:	58 64 00 00 	sw (r3+0),r4
      
 	contador =contador+1;
- 360:	58 22 00 00 	sw (r1+0),r2
+ 364:	58 22 00 00 	sw (r1+0),r2
      if (contador > 255)
- 364:	34 03 00 ff 	mvi r3,255
- 368:	4c 62 00 02 	bge r3,r2,370 <irq_handler+0x3c>
+ 368:	34 03 00 ff 	mvi r3,255
+ 36c:	4c 62 00 02 	bge r3,r2,374 <irq_handler+0x3c>
 		contador =0;
- 36c:	58 20 00 00 	sw (r1+0),r0
-//	uart_putchar(contador);
+ 370:	58 20 00 00 	sw (r1+0),r0
 
 
-	pwm(PIN_R, ch1_);
- 370:	78 01 00 00 	mvhi r1,0x0
- 374:	38 21 07 2c 	ori r1,r1,0x72c
- 378:	28 22 00 00 	lw r2,(r1+0)
- 37c:	34 01 00 02 	mvi r1,2
- 380:	fb ff ff d9 	calli 2e4 <pwm>
-	pwm(PIN_G, ch2_);
- 384:	78 01 00 00 	mvhi r1,0x0
- 388:	38 21 07 30 	ori r1,r1,0x730
- 38c:	28 22 00 00 	lw r2,(r1+0)
- 390:	34 01 00 04 	mvi r1,4
- 394:	fb ff ff d4 	calli 2e4 <pwm>
-	pwm(PIN_B, ch3_);
- 398:	78 01 00 00 	mvhi r1,0x0
- 39c:	38 21 07 34 	ori r1,r1,0x734
- 3a0:	28 22 00 00 	lw r2,(r1+0)
- 3a4:	34 01 00 08 	mvi r1,8
- 3a8:	fb ff ff cf 	calli 2e4 <pwm>
+	pwm(PIN_R, v_ch1);
+ 374:	78 01 00 00 	mvhi r1,0x0
+ 378:	38 21 06 f0 	ori r1,r1,0x6f0
+ 37c:	28 22 00 00 	lw r2,(r1+0)
+ 380:	34 01 00 02 	mvi r1,2
+ 384:	fb ff ff d9 	calli 2e8 <pwm>
+	pwm(PIN_G, v_ch2);
+ 388:	78 01 00 00 	mvhi r1,0x0
+ 38c:	38 21 06 f4 	ori r1,r1,0x6f4
+ 390:	28 22 00 00 	lw r2,(r1+0)
+ 394:	34 01 00 04 	mvi r1,4
+ 398:	fb ff ff d4 	calli 2e8 <pwm>
+	pwm(PIN_B, v_ch3);
+ 39c:	78 01 00 00 	mvhi r1,0x0
+ 3a0:	38 21 06 f8 	ori r1,r1,0x6f8
+ 3a4:	28 22 00 00 	lw r2,(r1+0)
+ 3a8:	34 01 00 08 	mvi r1,8
+ 3ac:	fb ff ff cf 	calli 2e8 <pwm>
+
 
 }
- 3ac:	2b 9d 00 04 	lw ra,(sp+4)
- 3b0:	37 9c 00 04 	addi sp,sp,4
- 3b4:	c3 a0 00 00 	ret
+ 3b0:	2b 9d 00 04 	lw ra,(sp+4)
+ 3b4:	37 9c 00 04 	addi sp,sp,4
+ 3b8:	c3 a0 00 00 	ret
 
-000003b8 <tic_init0>:
+000003bc <tic_init0>:
  */
 
 
 void tic_init0()
 {
-	timer0->compare0 = (FCPU/1000000)*5;
- 3b8:	78 01 00 00 	mvhi r1,0x0
- 3bc:	38 21 07 20 	ori r1,r1,0x720
- 3c0:	28 22 00 00 	lw r2,(r1+0)
- 3c4:	34 01 01 f4 	mvi r1,500
+	timer0->compare0 = (FCPU/1000000)*10;
+ 3bc:	78 01 00 00 	mvhi r1,0x0
+ 3c0:	38 21 06 e4 	ori r1,r1,0x6e4
+ 3c4:	28 22 00 00 	lw r2,(r1+0)
+ 3c8:	34 01 03 e8 	mvi r1,1000
 	timer0->counter0 = 0;
 	timer0->tcr0     = TIMER_EN | TIMER_AR| TIMER_IRQEN;
- 3c8:	34 03 00 0e 	mvi r3,14
+ 3cc:	34 03 00 0e 	mvi r3,14
  */
 
 
 void tic_init0()
 {
-	timer0->compare0 = (FCPU/1000000)*5;
- 3cc:	58 41 00 04 	sw (r2+4),r1
+	timer0->compare0 = (FCPU/1000000)*10;
+ 3d0:	58 41 00 04 	sw (r2+4),r1
 	timer0->counter0 = 0;
- 3d0:	58 40 00 08 	sw (r2+8),r0
+ 3d4:	58 40 00 08 	sw (r2+8),r0
 	timer0->tcr0     = TIMER_EN | TIMER_AR| TIMER_IRQEN;
 	contador=0;
- 3d4:	78 01 00 00 	mvhi r1,0x0
+ 3d8:	78 01 00 00 	mvhi r1,0x0
 
 void tic_init0()
 {
-	timer0->compare0 = (FCPU/1000000)*5;
+	timer0->compare0 = (FCPU/1000000)*10;
 	timer0->counter0 = 0;
 	timer0->tcr0     = TIMER_EN | TIMER_AR| TIMER_IRQEN;
- 3d8:	58 43 00 00 	sw (r2+0),r3
+ 3dc:	58 43 00 00 	sw (r2+0),r3
 	contador=0;
- 3dc:	38 21 07 3c 	ori r1,r1,0x73c
- 3e0:	58 20 00 00 	sw (r1+0),r0
+ 3e0:	38 21 07 00 	ori r1,r1,0x700
+ 3e4:	58 20 00 00 	sw (r1+0),r0
 }
- 3e4:	c3 a0 00 00 	ret
+ 3e8:	c3 a0 00 00 	ret
 
-000003e8 <set_pin>:
+000003ec <set_pin>:
 /**********************************************************
  * GPIO Functions
  */
 
 void set_pin(uint8_t value, uint8_t npin)
 {
- 3e8:	20 21 00 ff 	andi r1,r1,0xff
- 3ec:	20 42 00 ff 	andi r2,r2,0xff
+ 3ec:	20 21 00 ff 	andi r1,r1,0xff
+ 3f0:	20 42 00 ff 	andi r2,r2,0xff
      if (value)
- 3f0:	5c 20 00 09 	bne r1,r0,414 <set_pin+0x2c>
+ 3f4:	5c 20 00 09 	bne r1,r0,418 <set_pin+0x2c>
 		gpio0->write = gpio0->read | npin;
 	else
 		gpio0->write = gpio0->read & (~npin);
- 3f4:	78 01 00 00 	mvhi r1,0x0
- 3f8:	38 21 07 24 	ori r1,r1,0x724
- 3fc:	28 21 00 00 	lw r1,(r1+0)
- 400:	a4 40 10 00 	not r2,r2
- 404:	28 23 00 00 	lw r3,(r1+0)
- 408:	a0 43 10 00 	and r2,r2,r3
- 40c:	58 22 00 04 	sw (r1+4),r2
- 410:	c3 a0 00 00 	ret
+ 3f8:	78 01 00 00 	mvhi r1,0x0
+ 3fc:	38 21 06 e8 	ori r1,r1,0x6e8
+ 400:	28 21 00 00 	lw r1,(r1+0)
+ 404:	a4 40 10 00 	not r2,r2
+ 408:	28 23 00 00 	lw r3,(r1+0)
+ 40c:	a0 43 10 00 	and r2,r2,r3
+ 410:	58 22 00 04 	sw (r1+4),r2
+ 414:	c3 a0 00 00 	ret
  */
 
 void set_pin(uint8_t value, uint8_t npin)
 {
      if (value)
 		gpio0->write = gpio0->read | npin;
- 414:	78 01 00 00 	mvhi r1,0x0
- 418:	38 21 07 24 	ori r1,r1,0x724
- 41c:	28 21 00 00 	lw r1,(r1+0)
- 420:	28 23 00 00 	lw r3,(r1+0)
- 424:	b8 43 10 00 	or r2,r2,r3
- 428:	58 22 00 04 	sw (r1+4),r2
- 42c:	c3 a0 00 00 	ret
+ 418:	78 01 00 00 	mvhi r1,0x0
+ 41c:	38 21 06 e8 	ori r1,r1,0x6e8
+ 420:	28 21 00 00 	lw r1,(r1+0)
+ 424:	28 23 00 00 	lw r3,(r1+0)
+ 428:	b8 43 10 00 	or r2,r2,r3
+ 42c:	58 22 00 04 	sw (r1+4),r2
+ 430:	c3 a0 00 00 	ret
 
-00000430 <set_pinDMX>:
+00000434 <pin_inv>:
+}
+
+void pin_inv(uint8_t npin)
+{
+	uint32_t val;
+	val = (~gpio0->read) & npin;
+ 434:	78 02 00 00 	mvhi r2,0x0
+ 438:	38 42 06 e8 	ori r2,r2,0x6e8
+ 43c:	28 42 00 00 	lw r2,(r2+0)
 		gpio0->write = gpio0->read & (~npin);
 
 }
 
-void set_pinDMX(uint8_t value)
-{
- 430:	20 21 00 ff 	andi r1,r1,0xff
-     if (value)
- 434:	5c 20 00 08 	bne r1,r0,454 <set_pinDMX+0x24>
-		gpio0->write = gpio0->read | 0x01;
-	else
-		gpio0->write = gpio0->read & 0xFE;
- 438:	78 01 00 00 	mvhi r1,0x0
- 43c:	38 21 07 24 	ori r1,r1,0x724
- 440:	28 21 00 00 	lw r1,(r1+0)
- 444:	28 22 00 00 	lw r2,(r1+0)
- 448:	20 42 00 fe 	andi r2,r2,0xfe
- 44c:	58 22 00 04 	sw (r1+4),r2
- 450:	c3 a0 00 00 	ret
-}
-
-void set_pinDMX(uint8_t value)
-{
-     if (value)
-		gpio0->write = gpio0->read | 0x01;
- 454:	78 01 00 00 	mvhi r1,0x0
- 458:	38 21 07 24 	ori r1,r1,0x724
- 45c:	28 21 00 00 	lw r1,(r1+0)
- 460:	28 22 00 00 	lw r2,(r1+0)
- 464:	38 42 00 01 	ori r2,r2,0x1
- 468:	58 22 00 04 	sw (r1+4),r2
- 46c:	c3 a0 00 00 	ret
-
-00000470 <pin_inv>:
-}
-
 void pin_inv(uint8_t npin)
 {
+ 440:	20 21 00 ff 	andi r1,r1,0xff
 	uint32_t val;
 	val = (~gpio0->read) & npin;
- 470:	78 02 00 00 	mvhi r2,0x0
- 474:	38 42 07 24 	ori r2,r2,0x724
- 478:	28 42 00 00 	lw r2,(r2+0)
-		gpio0->write = gpio0->read & 0xFE;
-
-}
-
-void pin_inv(uint8_t npin)
-{
- 47c:	20 21 00 ff 	andi r1,r1,0xff
-	uint32_t val;
-	val = (~gpio0->read) & npin;
- 480:	28 43 00 00 	lw r3,(r2+0)
- 484:	a4 60 18 00 	not r3,r3
+ 444:	28 43 00 00 	lw r3,(r2+0)
+ 448:	a4 60 18 00 	not r3,r3
  * GPIO Functions
  */
 
 void set_pin(uint8_t value, uint8_t npin)
 {
      if (value)
- 488:	a0 23 18 00 	and r3,r1,r3
- 48c:	5c 60 00 06 	bne r3,r0,4a4 <pin_inv+0x34>
+ 44c:	a0 23 18 00 	and r3,r1,r3
+ 450:	5c 60 00 06 	bne r3,r0,468 <pin_inv+0x34>
 		gpio0->write = gpio0->read | npin;
 	else
 		gpio0->write = gpio0->read & (~npin);
- 490:	28 43 00 00 	lw r3,(r2+0)
- 494:	a4 20 08 00 	not r1,r1
- 498:	a0 23 08 00 	and r1,r1,r3
- 49c:	58 41 00 04 	sw (r2+4),r1
- 4a0:	c3 a0 00 00 	ret
+ 454:	28 43 00 00 	lw r3,(r2+0)
+ 458:	a4 20 08 00 	not r1,r1
+ 45c:	a0 23 08 00 	and r1,r1,r3
+ 460:	58 41 00 04 	sw (r2+4),r1
+ 464:	c3 a0 00 00 	ret
  */
 
 void set_pin(uint8_t value, uint8_t npin)
 {
      if (value)
 		gpio0->write = gpio0->read | npin;
- 4a4:	28 43 00 00 	lw r3,(r2+0)
- 4a8:	b8 23 08 00 	or r1,r1,r3
- 4ac:	58 41 00 04 	sw (r2+4),r1
- 4b0:	c3 a0 00 00 	ret
+ 468:	28 43 00 00 	lw r3,(r2+0)
+ 46c:	b8 23 08 00 	or r1,r1,r3
+ 470:	58 41 00 04 	sw (r2+4),r1
+ 474:	c3 a0 00 00 	ret
 
-000004b4 <uart_getchar>:
+00000478 <uart_getchar>:
 /***************************************************************************
  * UART Functions
  */
 
 char uart_getchar()
 {   
- 4b4:	78 01 00 00 	mvhi r1,0x0
- 4b8:	38 21 07 1c 	ori r1,r1,0x71c
- 4bc:	28 22 00 00 	lw r2,(r1+0)
+ 478:	78 01 00 00 	mvhi r1,0x0
+ 47c:	38 21 06 e0 	ori r1,r1,0x6e0
+ 480:	28 22 00 00 	lw r2,(r1+0)
 	while (! (uart0->ucr & UART_DR)) ;
- 4c0:	28 41 00 00 	lw r1,(r2+0)
- 4c4:	20 21 00 01 	andi r1,r1,0x1
- 4c8:	44 20 ff fe 	be r1,r0,4c0 <uart_getchar+0xc>
+ 484:	28 41 00 00 	lw r1,(r2+0)
+ 488:	20 21 00 01 	andi r1,r1,0x1
+ 48c:	44 20 ff fe 	be r1,r0,484 <uart_getchar+0xc>
 	return uart0->rxtx;
- 4cc:	28 41 00 04 	lw r1,(r2+4)
+ 490:	28 41 00 04 	lw r1,(r2+4)
 }
- 4d0:	20 21 00 ff 	andi r1,r1,0xff
- 4d4:	c3 a0 00 00 	ret
+ 494:	20 21 00 ff 	andi r1,r1,0xff
+ 498:	c3 a0 00 00 	ret
 
-000004d8 <uart_putchar>:
+0000049c <uart_putchar>:
 
 void uart_putchar(char c)
 {
- 4d8:	78 02 00 00 	mvhi r2,0x0
- 4dc:	38 42 07 1c 	ori r2,r2,0x71c
- 4e0:	28 43 00 00 	lw r3,(r2+0)
- 4e4:	20 21 00 ff 	andi r1,r1,0xff
+ 49c:	78 02 00 00 	mvhi r2,0x0
+ 4a0:	38 42 06 e0 	ori r2,r2,0x6e0
+ 4a4:	28 43 00 00 	lw r3,(r2+0)
+ 4a8:	20 21 00 ff 	andi r1,r1,0xff
 	while (uart0->ucr & UART_BUSY) ;
- 4e8:	28 62 00 00 	lw r2,(r3+0)
- 4ec:	20 42 00 10 	andi r2,r2,0x10
- 4f0:	5c 40 ff fe 	bne r2,r0,4e8 <uart_putchar+0x10>
+ 4ac:	28 62 00 00 	lw r2,(r3+0)
+ 4b0:	20 42 00 10 	andi r2,r2,0x10
+ 4b4:	5c 40 ff fe 	bne r2,r0,4ac <uart_putchar+0x10>
 	uart0->rxtx = c;
- 4f4:	58 61 00 04 	sw (r3+4),r1
+ 4b8:	58 61 00 04 	sw (r3+4),r1
 }
- 4f8:	c3 a0 00 00 	ret
+ 4bc:	c3 a0 00 00 	ret
 
-000004fc <uart_putstr>:
+000004c0 <uart_putstr>:
 
 void uart_putstr(char *str)
 {
 	char *c = str;
 	while(*c) {
- 4fc:	40 24 00 00 	lbu r4,(r1+0)
- 500:	44 80 00 0b 	be r4,r0,52c <uart_putstr+0x30>
- 504:	78 02 00 00 	mvhi r2,0x0
- 508:	38 42 07 1c 	ori r2,r2,0x71c
- 50c:	28 43 00 00 	lw r3,(r2+0)
+ 4c0:	40 24 00 00 	lbu r4,(r1+0)
+ 4c4:	44 80 00 0b 	be r4,r0,4f0 <uart_putstr+0x30>
+ 4c8:	78 02 00 00 	mvhi r2,0x0
+ 4cc:	38 42 06 e0 	ori r2,r2,0x6e0
+ 4d0:	28 43 00 00 	lw r3,(r2+0)
 	return uart0->rxtx;
 }
 
 void uart_putchar(char c)
 {
 	while (uart0->ucr & UART_BUSY) ;
- 510:	28 62 00 00 	lw r2,(r3+0)
- 514:	20 42 00 10 	andi r2,r2,0x10
- 518:	5c 40 ff fe 	bne r2,r0,510 <uart_putstr+0x14>
+ 4d4:	28 62 00 00 	lw r2,(r3+0)
+ 4d8:	20 42 00 10 	andi r2,r2,0x10
+ 4dc:	5c 40 ff fe 	bne r2,r0,4d4 <uart_putstr+0x14>
 	uart0->rxtx = c;
- 51c:	58 64 00 04 	sw (r3+4),r4
+ 4e0:	58 64 00 04 	sw (r3+4),r4
 void uart_putstr(char *str)
 {
 	char *c = str;
 	while(*c) {
 		uart_putchar(*c);
 		c++;
- 520:	34 21 00 01 	addi r1,r1,1
+ 4e4:	34 21 00 01 	addi r1,r1,1
 }
 
 void uart_putstr(char *str)
 {
 	char *c = str;
 	while(*c) {
- 524:	40 24 00 00 	lbu r4,(r1+0)
- 528:	5c 82 ff fa 	bne r4,r2,510 <uart_putstr+0x14>
- 52c:	c3 a0 00 00 	ret
+ 4e8:	40 24 00 00 	lbu r4,(r1+0)
+ 4ec:	5c 82 ff fa 	bne r4,r2,4d4 <uart_putstr+0x14>
+ 4f0:	c3 a0 00 00 	ret
 
-00000530 <timebreak>:
+000004f4 <timebreak>:
 
 
 void timebreak()
 {
 	uint32_t tcr;
      uint8_t p =gpio0->read & 0x01;
- 530:	78 01 00 00 	mvhi r1,0x0
- 534:	38 21 07 24 	ori r1,r1,0x724
- 538:	28 25 00 00 	lw r5,(r1+0)
+ 4f4:	78 01 00 00 	mvhi r1,0x0
+ 4f8:	38 21 06 e8 	ori r1,r1,0x6e8
+ 4fc:	28 25 00 00 	lw r5,(r1+0)
 	timer0->counter1 = 0;
- 53c:	78 01 00 00 	mvhi r1,0x0
- 540:	38 21 07 20 	ori r1,r1,0x720
- 544:	28 21 00 00 	lw r1,(r1+0)
+ 500:	78 01 00 00 	mvhi r1,0x0
+ 504:	38 21 06 e4 	ori r1,r1,0x6e4
+ 508:	28 21 00 00 	lw r1,(r1+0)
 
 
 void timebreak()
 {
 	uint32_t tcr;
      uint8_t p =gpio0->read & 0x01;
- 548:	28 a4 00 00 	lw r4,(r5+0)
+ 50c:	28 a4 00 00 	lw r4,(r5+0)
 	timer0->counter1 = 0;
 	timer0->compare1 = (FCPU/1000000)*(90);
- 54c:	34 02 23 28 	mvi r2,9000
+ 510:	34 02 23 28 	mvi r2,9000
 
 void timebreak()
 {
 	uint32_t tcr;
      uint8_t p =gpio0->read & 0x01;
 	timer0->counter1 = 0;
- 550:	58 20 00 14 	sw (r1+20),r0
+ 514:	58 20 00 14 	sw (r1+20),r0
 	timer0->compare1 = (FCPU/1000000)*(90);
- 554:	58 22 00 10 	sw (r1+16),r2
+ 518:	58 22 00 10 	sw (r1+16),r2
 	timer0->tcr1 = TIMER_EN;
- 558:	20 84 00 01 	andi r4,r4,0x1
- 55c:	34 02 00 08 	mvi r2,8
- 560:	58 22 00 0c 	sw (r1+12),r2
- 564:	18 84 00 01 	xori r4,r4,0x1
+ 51c:	20 84 00 01 	andi r4,r4,0x1
+ 520:	34 02 00 08 	mvi r2,8
+ 524:	58 22 00 0c 	sw (r1+12),r2
+ 528:	18 84 00 01 	xori r4,r4,0x1
 	do {
  		tcr = timer0->tcr1;
- 568:	28 23 00 0c 	lw r3,(r1+12)
+ 52c:	28 23 00 0c 	lw r3,(r1+12)
 	} while ( (! (tcr & TIMER_TRIG)) && (!p) );
- 56c:	20 63 00 01 	andi r3,r3,0x1
- 570:	64 62 00 00 	cmpei r2,r3,0
- 574:	a0 82 10 00 	and r2,r4,r2
- 578:	5c 40 ff fc 	bne r2,r0,568 <timebreak+0x38>
+ 530:	20 63 00 01 	andi r3,r3,0x1
+ 534:	64 62 00 00 	cmpei r2,r3,0
+ 538:	a0 82 10 00 	and r2,r4,r2
+ 53c:	5c 40 ff fc 	bne r2,r0,52c <timebreak+0x38>
 	timer0->tcr1=0;
- 57c:	58 20 00 0c 	sw (r1+12),r0
+ 540:	58 20 00 0c 	sw (r1+12),r0
 	if (!(tcr & TIMER_TRIG))
- 580:	44 62 00 05 	be r3,r2,594 <timebreak+0x64>
+ 544:	44 62 00 05 	be r3,r2,558 <timebreak+0x64>
 		error = 1;
 	else
 		while (!(gpio0->read & 0x01));
- 584:	28 a1 00 00 	lw r1,(r5+0)
- 588:	20 21 00 01 	andi r1,r1,0x1
- 58c:	44 20 ff fe 	be r1,r0,584 <timebreak+0x54>
- 590:	c3 a0 00 00 	ret
+ 548:	28 a1 00 00 	lw r1,(r5+0)
+ 54c:	20 21 00 01 	andi r1,r1,0x1
+ 550:	44 20 ff fe 	be r1,r0,548 <timebreak+0x54>
+ 554:	c3 a0 00 00 	ret
 	do {
  		tcr = timer0->tcr1;
 	} while ( (! (tcr & TIMER_TRIG)) && (!p) );
 	timer0->tcr1=0;
 	if (!(tcr & TIMER_TRIG))
 		error = 1;
- 594:	78 01 00 00 	mvhi r1,0x0
- 598:	38 21 07 38 	ori r1,r1,0x738
- 59c:	34 02 00 01 	mvi r2,1
- 5a0:	58 22 00 00 	sw (r1+0),r2
- 5a4:	c3 a0 00 00 	ret
+ 558:	78 01 00 00 	mvhi r1,0x0
+ 55c:	38 21 06 fc 	ori r1,r1,0x6fc
+ 560:	34 02 00 01 	mvi r2,1
+ 564:	58 22 00 00 	sw (r1+0),r2
+ 568:	c3 a0 00 00 	ret
 
-000005a8 <timeMAB>:
-
-
-void timeMAB()
-{
-	uint32_t tcr;
-	timer0->counter1 = 0;
- 5a8:	78 01 00 00 	mvhi r1,0x0
- 5ac:	38 21 07 20 	ori r1,r1,0x720
- 5b0:	28 21 00 00 	lw r1,(r1+0)
-	timer0->compare1 = (FCPU/1000000)*(8);
- 5b4:	34 02 03 20 	mvi r2,800
+0000056c <timeMAB>:
 
 
 void timeMAB()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
- 5b8:	58 20 00 14 	sw (r1+20),r0
+ 56c:	78 01 00 00 	mvhi r1,0x0
+ 570:	38 21 06 e4 	ori r1,r1,0x6e4
+ 574:	28 21 00 00 	lw r1,(r1+0)
 	timer0->compare1 = (FCPU/1000000)*(8);
- 5bc:	58 22 00 10 	sw (r1+16),r2
+ 578:	34 02 03 20 	mvi r2,800
+
+
+void timeMAB()
+{
+	uint32_t tcr;
+	timer0->counter1 = 0;
+ 57c:	58 20 00 14 	sw (r1+20),r0
+	timer0->compare1 = (FCPU/1000000)*(8);
+ 580:	58 22 00 10 	sw (r1+16),r2
 	timer0->tcr1 = TIMER_EN;
- 5c0:	34 02 00 08 	mvi r2,8
- 5c4:	58 22 00 0c 	sw (r1+12),r2
+ 584:	34 02 00 08 	mvi r2,8
+ 588:	58 22 00 0c 	sw (r1+12),r2
 	do {
  		tcr = timer0->tcr1;
- 5c8:	28 22 00 0c 	lw r2,(r1+12)
+ 58c:	28 22 00 0c 	lw r2,(r1+12)
  	} while ( ! ((tcr & TIMER_TRIG)) );
- 5cc:	20 42 00 01 	andi r2,r2,0x1
- 5d0:	44 40 ff fe 	be r2,r0,5c8 <timeMAB+0x20>
+ 590:	20 42 00 01 	andi r2,r2,0x1
+ 594:	44 40 ff fe 	be r2,r0,58c <timeMAB+0x20>
 	timer0->tcr1=0;
- 5d4:	78 02 00 00 	mvhi r2,0x0
- 5d8:	38 42 07 24 	ori r2,r2,0x724
- 5dc:	28 42 00 00 	lw r2,(r2+0)
- 5e0:	58 20 00 0c 	sw (r1+12),r0
+ 598:	78 02 00 00 	mvhi r2,0x0
+ 59c:	38 42 06 e8 	ori r2,r2,0x6e8
+ 5a0:	28 42 00 00 	lw r2,(r2+0)
+ 5a4:	58 20 00 0c 	sw (r1+12),r0
 	while ((gpio0->read & 0x01));
- 5e4:	28 41 00 00 	lw r1,(r2+0)
- 5e8:	20 21 00 01 	andi r1,r1,0x1
- 5ec:	5c 20 ff fe 	bne r1,r0,5e4 <timeMAB+0x3c>
+ 5a8:	28 41 00 00 	lw r1,(r2+0)
+ 5ac:	20 21 00 01 	andi r1,r1,0x1
+ 5b0:	5c 20 ff fe 	bne r1,r0,5a8 <timeMAB+0x3c>
 
 }
- 5f0:	c3 a0 00 00 	ret
+ 5b4:	c3 a0 00 00 	ret
 
-000005f4 <sleep2us>:
+000005b8 <sleep2us>:
 
 void sleep2us()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
- 5f4:	78 01 00 00 	mvhi r1,0x0
- 5f8:	38 21 07 20 	ori r1,r1,0x720
- 5fc:	28 21 00 00 	lw r1,(r1+0)
+ 5b8:	78 01 00 00 	mvhi r1,0x0
+ 5bc:	38 21 06 e4 	ori r1,r1,0x6e4
+ 5c0:	28 21 00 00 	lw r1,(r1+0)
 	timer0->compare1 = 273;
- 600:	34 02 01 11 	mvi r2,273
+ 5c4:	34 02 01 11 	mvi r2,273
 }
 
 void sleep2us()
 {
 	uint32_t tcr;
 	timer0->counter1 = 0;
- 604:	58 20 00 14 	sw (r1+20),r0
+ 5c8:	58 20 00 14 	sw (r1+20),r0
 	timer0->compare1 = 273;
- 608:	58 22 00 10 	sw (r1+16),r2
-//	timer0->compare1 = (FCPU/1000000)*(3);
-	timer0->tcr1 = TIMER_EN;
- 60c:	34 02 00 08 	mvi r2,8
- 610:	58 22 00 0c 	sw (r1+12),r2
-	do {
- 		tcr = timer0->tcr1;
- 614:	28 22 00 0c 	lw r2,(r1+12)
- 	} while ( ! (tcr & TIMER_TRIG) );
- 618:	20 42 00 01 	andi r2,r2,0x1
- 61c:	44 40 ff fe 	be r2,r0,614 <sleep2us+0x20>
-		
-}void sleep4us()
- 620:	c3 a0 00 00 	ret
-
-00000624 <sleep4us>:
-{
-	uint32_t tcr;
-	timer0->counter1 = 0;
- 624:	78 01 00 00 	mvhi r1,0x0
- 628:	38 21 07 20 	ori r1,r1,0x720
- 62c:	28 21 00 00 	lw r1,(r1+0)
-	timer0->compare1 = 360;
- 630:	34 02 01 68 	mvi r2,360
- 	} while ( ! (tcr & TIMER_TRIG) );
-		
-}void sleep4us()
-{
-	uint32_t tcr;
-	timer0->counter1 = 0;
- 634:	58 20 00 14 	sw (r1+20),r0
-	timer0->compare1 = 360;
- 638:	58 22 00 10 	sw (r1+16),r2
+ 5cc:	58 22 00 10 	sw (r1+16),r2
 //	timer0->compare1 = (FCPU/1000000)*(2);
 	timer0->tcr1 = TIMER_EN;
- 63c:	34 02 00 08 	mvi r2,8
- 640:	58 22 00 0c 	sw (r1+12),r2
+ 5d0:	34 02 00 08 	mvi r2,8
+ 5d4:	58 22 00 0c 	sw (r1+12),r2
 	do {
  		tcr = timer0->tcr1;
- 644:	28 22 00 0c 	lw r2,(r1+12)
+ 5d8:	28 22 00 0c 	lw r2,(r1+12)
  	} while ( ! (tcr & TIMER_TRIG) );
- 648:	20 42 00 01 	andi r2,r2,0x1
- 64c:	44 40 ff fe 	be r2,r0,644 <sleep4us+0x20>
+ 5dc:	20 42 00 01 	andi r2,r2,0x1
+ 5e0:	44 40 ff fe 	be r2,r0,5d8 <sleep2us+0x20>
+		
+}void sleep4us()
+ 5e4:	c3 a0 00 00 	ret
+
+000005e8 <sleep4us>:
+{
+	uint32_t tcr;
+	timer0->counter1 = 0;
+ 5e8:	78 01 00 00 	mvhi r1,0x0
+ 5ec:	38 21 06 e4 	ori r1,r1,0x6e4
+ 5f0:	28 21 00 00 	lw r1,(r1+0)
+	timer0->compare1 = 360;
+ 5f4:	34 02 01 68 	mvi r2,360
+ 	} while ( ! (tcr & TIMER_TRIG) );
+		
+}void sleep4us()
+{
+	uint32_t tcr;
+	timer0->counter1 = 0;
+ 5f8:	58 20 00 14 	sw (r1+20),r0
+	timer0->compare1 = 360;
+ 5fc:	58 22 00 10 	sw (r1+16),r2
+//	timer0->compare1 = (FCPU/1000000)*(4);
+	timer0->tcr1 = TIMER_EN;
+ 600:	34 02 00 08 	mvi r2,8
+ 604:	58 22 00 0c 	sw (r1+12),r2
+	do {
+ 		tcr = timer0->tcr1;
+ 608:	28 22 00 0c 	lw r2,(r1+12)
+ 	} while ( ! (tcr & TIMER_TRIG) );
+ 60c:	20 42 00 01 	andi r2,r2,0x1
+ 610:	44 40 ff fe 	be r2,r0,608 <sleep4us+0x20>
 
 }
- 650:	c3 a0 00 00 	ret
+ 614:	c3 a0 00 00 	ret
 
-00000654 <leerdatos>:
+00000618 <leerdatos>:
 
 uint8_t leerdatos()
 {
- 654:	37 9c ff f0 	addi sp,sp,-16
- 658:	5b 8b 00 10 	sw (sp+16),r11
- 65c:	5b 8c 00 0c 	sw (sp+12),r12
- 660:	5b 8d 00 08 	sw (sp+8),r13
- 664:	5b 9d 00 04 	sw (sp+4),ra
-	uint8_t valor_bit=0, i;
+ 618:	37 9c ff f0 	addi sp,sp,-16
+ 61c:	5b 8b 00 10 	sw (sp+16),r11
+ 620:	5b 8c 00 0c 	sw (sp+12),r12
+ 624:	5b 8d 00 08 	sw (sp+8),r13
+ 628:	5b 9d 00 04 	sw (sp+4),ra
+	uint8_t valor_bit=0, i, valor=0;
 	valor_bit=gpio0->read & 0x01;
- 668:	78 0c 00 00 	mvhi r12,0x0
- 66c:	39 8c 07 24 	ori r12,r12,0x724
- 670:	29 81 00 00 	lw r1,(r12+0)
- 674:	34 0b 00 08 	mvi r11,8
+ 62c:	78 0c 00 00 	mvhi r12,0x0
+ 630:	39 8c 06 e8 	ori r12,r12,0x6e8
+ 634:	29 81 00 00 	lw r1,(r12+0)
+ 638:	34 0b 00 08 	mvi r11,8
 	valor_bit=0;
- 678:	34 0d 00 00 	mvi r13,0
+ 63c:	34 0d 00 00 	mvi r13,0
 }
 
 uint8_t leerdatos()
 {
-	uint8_t valor_bit=0, i;
+	uint8_t valor_bit=0, i, valor=0;
 	valor_bit=gpio0->read & 0x01;
- 67c:	28 21 00 00 	lw r1,(r1+0)
+ 640:	28 21 00 00 	lw r1,(r1+0)
 	valor_bit=0;
 	for(i=0;i<8;i++)
 	{
 		sleep4us();
- 680:	fb ff ff e9 	calli 624 <sleep4us>
+ 644:	fb ff ff e9 	calli 5e8 <sleep4us>
 		valor_bit=valor_bit<<1;
 		valor_bit=valor_bit + (gpio0->read & 0x01);
- 684:	29 81 00 00 	lw r1,(r12+0)
+ 648:	29 81 00 00 	lw r1,(r12+0)
 	valor_bit=gpio0->read & 0x01;
 	valor_bit=0;
 	for(i=0;i<8;i++)
 	{
 		sleep4us();
 		valor_bit=valor_bit<<1;
- 688:	3d ad 00 01 	sli r13,r13,1
+ 64c:	3d ad 00 01 	sli r13,r13,1
 		valor_bit=valor_bit + (gpio0->read & 0x01);
- 68c:	35 6b ff ff 	addi r11,r11,-1
- 690:	28 21 00 00 	lw r1,(r1+0)
- 694:	21 6b 00 ff 	andi r11,r11,0xff
- 698:	20 21 00 01 	andi r1,r1,0x1
- 69c:	b5 a1 68 00 	add r13,r13,r1
- 6a0:	21 ad 00 ff 	andi r13,r13,0xff
+ 650:	35 6b ff ff 	addi r11,r11,-1
+ 654:	28 21 00 00 	lw r1,(r1+0)
+ 658:	21 6b 00 ff 	andi r11,r11,0xff
+ 65c:	20 21 00 01 	andi r1,r1,0x1
+ 660:	b5 a1 68 00 	add r13,r13,r1
+ 664:	21 ad 00 ff 	andi r13,r13,0xff
 uint8_t leerdatos()
 {
-	uint8_t valor_bit=0, i;
+	uint8_t valor_bit=0, i, valor=0;
 	valor_bit=gpio0->read & 0x01;
 	valor_bit=0;
 	for(i=0;i<8;i++)
- 6a4:	5d 60 ff f7 	bne r11,r0,680 <leerdatos+0x2c>
-	{
+ 668:	5d 60 ff f7 	bne r11,r0,644 <leerdatos+0x2c>
 		sleep4us();
 		valor_bit=valor_bit<<1;
 		valor_bit=valor_bit + (gpio0->read & 0x01);
 	}
-	sleep4us();
- 6a8:	fb ff ff df 	calli 624 <sleep4us>
-	return valor_bit;
-}
- 6ac:	b9 a0 08 00 	mv r1,r13
- 6b0:	2b 9d 00 04 	lw ra,(sp+4)
- 6b4:	2b 8b 00 10 	lw r11,(sp+16)
- 6b8:	2b 8c 00 0c 	lw r12,(sp+12)
- 6bc:	2b 8d 00 08 	lw r13,(sp+8)
- 6c0:	37 9c 00 10 	addi sp,sp,16
- 6c4:	c3 a0 00 00 	ret
 
-000006c8 <valorchs>:
+	sleep4us();
+ 66c:	fb ff ff df 	calli 5e8 <sleep4us>
+//	valor_bit = valor_bit>>1;
+//	}
+//	sleep4us();
+	//return valor;
+	
+}
+ 670:	b9 a0 08 00 	mv r1,r13
+ 674:	2b 9d 00 04 	lw ra,(sp+4)
+ 678:	2b 8b 00 10 	lw r11,(sp+16)
+ 67c:	2b 8c 00 0c 	lw r12,(sp+12)
+ 680:	2b 8d 00 08 	lw r13,(sp+8)
+ 684:	37 9c 00 10 	addi sp,sp,16
+ 688:	c3 a0 00 00 	ret
+
+0000068c <valorchs>:
 
 
 void valorchs(){
- 6c8:	37 9c ff fc 	addi sp,sp,-4
- 6cc:	5b 9d 00 04 	sw (sp+4),ra
+ 68c:	37 9c ff fc 	addi sp,sp,-4
+ 690:	5b 9d 00 04 	sw (sp+4),ra
 	uart_putchar(ch1);
- 6d0:	78 01 00 00 	mvhi r1,0x0
- 6d4:	38 21 07 4c 	ori r1,r1,0x74c
- 6d8:	40 21 00 03 	lbu r1,(r1+3)
- 6dc:	fb ff ff 7f 	calli 4d8 <uart_putchar>
+ 694:	78 01 00 00 	mvhi r1,0x0
+ 698:	38 21 07 10 	ori r1,r1,0x710
+ 69c:	40 21 00 03 	lbu r1,(r1+3)
+ 6a0:	fb ff ff 7f 	calli 49c <uart_putchar>
 	uart_putchar(ch2);
- 6e0:	78 01 00 00 	mvhi r1,0x0
- 6e4:	38 21 07 44 	ori r1,r1,0x744
- 6e8:	40 21 00 03 	lbu r1,(r1+3)
- 6ec:	fb ff ff 7b 	calli 4d8 <uart_putchar>
+ 6a4:	78 01 00 00 	mvhi r1,0x0
+ 6a8:	38 21 07 08 	ori r1,r1,0x708
+ 6ac:	40 21 00 03 	lbu r1,(r1+3)
+ 6b0:	fb ff ff 7b 	calli 49c <uart_putchar>
 	uart_putchar(ch3);
- 6f0:	78 01 00 00 	mvhi r1,0x0
- 6f4:	38 21 07 40 	ori r1,r1,0x740
- 6f8:	40 21 00 03 	lbu r1,(r1+3)
- 6fc:	fb ff ff 77 	calli 4d8 <uart_putchar>
+ 6b4:	78 01 00 00 	mvhi r1,0x0
+ 6b8:	38 21 07 04 	ori r1,r1,0x704
+ 6bc:	40 21 00 03 	lbu r1,(r1+3)
+ 6c0:	fb ff ff 77 	calli 49c <uart_putchar>
 	uart_putchar(13);
- 700:	34 01 00 0d 	mvi r1,13
- 704:	fb ff ff 75 	calli 4d8 <uart_putchar>
+ 6c4:	34 01 00 0d 	mvi r1,13
+ 6c8:	fb ff ff 75 	calli 49c <uart_putchar>
 	uart_putchar(10);
- 708:	34 01 00 0a 	mvi r1,10
- 70c:	fb ff ff 73 	calli 4d8 <uart_putchar>
+ 6cc:	34 01 00 0a 	mvi r1,10
+ 6d0:	fb ff ff 73 	calli 49c <uart_putchar>
 }
- 710:	2b 9d 00 04 	lw ra,(sp+4)
- 714:	37 9c 00 04 	addi sp,sp,4
- 718:	c3 a0 00 00 	ret
+ 6d4:	2b 9d 00 04 	lw ra,(sp+4)
+ 6d8:	37 9c 00 04 	addi sp,sp,4
+ 6dc:	c3 a0 00 00 	ret

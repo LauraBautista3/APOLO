@@ -1,11 +1,11 @@
 #include "soc-hw.h"
 #include "rxdmx.h"
 
-volatile uint32_t dato;
-volatile uint32_t error=0;
-uint32_t ch1;
-uint32_t ch2;
-uint32_t ch3;
+ uint32_t dato;
+int error=0;
+int ch1;
+int ch2;
+int ch3;
 
 
 void timebreak()
@@ -45,7 +45,7 @@ void sleep2us()
 	uint32_t tcr;
 	timer0->counter1 = 0;
 	timer0->compare1 = 273;
-//	timer0->compare1 = (FCPU/1000000)*(3);
+//	timer0->compare1 = (FCPU/1000000)*(2);
 	timer0->tcr1 = TIMER_EN;
 	do {
  		tcr = timer0->tcr1;
@@ -56,7 +56,7 @@ void sleep2us()
 	uint32_t tcr;
 	timer0->counter1 = 0;
 	timer0->compare1 = 360;
-//	timer0->compare1 = (FCPU/1000000)*(2);
+//	timer0->compare1 = (FCPU/1000000)*(4);
 	timer0->tcr1 = TIMER_EN;
 	do {
  		tcr = timer0->tcr1;
@@ -66,7 +66,7 @@ void sleep2us()
 
 uint8_t leerdatos()
 {
-	uint8_t valor_bit=0, i;
+	uint8_t valor_bit=0, i, valor=0;
 	valor_bit=gpio0->read & 0x01;
 	valor_bit=0;
 	for(i=0;i<8;i++)
@@ -75,8 +75,19 @@ uint8_t leerdatos()
 		valor_bit=valor_bit<<1;
 		valor_bit=valor_bit + (gpio0->read & 0x01);
 	}
+
 	sleep4us();
 	return valor_bit;
+	
+//	for (i=0;i<8;i++)
+//	{
+//	valor = valor + (valor_bit & 0x01);
+//	valor = valor<<1;
+//	valor_bit = valor_bit>>1;
+//	}
+//	sleep4us();
+	//return valor;
+	
 }
 
 

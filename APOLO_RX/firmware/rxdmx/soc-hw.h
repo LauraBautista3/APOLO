@@ -14,7 +14,6 @@
 #define UART_RXBUFSIZE 32
 
 
-
 /****************************************************************************
  * Types
  */
@@ -76,6 +75,7 @@ void pwm(uint8_t PINRGB, int Valor_C);
 #define PIN_R 0x02
 #define PIN_G 0x04
 #define PIN_B 0x08
+#define PIN4 0x01
 
 typedef struct {
 	volatile uint32_t read;
@@ -85,7 +85,7 @@ typedef struct {
 } gpio_t;
 
 void set_pin(uint8_t value, uint8_t npin);
-void set_pinDMX(uint8_t value);
+
 void pin_inv(uint8_t npin);
 
 
@@ -102,7 +102,6 @@ typedef struct {
 			} 
 uart_t;
 
-//void uart_init();
 void uart_putchar(char c);
 void uart_putstr(char *str);
 char uart_getchar();
@@ -136,9 +135,10 @@ extern uint32_t *sram0;
 extern int contador;
 
 
-extern uint32_t ch1_;
-extern uint32_t ch2_;
-extern uint32_t ch3_;
+extern int ch1;
+extern int ch2;
+extern int ch3;
+
 
 
 #endif // SPIKEHW_H

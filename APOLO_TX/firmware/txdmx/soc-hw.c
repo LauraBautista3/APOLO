@@ -87,7 +87,7 @@ void leer_datos()
 
 void tic_init0()
 {
-	timer0->compare0 = (FCPU/1000000)*10;
+	timer0->compare0 = (FCPU/1000000)*40;
 	timer0->counter0 = 0;
 	timer0->tcr0     = TIMER_EN | TIMER_AR| TIMER_IRQEN;
 	contador=0;
