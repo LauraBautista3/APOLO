@@ -8,10 +8,10 @@ int main()
 	gpio0->dir = 0xFF;
 	gpio0->write = 0xFF;
 
-//	tic_init0();
+	tic_init0();
 
-//	irq_set_mask(0x02);
-//	irq_enable();
+	irq_set_mask(0x02);
+	irq_enable();
 
 	for(;;)
 	{
