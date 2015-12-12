@@ -4,6 +4,7 @@ uart_t  *uart0  = (uart_t *)   0x20000000;
 timer_t *timer0 = (timer_t *)  0x30000000;
 gpio_t  *gpio0  = (gpio_t *)   0x40000000;
 spi_t   *spi0   = (spi_t *)    0x50000000;
+pwm_t   *pwm0   = (pwm_t *)    0x60000000;
 
 int v_ch1=255;
 int v_ch2=170;
@@ -44,6 +45,20 @@ void pwm(uint8_t PINRGB, int Valor_C)
 	else 
     		set_pin(0,PINRGB);     
 }
+
+
+
+void envio_pwm(uint8_t valor1, uint8_t valor2, uint8_t valor3){
+
+pwm0->valorpwm1= valor1;
+pwm0->valorpwm2= valor2;
+pwm0->valorpwm3= valor3;
+
+
+}
+
+
+
 
 
 void leer_datos()

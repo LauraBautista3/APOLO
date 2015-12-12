@@ -28,3 +28,8 @@ NET "spi_miso"	LOC = "N11"	| IOSTANDARD = "LVCMOS33";
 NET "spi_mosi"	LOC = "R11"	| IOSTANDARD = "LVCMOS33";		
 NET "spi_clk"	LOC = "T11"	| IOSTANDARD = "LVCMOS33";		
 
+# ==== PWM ====
+NET "pwm_o1"	LOC = "K1"	| IOSTANDARD = "LVCMOS33";
+NET "pwm_o2"	LOC = "L4"	| IOSTANDARD = "LVCMOS33";
+NET "pwm_o3"	LOC = "L3"	| IOSTANDARD = "LVCMOS33";		
+

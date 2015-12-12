@@ -90,6 +90,21 @@ void set_pin(uint8_t value, uint8_t npin);
 void set_pinDMX(uint8_t value);
 void pin_inv(uint8_t npin);
 
+/***************************************************************************
+ * PWM
+ */
+
+
+typedef struct {
+	volatile uint32_t valorpwm1;
+	volatile uint32_t valorpwm2;
+	volatile uint32_t valorpwm3;
+
+			} 
+pwm_t;
+
+
+void envio_pwm(uint8_t valor1, uint8_t valor2, uint8_t valor3);
 
 /***************************************************************************
  * UART0
@@ -131,6 +146,7 @@ char spi_getchar();
  */
 extern timer_t  *timer0;
 extern uart_t   *uart0; 
+extern pwm_t   *pwm0; 
 extern gpio_t   *gpio0; 
 extern uint32_t *sram0; 
 

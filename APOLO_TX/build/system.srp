@@ -122,6 +122,10 @@ INFO:HDLCompiler:693 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rtl/w
 INFO:HDLCompiler:693 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rtl/wb_bram/wb_bram.v" Line 26. parameter declaration becomes local in wb_bram with formal parameter declaration list
 Analyzing Verilog file "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rtl/wb_uart/wb_uart.v" into library work
 Parsing module <wb_uart>.
+Analyzing Verilog file "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rtl/wb_pwm/wb_pwm.v" into library work
+Parsing module <wb_pwm>.
+Analyzing Verilog file "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rtl/wb_pwm/pwm_top.v" into library work
+Parsing module <pwm_top>.
 Analyzing Verilog file "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rtl/wb_timer/wb_timer.v" into library work
 Parsing module <wb_timer>.
 Analyzing Verilog file "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rtl/wb_gpio/wb_gpio.v" into library work
@@ -136,15 +140,15 @@ Parsing module <conbus_arb>.
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
-WARNING:HDLCompiler:1016 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 154: Port m0_cti_i is not connected to this instance
-WARNING:HDLCompiler:1016 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 324: Port spi_cs is not connected to this instance
+WARNING:HDLCompiler:1016 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 165: Port m0_cti_i is not connected to this instance
+WARNING:HDLCompiler:1016 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 368: Port spi_cs is not connected to this instance
 
 Elaborating module <system>.
 
-Elaborating module <conbus(s_addr_w=3,s0_addr=3'b0,s1_addr=3'b010,s2_addr=3'b011,s3_addr=3'b100,s4_addr=3'b101)>.
+Elaborating module <conbus(s_addr_w=3,s0_addr=3'b0,s1_addr=3'b010,s2_addr=3'b011,s3_addr=3'b100,s4_addr=3'b101,s5_addr=3'b110)>.
 
 Elaborating module <conbus_arb>.
-WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 214: Assignment to gpio0_sel ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 226: Assignment to gpio0_sel ignored, since the identifier is never used
 
 Elaborating module <lm32_cpu>.
 
@@ -175,15 +179,20 @@ Elaborating module <lm32_mc_arithmetic>.
 
 Elaborating module <lm32_interrupt>.
 WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rtl/lm32/lm32_cpu.v" Line 1138: Assignment to x_result_sel_logic_x ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 248: Assignment to lm32i_cti ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 249: Assignment to lm32i_lock ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 250: Assignment to lm32i_bte ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 262: Assignment to lm32d_cti ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 263: Assignment to lm32d_lock ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 264: Assignment to lm32d_bte ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 268: Assignment to lm32i_cti ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 269: Assignment to lm32i_lock ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 270: Assignment to lm32i_bte ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 282: Assignment to lm32d_cti ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 283: Assignment to lm32d_lock ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 284: Assignment to lm32d_bte ignored, since the identifier is never used
 
 Elaborating module <wb_bram(adr_width=12,mem_file_name="../firmware/txdmx/image.ram")>.
 Reading initialization file \"../firmware/txdmx/image.ram\".
+
+Elaborating module <wb_pwm>.
+
+Elaborating module <pwm_top>.
+WARNING:HDLCompiler:413 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rtl/wb_pwm/wb_pwm.v" Line 84: Result of 9-bit expression is truncated to fit in 8-bit target.
 
 Elaborating module <wb_uart(clk_freq=100000000,baud=115200)>.
 
@@ -201,12 +210,12 @@ WARNING:HDLCompiler:413 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rt
 Elaborating module <wb_timer(clk_freq=100000000)>.
 
 Elaborating module <wb_gpio>.
-WARNING:HDLCompiler:634 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 126: Net <lm32i_rty> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 127: Net <lm32d_rty> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 129: Net <lm32i_err> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 130: Net <lm32d_err> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 147: Net <gpio0_intr> does not have a driver.
-WARNING:HDLCompiler:552 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 161: Input port m0_cti_i[2] is not connected on this instance
+WARNING:HDLCompiler:634 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 137: Net <lm32i_rty> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 138: Net <lm32d_rty> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 140: Net <lm32i_err> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 141: Net <lm32d_err> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 158: Net <gpio0_intr> does not have a driver.
+WARNING:HDLCompiler:552 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" Line 173: Input port m0_cti_i[2] is not connected on this instance
 WARNING:Xst:2972 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rtl/lm32/lm32_cpu.v" line 483. All outputs of instance <simtrace> of block <lm32_simtrace> are unconnected in block <lm32_cpu>. Underlying logic will be removed.
 
 =========================================================================
@@ -220,28 +229,20 @@ Synthesizing Unit <system>.
         uart_baud_rate = 115200
 WARNING:Xst:2898 - Port 'm0_cti_i', unconnected in block instance 'conbus0', is tied to GND.
 WARNING:Xst:2898 - Port 'm1_cti_i', unconnected in block instance 'conbus0', is tied to GND.
-WARNING:Xst:2898 - Port 's5_dat_i', unconnected in block instance 'conbus0', is tied to GND.
-WARNING:Xst:2898 - Port 's5_ack_i', unconnected in block instance 'conbus0', is tied to GND.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 161: Output port <s0_cti_o> of the instance <conbus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 161: Output port <s1_cti_o> of the instance <conbus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 161: Output port <s2_cti_o> of the instance <conbus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 161: Output port <s3_cti_o> of the instance <conbus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 161: Output port <s3_sel_o> of the instance <conbus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 161: Output port <s4_cti_o> of the instance <conbus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 161: Output port <s5_dat_o> of the instance <conbus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 161: Output port <s5_adr_o> of the instance <conbus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 161: Output port <s5_cti_o> of the instance <conbus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 161: Output port <s5_sel_o> of the instance <conbus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 161: Output port <s5_we_o> of the instance <conbus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 161: Output port <s5_cyc_o> of the instance <conbus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 161: Output port <s5_stb_o> of the instance <conbus0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 235: Output port <I_CTI_O> of the instance <lm0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 235: Output port <I_BTE_O> of the instance <lm0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 235: Output port <D_CTI_O> of the instance <lm0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 235: Output port <D_BTE_O> of the instance <lm0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 235: Output port <I_LOCK_O> of the instance <lm0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 235: Output port <D_LOCK_O> of the instance <lm0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 324: Output port <spi_cs> of the instance <spi0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 173: Output port <s0_cti_o> of the instance <conbus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 173: Output port <s1_cti_o> of the instance <conbus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 173: Output port <s2_cti_o> of the instance <conbus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 173: Output port <s3_cti_o> of the instance <conbus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 173: Output port <s3_sel_o> of the instance <conbus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 173: Output port <s4_cti_o> of the instance <conbus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 173: Output port <s5_cti_o> of the instance <conbus0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 255: Output port <I_CTI_O> of the instance <lm0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 255: Output port <I_BTE_O> of the instance <lm0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 255: Output port <D_CTI_O> of the instance <lm0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 255: Output port <D_BTE_O> of the instance <lm0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 255: Output port <I_LOCK_O> of the instance <lm0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 255: Output port <D_LOCK_O> of the instance <lm0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/system.v" line 368: Output port <spi_cs> of the instance <spi0> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <lm32i_rty> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <lm32d_rty> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <lm32i_err> is used but never assigned. This sourceless signal will be automatically connected to value GND.
@@ -259,7 +260,7 @@ Synthesizing Unit <conbus>.
         s2_addr = 3'b011
         s3_addr = 3'b100
         s4_addr = 3'b101
-        s5_addr = 3'b101
+        s5_addr = 3'b110
     Summary:
 	no macro.
 Unit <conbus> synthesized.
@@ -595,6 +596,151 @@ WARNING:Xst:647 - Input <rst_i> is never used. This port will be preserved and l
 	inferred  33 D-type flip-flop(s).
 Unit <wb_bram> synthesized.
 
+Synthesizing Unit <wb_pwm>.
+    Related source file is "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rtl/wb_pwm/wb_pwm.v".
+WARNING:Xst:647 - Input <wb_adr_i<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <wb_adr_i<31:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <wb_sel_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <wb_dat_i<31:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:653 - Signal <wb_dat_o<7:0>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 1-bit register for signal <ack>.
+    Found 8-bit register for signal <valor1>.
+    Found 8-bit register for signal <valor2>.
+    Found 8-bit register for signal <valor3>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<30><0:0>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<29><30:30>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<28><29:29>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<27><28:28>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<26><27:27>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<25><26:26>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<24><25:25>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<23><24:24>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<22><23:23>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<21><22:22>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<20><21:21>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<19><20:20>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<18><19:19>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<17><18:18>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<16><17:17>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<15><16:16>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<14><15:15>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<13><14:14>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<12><13:13>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<11><12:12>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<10><11:11>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<9><10:10>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<8><9:9>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<31><8:8>> (without init value) have a constant value of 0 in block <wb_pwm>.
+    Summary:
+	inferred  25 D-type flip-flop(s).
+Unit <wb_pwm> synthesized.
+
+Synthesizing Unit <pwm_top>.
+    Related source file is "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rtl/wb_pwm/pwm_top.v".
+    Found 32-bit register for signal <counter1>.
+    Found 1-bit register for signal <pwm2>.
+    Found 32-bit register for signal <counter2>.
+    Found 1-bit register for signal <pwm3>.
+    Found 32-bit register for signal <counter3>.
+    Found 1-bit register for signal <pwm1>.
+    Found 32-bit adder for signal <counter1[31]_GND_24_o_add_19_OUT> created at line 51.
+    Found 32-bit adder for signal <counter2[31]_GND_24_o_add_20_OUT> created at line 52.
+    Found 32-bit adder for signal <counter3[31]_GND_24_o_add_21_OUT> created at line 53.
+    Found 8x16-bit multiplier for signal <valor1[7]_PWR_20_o_MuLt_1_OUT> created at line 18.
+    Found 8x16-bit multiplier for signal <valor2[7]_PWR_20_o_MuLt_7_OUT> created at line 27.
+    Found 8x16-bit multiplier for signal <valor3[7]_PWR_20_o_MuLt_13_OUT> created at line 36.
+    Found 32-bit comparator greater for signal <n0001> created at line 18
+    Found 32-bit comparator greater for signal <n0004> created at line 27
+    Found 32-bit comparator greater for signal <n0007> created at line 36
+    Summary:
+	inferred   3 Multiplier(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred  99 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+	inferred   8 Multiplexer(s).
+Unit <pwm_top> synthesized.
+
+Synthesizing Unit <div_24u_8u>.
+    Related source file is "".
+    Found 32-bit adder for signal <n1477> created at line 0.
+    Found 32-bit adder for signal <GND_26_o_b[7]_add_1_OUT> created at line 0.
+    Found 31-bit adder for signal <n1481> created at line 0.
+    Found 31-bit adder for signal <GND_26_o_b[7]_add_3_OUT> created at line 0.
+    Found 30-bit adder for signal <n1485> created at line 0.
+    Found 30-bit adder for signal <GND_26_o_b[7]_add_5_OUT> created at line 0.
+    Found 29-bit adder for signal <n1489> created at line 0.
+    Found 29-bit adder for signal <GND_26_o_b[7]_add_7_OUT> created at line 0.
+    Found 28-bit adder for signal <n1493> created at line 0.
+    Found 28-bit adder for signal <GND_26_o_b[7]_add_9_OUT> created at line 0.
+    Found 27-bit adder for signal <n1497> created at line 0.
+    Found 27-bit adder for signal <GND_26_o_b[7]_add_11_OUT> created at line 0.
+    Found 26-bit adder for signal <n1501> created at line 0.
+    Found 26-bit adder for signal <GND_26_o_b[7]_add_13_OUT> created at line 0.
+    Found 25-bit adder for signal <n1505> created at line 0.
+    Found 25-bit adder for signal <GND_26_o_b[7]_add_15_OUT> created at line 0.
+    Found 24-bit adder for signal <n1509> created at line 0.
+    Found 24-bit adder for signal <a[23]_b[7]_add_17_OUT> created at line 0.
+    Found 24-bit adder for signal <n1513> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_19_OUT> created at line 0.
+    Found 24-bit adder for signal <n1517> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_21_OUT> created at line 0.
+    Found 24-bit adder for signal <n1521> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_23_OUT> created at line 0.
+    Found 24-bit adder for signal <n1525> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_25_OUT> created at line 0.
+    Found 24-bit adder for signal <n1529> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_27_OUT> created at line 0.
+    Found 24-bit adder for signal <n1533> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_29_OUT> created at line 0.
+    Found 24-bit adder for signal <n1537> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_31_OUT> created at line 0.
+    Found 24-bit adder for signal <n1541> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_33_OUT> created at line 0.
+    Found 24-bit adder for signal <n1545> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_35_OUT> created at line 0.
+    Found 24-bit adder for signal <n1549> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_37_OUT> created at line 0.
+    Found 24-bit adder for signal <n1553> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_39_OUT> created at line 0.
+    Found 24-bit adder for signal <n1557> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_41_OUT> created at line 0.
+    Found 24-bit adder for signal <n1561> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_43_OUT[23:0]> created at line 0.
+    Found 24-bit adder for signal <n1565> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_45_OUT[23:0]> created at line 0.
+    Found 24-bit adder for signal <n1569> created at line 0.
+    Found 24-bit adder for signal <a[23]_GND_26_o_add_47_OUT[23:0]> created at line 0.
+    Found 32-bit comparator lessequal for signal <BUS_0001> created at line 0
+    Found 31-bit comparator lessequal for signal <BUS_0002> created at line 0
+    Found 30-bit comparator lessequal for signal <BUS_0003> created at line 0
+    Found 29-bit comparator lessequal for signal <BUS_0004> created at line 0
+    Found 28-bit comparator lessequal for signal <BUS_0005> created at line 0
+    Found 27-bit comparator lessequal for signal <BUS_0006> created at line 0
+    Found 26-bit comparator lessequal for signal <BUS_0007> created at line 0
+    Found 25-bit comparator lessequal for signal <BUS_0008> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0009> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0010> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0011> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0012> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0013> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0014> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0015> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0016> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0017> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0018> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0019> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0020> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0021> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0022> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0023> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0024> created at line 0
+    Found 24-bit comparator lessequal for signal <BUS_0025> created at line 0
+    Summary:
+	inferred  48 Adder/Subtractor(s).
+	inferred  25 Comparator(s).
+	inferred 507 Multiplexer(s).
+Unit <div_24u_8u> synthesized.
+
 Synthesizing Unit <wb_uart>.
     Related source file is "/home/laura/Escritorio/APOLOOOOOOOO/APOLO/APOLO_TX/rtl/wb_uart/wb_uart.v".
         clk_freq = 100000000
@@ -614,30 +760,30 @@ WARNING:Xst:647 - Input <wb_dat_i<31:8>> is never used. This port will be preser
     Found 1-bit register for signal <tx_wr>.
     Found 1-bit register for signal <rx_ack>.
     Found 1-bit register for signal <ack>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<29><2:2>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<16><29:29>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<12><16:16>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<11><12:12>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<14><11:11>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<19><14:14>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<24><19:19>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<23><24:24>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<31><23:23>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<30><31:31>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<26><30:30>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<13><2:2>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<12><13:13>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<28><12:12>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<10><28:28>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<8><10:10>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<21><8:8>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<31><21:21>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<29><31:31>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<27><29:29>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<26><27:27>> (without init value) have a constant value of 0 in block <wb_uart>.
     WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<25><26:26>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<22><25:25>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<18><22:22>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<24><25:25>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<23><24:24>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<22><23:23>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<19><22:22>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<18><19:19>> (without init value) have a constant value of 0 in block <wb_uart>.
     WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<17><18:18>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<13><17:17>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<9><13:13>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<8><9:9>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<28><8:8>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<27><28:28>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<21><27:27>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<20><21:21>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<15><20:20>> (without init value) have a constant value of 0 in block <wb_uart>.
-    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<10><15:15>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<16><17:17>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<15><16:16>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<11><15:15>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<9><11:11>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<30><9:9>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<20><30:30>> (without init value) have a constant value of 0 in block <wb_uart>.
+    WARNING:Xst:2404 -  FFs/Latches <wb_dat_o<14><20:20>> (without init value) have a constant value of 0 in block <wb_uart>.
     Summary:
 	inferred  11 D-type flip-flop(s).
 	inferred   1 Multiplexer(s).
@@ -662,11 +808,11 @@ Synthesizing Unit <uart>.
     Found 4-bit register for signal <tx_bitcount>.
     Found 4-bit register for signal <tx_count16>.
     Found 16-bit register for signal <enable16_counter>.
-    Found 4-bit adder for signal <rx_count16[3]_GND_24_o_add_11_OUT> created at line 88.
-    Found 4-bit adder for signal <rx_bitcount[3]_GND_24_o_add_13_OUT> created at line 91.
-    Found 4-bit adder for signal <tx_count16[3]_GND_24_o_add_41_OUT> created at line 135.
-    Found 4-bit adder for signal <tx_bitcount[3]_GND_24_o_add_43_OUT> created at line 138.
-    Found 16-bit subtractor for signal <GND_24_o_GND_24_o_sub_3_OUT<15:0>> created at line 39.
+    Found 4-bit adder for signal <rx_count16[3]_GND_28_o_add_11_OUT> created at line 88.
+    Found 4-bit adder for signal <rx_bitcount[3]_GND_28_o_add_13_OUT> created at line 91.
+    Found 4-bit adder for signal <tx_count16[3]_GND_28_o_add_41_OUT> created at line 135.
+    Found 4-bit adder for signal <tx_bitcount[3]_GND_28_o_add_43_OUT> created at line 138.
+    Found 16-bit subtractor for signal <GND_28_o_GND_28_o_sub_3_OUT<15:0>> created at line 39.
     Summary:
 	inferred   5 Adder/Subtractor(s).
 	inferred  63 D-type flip-flop(s).
@@ -689,8 +835,8 @@ WARNING:Xst:647 - Input <wb_sel_i> is never used. This port will be preserved an
     Found 32-bit register for signal <wb_dat_o>.
     Found 8-bit register for signal <spi_cs>.
     Found 1-bit register for signal <ack>.
-    Found 8-bit adder for signal <prescaler[7]_GND_25_o_add_2_OUT> created at line 57.
-    Found 3-bit adder for signal <bitcount[2]_GND_25_o_add_6_OUT> created at line 63.
+    Found 8-bit adder for signal <prescaler[7]_GND_29_o_add_2_OUT> created at line 57.
+    Found 3-bit adder for signal <bitcount[2]_GND_29_o_add_6_OUT> created at line 63.
     Found 8-bit comparator equal for signal <prescaler[7]_divisor[7]_equal_4_o> created at line 58
     Summary:
 	inferred   2 Adder/Subtractor(s).
@@ -718,8 +864,8 @@ WARNING:Xst:647 - Input <wb_sel_i> is never used. This port will be preserved an
     Found 1-bit register for signal <irqen0>.
     Found 1-bit register for signal <irqen1>.
     Found 1-bit register for signal <ack>.
-    Found 32-bit adder for signal <counter0[31]_GND_26_o_add_6_OUT> created at line 92.
-    Found 32-bit adder for signal <counter1[31]_GND_26_o_add_9_OUT> created at line 98.
+    Found 32-bit adder for signal <counter0[31]_GND_30_o_add_6_OUT> created at line 92.
+    Found 32-bit adder for signal <counter1[31]_GND_30_o_add_9_OUT> created at line 98.
     Found 32-bit 7-to-1 multiplexer for signal <_n0180> created at line 109.
     Found 32-bit comparator equal for signal <match0> created at line 64
     Found 32-bit comparator equal for signal <match1> created at line 65
@@ -764,44 +910,63 @@ Macro Statistics
 # RAMs                                                 : 3
  1024x32-bit single-port RAM                           : 1
  32x32-bit dual-port RAM                               : 2
-# Multipliers                                          : 1
+# Multipliers                                          : 4
+ 16x8-bit multiplier                                   : 3
  32x32-bit multiplier                                  : 1
-# Adders/Subtractors                                   : 17
+# Adders/Subtractors                                   : 164
  16-bit subtractor                                     : 1
+ 24-bit adder                                          : 96
+ 25-bit adder                                          : 6
+ 26-bit adder                                          : 6
+ 27-bit adder                                          : 6
+ 28-bit adder                                          : 6
+ 29-bit adder                                          : 6
  3-bit adder                                           : 1
- 30-bit adder                                          : 2
- 32-bit adder                                          : 2
+ 30-bit adder                                          : 8
+ 31-bit adder                                          : 6
+ 32-bit adder                                          : 11
  33-bit adder                                          : 2
  33-bit subtractor                                     : 3
  4-bit adder                                           : 4
  6-bit subtractor                                      : 1
  8-bit adder                                           : 1
-# Registers                                            : 156
- 1-bit register                                        : 89
+# Registers                                            : 166
+ 1-bit register                                        : 93
  16-bit register                                       : 1
  2-bit register                                        : 3
  24-bit register                                       : 1
  3-bit register                                        : 3
  30-bit register                                       : 7
- 32-bit register                                       : 32
+ 32-bit register                                       : 35
  4-bit register                                        : 7
  5-bit register                                        : 3
  6-bit register                                        : 1
- 8-bit register                                        : 9
-# Comparators                                          : 11
+ 8-bit register                                        : 12
+# Comparators                                          : 89
  1-bit comparator equal                                : 1
+ 24-bit comparator lessequal                           : 51
+ 25-bit comparator lessequal                           : 3
+ 26-bit comparator lessequal                           : 3
+ 27-bit comparator lessequal                           : 3
+ 28-bit comparator lessequal                           : 3
+ 29-bit comparator lessequal                           : 3
+ 30-bit comparator lessequal                           : 3
+ 31-bit comparator lessequal                           : 3
  32-bit comparator equal                               : 3
+ 32-bit comparator greater                             : 3
+ 32-bit comparator lessequal                           : 3
  5-bit comparator equal                                : 6
  8-bit comparator equal                                : 1
-# Multiplexers                                         : 140
- 1-bit 2-to-1 multiplexer                              : 41
+# Multiplexers                                         : 1669
+ 1-bit 2-to-1 multiplexer                              : 1553
  1-bit 4-to-1 multiplexer                              : 32
  1-bit 8-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 1
  2-bit 2-to-1 multiplexer                              : 1
+ 24-bit 2-to-1 multiplexer                             : 9
  3-bit 2-to-1 multiplexer                              : 2
  30-bit 2-to-1 multiplexer                             : 3
- 32-bit 2-to-1 multiplexer                             : 48
+ 32-bit 2-to-1 multiplexer                             : 56
  32-bit 3-to-1 multiplexer                             : 3
  32-bit 7-to-1 multiplexer                             : 1
  5-bit 2-to-1 multiplexer                              : 3
@@ -961,11 +1126,13 @@ Macro Statistics
 # RAMs                                                 : 3
  1024x32-bit single-port block RAM                     : 1
  32x32-bit dual-port distributed RAM                   : 2
-# Multipliers                                          : 1
+# Multipliers                                          : 4
+ 16x8-bit multiplier                                   : 3
  32x32-bit multiplier                                  : 1
-# Adders/Subtractors                                   : 7
+# Adders/Subtractors                                   : 82
+ 24-bit adder carry in                                 : 72
  30-bit adder                                          : 2
- 32-bit adder                                          : 2
+ 32-bit adder                                          : 5
  33-bit adder carry in                                 : 1
  33-bit subtractor                                     : 1
  33-bit subtractor borrow in                           : 1
@@ -975,21 +1142,32 @@ Macro Statistics
  4-bit up counter                                      : 4
  6-bit down counter                                    : 1
  8-bit up counter                                      : 1
-# Registers                                            : 1394
- Flip-Flops                                            : 1394
-# Comparators                                          : 11
+# Registers                                            : 1518
+ Flip-Flops                                            : 1518
+# Comparators                                          : 89
  1-bit comparator equal                                : 1
+ 24-bit comparator lessequal                           : 51
+ 25-bit comparator lessequal                           : 3
+ 26-bit comparator lessequal                           : 3
+ 27-bit comparator lessequal                           : 3
+ 28-bit comparator lessequal                           : 3
+ 29-bit comparator lessequal                           : 3
+ 30-bit comparator lessequal                           : 3
+ 31-bit comparator lessequal                           : 3
  32-bit comparator equal                               : 3
+ 32-bit comparator greater                             : 3
+ 32-bit comparator lessequal                           : 3
  5-bit comparator equal                                : 6
  8-bit comparator equal                                : 1
-# Multiplexers                                         : 275
- 1-bit 2-to-1 multiplexer                              : 184
+# Multiplexers                                         : 1804
+ 1-bit 2-to-1 multiplexer                              : 1696
  1-bit 4-to-1 multiplexer                              : 32
  1-bit 8-to-1 multiplexer                              : 1
  2-bit 2-to-1 multiplexer                              : 1
+ 24-bit 2-to-1 multiplexer                             : 9
  3-bit 2-to-1 multiplexer                              : 2
  30-bit 2-to-1 multiplexer                             : 3
- 32-bit 2-to-1 multiplexer                             : 44
+ 32-bit 2-to-1 multiplexer                             : 52
  32-bit 3-to-1 multiplexer                             : 3
  32-bit 7-to-1 multiplexer                             : 1
  5-bit 2-to-1 multiplexer                              : 3
@@ -1136,6 +1314,12 @@ Optimizing unit <lm32_multiplier> ...
 Optimizing unit <lm32_mc_arithmetic> ...
 
 Optimizing unit <lm32_decoder> ...
+
+Optimizing unit <wb_pwm> ...
+
+Optimizing unit <pwm_top> ...
+
+Optimizing unit <div_24u_8u> ...
 
 Optimizing unit <wb_uart> ...
 
@@ -1307,17 +1491,17 @@ INFO:Xst:2261 - The FF/Latch <lm0/multiplier/multiplier_29> in Unit <system> is 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block system, actual ratio is 28.
+Found area constraint ratio of 100 (+ 0) on block system, actual ratio is 50.
 Forward register balancing over carry chain lm0/Mcompar_cmp_zero_cy<0>
 Forward register balancing over carry chain spi0/Mcount_prescaler_cy<0>
-INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_0> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_8_BRB1> <lm0/load_store_unit/store_data_m_16_BRB0> <lm0/load_store_unit/store_data_m_24_BRB4> 
-INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_1> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_9_BRB1> <lm0/load_store_unit/store_data_m_17_BRB0> <lm0/load_store_unit/store_data_m_25_BRB4> 
-INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_2> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_10_BRB1> <lm0/load_store_unit/store_data_m_18_BRB0> <lm0/load_store_unit/store_data_m_26_BRB4> 
-INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_3> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_11_BRB1> <lm0/load_store_unit/store_data_m_19_BRB0> <lm0/load_store_unit/store_data_m_27_BRB4> 
-INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_4> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_12_BRB1> <lm0/load_store_unit/store_data_m_20_BRB0> <lm0/load_store_unit/store_data_m_28_BRB4> 
-INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_5> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_13_BRB1> <lm0/load_store_unit/store_data_m_21_BRB0> <lm0/load_store_unit/store_data_m_29_BRB4> 
-INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_6> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_14_BRB1> <lm0/load_store_unit/store_data_m_22_BRB0> <lm0/load_store_unit/store_data_m_30_BRB4> 
-INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_7> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_15_BRB1> <lm0/load_store_unit/store_data_m_23_BRB0> <lm0/load_store_unit/store_data_m_31_BRB4> 
+INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_0> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_8_BRB2> <lm0/load_store_unit/store_data_m_16_BRB0> <lm0/load_store_unit/store_data_m_24_BRB4> 
+INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_1> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_9_BRB2> <lm0/load_store_unit/store_data_m_17_BRB0> <lm0/load_store_unit/store_data_m_25_BRB4> 
+INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_2> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_10_BRB2> <lm0/load_store_unit/store_data_m_18_BRB0> <lm0/load_store_unit/store_data_m_26_BRB4> 
+INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_3> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_11_BRB2> <lm0/load_store_unit/store_data_m_19_BRB0> <lm0/load_store_unit/store_data_m_27_BRB4> 
+INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_4> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_12_BRB2> <lm0/load_store_unit/store_data_m_20_BRB0> <lm0/load_store_unit/store_data_m_28_BRB4> 
+INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_5> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_13_BRB2> <lm0/load_store_unit/store_data_m_21_BRB0> <lm0/load_store_unit/store_data_m_29_BRB4> 
+INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_6> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_14_BRB2> <lm0/load_store_unit/store_data_m_22_BRB0> <lm0/load_store_unit/store_data_m_30_BRB4> 
+INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/store_data_m_7> in Unit <system> is equivalent to the following 3 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_15_BRB2> <lm0/load_store_unit/store_data_m_23_BRB0> <lm0/load_store_unit/store_data_m_31_BRB4> 
 INFO:Xst:2261 - The FF/Latch <lm0/load_store_unit/size_m_1> in Unit <system> is equivalent to the following 16 FFs/Latches, which will be removed : <lm0/load_store_unit/store_data_m_15_BRB0> <lm0/load_store_unit/store_data_m_14_BRB0> <lm0/load_store_unit/store_data_m_13_BRB0> <lm0/load_store_unit/store_data_m_12_BRB0> <lm0/load_store_unit/store_data_m_11_BRB0> <lm0/load_store_unit/store_data_m_10_BRB0> <lm0/load_store_unit/store_data_m_9_BRB0> <lm0/load_store_unit/store_data_m_8_BRB0> <lm0/load_store_unit/store_data_m_31_BRB0> <lm0/load_store_unit/store_data_m_30_BRB0> <lm0/load_store_unit/store_data_m_29_BRB0> <lm0/load_store_unit/store_data_m_28_BRB0> <lm0/load_store_unit/store_data_m_27_BRB0> <lm0/load_store_unit/store_data_m_26_BRB0> <lm0/load_store_unit/store_data_m_25_BRB0> <lm0/load_store_unit/store_data_m_24_BRB0> 
 INFO:Xst:2261 - The FF/Latch <lm0/m_result_sel_shift_x> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/m_bypass_enable_x_BRB0> 
 INFO:Xst:2261 - The FF/Latch <lm0/x_bypass_enable_x> in Unit <system> is equivalent to the following FF/Latch, which will be removed : <lm0/m_bypass_enable_x_BRB1> 
@@ -1328,12 +1512,12 @@ Pipelining and Register Balancing Report ...
 
 Processing Unit <system> :
 	Register(s) lm0/branch_x has(ve) been backward balanced into : lm0/branch_x_BRB0 lm0/branch_x_BRB1 lm0/branch_x_BRB2 lm0/branch_x_BRB3 lm0/branch_x_BRB4 lm0/branch_x_BRB5.
-	Register(s) lm0/load_store_unit/store_data_m_10 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_10_BRB2.
-	Register(s) lm0/load_store_unit/store_data_m_11 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_11_BRB2.
-	Register(s) lm0/load_store_unit/store_data_m_12 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_12_BRB2.
-	Register(s) lm0/load_store_unit/store_data_m_13 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_13_BRB2.
-	Register(s) lm0/load_store_unit/store_data_m_14 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_14_BRB2.
-	Register(s) lm0/load_store_unit/store_data_m_15 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_15_BRB2.
+	Register(s) lm0/load_store_unit/store_data_m_10 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_10_BRB1 .
+	Register(s) lm0/load_store_unit/store_data_m_11 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_11_BRB1 .
+	Register(s) lm0/load_store_unit/store_data_m_12 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_12_BRB1 .
+	Register(s) lm0/load_store_unit/store_data_m_13 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_13_BRB1 .
+	Register(s) lm0/load_store_unit/store_data_m_14 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_14_BRB1 .
+	Register(s) lm0/load_store_unit/store_data_m_15 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_15_BRB1 .
 	Register(s) lm0/load_store_unit/store_data_m_16 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_16_BRB3.
 	Register(s) lm0/load_store_unit/store_data_m_17 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_17_BRB3.
 	Register(s) lm0/load_store_unit/store_data_m_18 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_18_BRB3.
@@ -1350,20 +1534,31 @@ Processing Unit <system> :
 	Register(s) lm0/load_store_unit/store_data_m_29 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_29_BRB3 .
 	Register(s) lm0/load_store_unit/store_data_m_30 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_30_BRB3 .
 	Register(s) lm0/load_store_unit/store_data_m_31 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_31_BRB1 lm0/load_store_unit/store_data_m_31_BRB3 .
-	Register(s) lm0/load_store_unit/store_data_m_8 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_8_BRB2.
-	Register(s) lm0/load_store_unit/store_data_m_9 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_9_BRB2.
+	Register(s) lm0/load_store_unit/store_data_m_8 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_8_BRB1 .
+	Register(s) lm0/load_store_unit/store_data_m_9 has(ve) been backward balanced into : lm0/load_store_unit/store_data_m_9_BRB1 .
 	Register(s) lm0/store_x has(ve) been backward balanced into : lm0/store_x_BRB0 lm0/store_x_BRB5.
 	Register(s) lm0/w_result_sel_load_m has(ve) been backward balanced into : lm0/w_result_sel_load_m_BRB1.
 	Register(s) lm0/w_result_sel_mul_m has(ve) been backward balanced into : lm0/w_result_sel_mul_m_BRB0 lm0/w_result_sel_mul_m_BRB1.
+	Register(s) pwm0/pwm0/counter1_14 has(ve) been backward balanced into : pwm0/pwm0/counter1_14_BRB1 pwm0/pwm0/counter1_14_BRB5.
+	Register(s) pwm0/pwm0/counter1_15 has(ve) been backward balanced into : pwm0/pwm0/counter1_15_BRB0 pwm0/pwm0/counter1_15_BRB1 pwm0/pwm0/counter1_15_BRB4 pwm0/pwm0/counter1_15_BRB5.
+	Register(s) pwm0/pwm0/counter1_4 has(ve) been backward balanced into : pwm0/pwm0/counter1_4_BRB1 pwm0/pwm0/counter1_4_BRB5.
+	Register(s) pwm0/pwm0/counter1_6 has(ve) been backward balanced into : pwm0/pwm0/counter1_6_BRB1 pwm0/pwm0/counter1_6_BRB5.
+	Register(s) pwm0/pwm0/counter1_8 has(ve) been backward balanced into : pwm0/pwm0/counter1_8_BRB1 pwm0/pwm0/counter1_8_BRB5.
+	Register(s) pwm0/pwm0/counter1_9 has(ve) been backward balanced into : pwm0/pwm0/counter1_9_BRB1 pwm0/pwm0/counter1_9_BRB5.
+	Register(s) pwm0/pwm0/counter2_15 has(ve) been backward balanced into : pwm0/pwm0/counter2_15_BRB0 pwm0/pwm0/counter2_15_BRB1 pwm0/pwm0/counter2_15_BRB2 pwm0/pwm0/counter2_15_BRB3.
+	Register(s) pwm0/pwm0/counter2_4 has(ve) been backward balanced into : pwm0/pwm0/counter2_4_BRB0 .
+	Register(s) pwm0/pwm0/counter2_6 has(ve) been backward balanced into : pwm0/pwm0/counter2_6_BRB0 .
+	Register(s) pwm0/pwm0/counter2_8 has(ve) been backward balanced into : pwm0/pwm0/counter2_8_BRB0 .
+	Register(s) pwm0/pwm0/counter2_9 has(ve) been backward balanced into : pwm0/pwm0/counter2_9_BRB0 .
+	Register(s) pwm0/pwm0/counter3_15 has(ve) been backward balanced into : pwm0/pwm0/counter3_15_BRB0 pwm0/pwm0/counter3_15_BRB1 pwm0/pwm0/counter3_15_BRB2 pwm0/pwm0/counter3_15_BRB3 pwm0/pwm0/counter3_15_BRB4.
+	Register(s) pwm0/pwm0/counter3_4 has(ve) been backward balanced into : pwm0/pwm0/counter3_4_BRB0 .
+	Register(s) pwm0/pwm0/counter3_6 has(ve) been backward balanced into : pwm0/pwm0/counter3_6_BRB0 .
+	Register(s) pwm0/pwm0/counter3_8 has(ve) been backward balanced into : pwm0/pwm0/counter3_8_BRB0 .
+	Register(s) pwm0/pwm0/counter3_9 has(ve) been backward balanced into : pwm0/pwm0/counter3_9_BRB0 .
+	Register(s) pwm0/pwm0/pwm1 has(ve) been backward balanced into : pwm0/pwm0/pwm1_BRB0 .
+	Register(s) pwm0/pwm0/pwm2 has(ve) been backward balanced into : pwm0/pwm0/pwm2_BRB0 pwm0/pwm0/pwm2_BRB2 pwm0/pwm0/pwm2_BRB3.
+	Register(s) pwm0/pwm0/pwm3 has(ve) been backward balanced into : pwm0/pwm0/pwm3_BRB0 .
 Unit <system> processed.
-FlipFlop gpio0/gpio_o_7 has been replicated 1 time(s) to handle iob=true attribute.
-FlipFlop gpio0/gpio_o_6 has been replicated 1 time(s) to handle iob=true attribute.
-FlipFlop gpio0/gpio_o_5 has been replicated 1 time(s) to handle iob=true attribute.
-FlipFlop gpio0/gpio_o_4 has been replicated 1 time(s) to handle iob=true attribute.
-FlipFlop gpio0/gpio_o_3 has been replicated 1 time(s) to handle iob=true attribute.
-FlipFlop gpio0/gpio_o_2 has been replicated 1 time(s) to handle iob=true attribute.
-FlipFlop gpio0/gpio_o_1 has been replicated 1 time(s) to handle iob=true attribute.
-FlipFlop gpio0/gpio_o_0 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop uart0/uart0/uart_txd has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop spi0/sreg_7 has been replicated 1 time(s) to handle iob=true attribute.
 FlipFlop spi0/sck has been replicated 1 time(s) to handle iob=true attribute.
@@ -1374,8 +1569,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1253
- Flip-Flops                                            : 1253
+# Registers                                            : 1362
+ Flip-Flops                                            : 1362
 
 =========================================================================
 
@@ -1398,27 +1593,27 @@ Top Level Output File Name         : system.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 2128
+# BELS                             : 6038
 #      GND                         : 1
-#      INV                         : 22
-#      LUT1                        : 99
-#      LUT2                        : 184
-#      LUT3                        : 233
-#      LUT4                        : 94
-#      LUT5                        : 400
-#      LUT6                        : 593
-#      MUXCY                       : 261
+#      INV                         : 29
+#      LUT1                        : 262
+#      LUT2                        : 206
+#      LUT3                        : 521
+#      LUT4                        : 187
+#      LUT5                        : 1684
+#      LUT6                        : 736
+#      MUXCY                       : 1331
 #      MUXF7                       : 4
 #      VCC                         : 1
-#      XORCY                       : 236
-# FlipFlops/Latches                : 1253
-#      FD                          : 36
-#      FDC                         : 121
-#      FDCE                        : 746
-#      FDE                         : 78
+#      XORCY                       : 1076
+# FlipFlops/Latches                : 1362
+#      FD                          : 21
+#      FDC                         : 114
+#      FDCE                        : 753
+#      FDE                         : 178
 #      FDPE                        : 34
-#      FDR                         : 35
-#      FDRE                        : 123
+#      FDR                         : 33
+#      FDRE                        : 149
 #      FDS                         : 7
 #      FDSE                        : 73
 # RAMS                             : 66
@@ -1426,12 +1621,12 @@ Primitive and Black Box Usage:
 #      RAMB16BWER                  : 2
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 15
+# IO Buffers                       : 18
 #      IBUF                        : 3
 #      IOBUF                       : 8
-#      OBUF                        : 4
-# DSPs                             : 3
-#      DSP48A1                     : 3
+#      OBUF                        : 7
+# DSPs                             : 6
+#      DSP48A1                     : 6
 
 Device utilization summary:
 ---------------------------
@@ -1440,29 +1635,29 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1241  out of  18224     6%  
- Number of Slice LUTs:                 1753  out of   9112    19%  
-    Number used as Logic:              1625  out of   9112    17%  
+ Number of Slice Registers:            1341  out of  18224     7%  
+ Number of Slice LUTs:                 3753  out of   9112    41%  
+    Number used as Logic:              3625  out of   9112    39%  
     Number used as Memory:              128  out of   2176     5%  
        Number used as RAM:              128
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1988
-   Number with an unused Flip Flop:     747  out of   1988    37%  
-   Number with an unused LUT:           235  out of   1988    11%  
-   Number of fully used LUT-FF pairs:  1006  out of   1988    50%  
-   Number of unique control sets:        40
+ Number of LUT Flip Flop pairs used:   4002
+   Number with an unused Flip Flop:    2661  out of   4002    66%  
+   Number with an unused LUT:           249  out of   4002     6%  
+   Number of fully used LUT-FF pairs:  1092  out of   4002    27%  
+   Number of unique control sets:        67
 
 IO Utilization: 
- Number of IOs:                          16
- Number of bonded IOBs:                  16  out of    232     6%  
-    IOB Flip Flops/Latches:              12
+ Number of IOs:                          19
+ Number of bonded IOBs:                  19  out of    232     8%  
+    IOB Flip Flops/Latches:              21
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                2  out of     32     6%  
     Number using Block RAM only:          2
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
- Number of DSP48A1s:                      3  out of     32     9%  
+ Number of DSP48A1s:                      6  out of     32    18%  
 
 ---------------------------
 Partition Resource Summary:
@@ -1485,7 +1680,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 1319  |
+clk                                | BUFGP                  | 1431  |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -1496,9 +1691,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 13.097ns (Maximum Frequency: 76.353MHz)
+   Minimum period: 72.697ns (Maximum Frequency: 13.756MHz)
    Minimum input arrival time before clock: 5.744ns
-   Maximum output required time after clock: 4.419ns
+   Maximum output required time after clock: 4.897ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -1507,31 +1702,115 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 13.097ns (frequency: 76.353MHz)
-  Total number of paths / destination ports: 1323322 / 3202
+  Clock period: 72.697ns (frequency: 13.756MHz)
+  Total number of paths / destination ports: 1835449253519399771296497664 / 3475
 -------------------------------------------------------------------------
-Delay:               13.097ns (Levels of Logic = 3)
-  Source:            lm0/multiplier/multiplier_3 (FF)
-  Destination:       lm0/multiplier/product_31 (FF)
+Delay:               72.697ns (Levels of Logic = 87)
+  Source:            pwm0/pwm0/Mmult_valor2[7]_PWR_20_o_MuLt_7_OUT (DSP)
+  Destination:       pwm0/pwm0/counter3_31 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: lm0/multiplier/multiplier_3 to lm0/multiplier/product_31
+  Data Path: pwm0/pwm0/Mmult_valor2[7]_PWR_20_o_MuLt_7_OUT to pwm0/pwm0/counter3_31
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q            54   0.447   1.573  lm0/multiplier/multiplier_3 (lm0/multiplier/multiplier_3)
-     DSP48A1:B3->P47      18   4.394   1.049  lm0/multiplier/Mmult_n0019 (lm0/multiplier/Mmult_n0019_P47_to_Mmult_n00191)
-     DSP48A1:C30->PCOUT47    1   2.689   0.000  lm0/multiplier/Mmult_n00191 (lm0/multiplier/Mmult_n00191_PCOUT_to_Mmult_n00192_PCIN_47)
-     DSP48A1:PCIN47->P14    1   2.264   0.579  lm0/multiplier/Mmult_n00192 (lm0/multiplier/n0019<31>)
-     FDCE:D                    0.102          lm0/multiplier/product_31
+     DSP48A1:CLK->M16      6   3.344   0.973  pwm0/pwm0/Mmult_valor2[7]_PWR_20_o_MuLt_7_OUT (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Madd_a[23]_b[7]_add_17_OUT_Madd_lut<16>)
+     LUT3:I0->O            1   0.205   0.580  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/o<16>2_SW0 (N58)
+     LUT6:I5->O           36   0.205   1.349  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/o<16>2 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<16>)
+     LUT3:I2->O            3   0.205   0.755  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_a[0]_a[23]_MUX_1059_o181 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Madd_a[23]_GND_26_o_add_19_OUT_Madd_lut<17>)
+     LUT6:I4->O            1   0.203   0.580  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/o<15>2_SW0 (N60)
+     LUT6:I5->O           37   0.205   1.363  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/o<15>2 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<15>)
+     LUT5:I4->O            6   0.205   0.745  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_a[0]_a[23]_MUX_1083_o1131 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Madd_a[23]_GND_26_o_add_21_OUT_Madd_lut<21>)
+     LUT5:I4->O            1   0.205   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<14>_lut<3>1 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<14>_lut<3>)
+     MUXCY:S->O            1   0.172   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<14>_cy<3> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<14>_cy<3>)
+     MUXCY:CI->O          42   0.213   1.434  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<14>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<14>)
+     LUT5:I4->O            6   0.205   0.745  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_a[0]_a[23]_MUX_1107_o1121 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Madd_a[23]_GND_26_o_add_23_OUT_Madd_lut<20>)
+     LUT6:I5->O            1   0.205   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<13>_lut<3>1 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<13>_lut<3>)
+     MUXCY:S->O            8   0.366   0.803  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<13>_cy<3> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<13>_cy<3>)
+     LUT3:I2->O           36   0.205   1.349  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<13>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<13>)
+     LUT5:I4->O            6   0.205   0.745  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_a[0]_a[23]_MUX_1131_o1101 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Madd_a[23]_GND_26_o_add_25_OUT_Madd_lut<19>)
+     LUT6:I5->O            1   0.205   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<12>_lut<3>1 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<12>_lut<3>)
+     MUXCY:S->O           10   0.366   0.857  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<12>_cy<3> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<12>_cy<3>)
+     LUT4:I3->O           41   0.205   1.420  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<12>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<12>)
+     LUT5:I4->O            6   0.205   0.745  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_a[0]_a[23]_MUX_1155_o191 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Madd_a[23]_GND_26_o_add_27_OUT_Madd_lut<18>)
+     LUT6:I5->O            1   0.205   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<11>_lut<3>1 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<11>_lut<3>)
+     MUXCY:S->O            1   0.366   0.580  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<11>_cy<3> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<11>_cy<3>)
+     LUT5:I4->O           50   0.205   1.548  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<11>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<11>)
+     LUT5:I4->O            6   0.205   0.745  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_a[0]_a[23]_MUX_1179_o181 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Madd_a[23]_GND_26_o_add_29_OUT_Madd_lut<17>)
+     LUT6:I5->O            1   0.205   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<10>_lut<3>1 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<10>_lut<3>)
+     MUXCY:S->O            1   0.366   0.580  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<10>_cy<3> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<10>_cy<3>)
+     LUT6:I5->O           59   0.205   1.607  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<10>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<10>)
+     LUT5:I4->O            3   0.205   0.995  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_a[0]_a[23]_MUX_1203_o191 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/a[18]_a[23]_MUX_1185_o)
+     LUT5:I0->O            1   0.203   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<9>_lut<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<9>_lut<4>)
+     MUXCY:S->O            1   0.172   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<9>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<9>_cy<4>)
+     MUXCY:CI->O          55   0.213   1.581  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<9>_cy<5> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<9>)
+     LUT5:I4->O            5   0.205   1.059  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_a[0]_a[23]_MUX_1227_o181 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/a[17]_a[23]_MUX_1210_o)
+     LUT5:I0->O            1   0.203   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<8>_lut<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<8>_lut<4>)
+     MUXCY:S->O           15   0.366   0.982  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<8>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<8>_cy<4>)
+     LUT3:I2->O           52   0.205   1.561  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<8>_cy<5> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<8>)
+     LUT5:I4->O            3   0.205   0.995  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_a[0]_a[23]_MUX_1251_o171 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/a[16]_a[23]_MUX_1235_o)
+     LUT5:I0->O            1   0.203   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<7>_lut<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<7>_lut<4>)
+     MUXCY:S->O            7   0.366   0.774  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<7>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<7>_cy<4>)
+     LUT4:I3->O           55   0.205   1.581  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<7>_cy<5> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<7>)
+     LUT5:I4->O            5   0.205   1.059  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_a[0]_a[23]_MUX_1275_o161 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/a[15]_a[23]_MUX_1260_o)
+     LUT5:I0->O            1   0.203   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<6>_lut<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<6>_lut<4>)
+     MUXCY:S->O            1   0.366   0.580  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<6>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<6>_cy<4>)
+     LUT5:I4->O           75   0.205   1.713  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<6>_cy<5> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<6>)
+     LUT5:I4->O            3   0.205   0.995  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_a[0]_a[23]_MUX_1299_o151 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/a[14]_a[23]_MUX_1285_o)
+     LUT5:I0->O            1   0.203   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<5>_lut<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<5>_lut<4>)
+     MUXCY:S->O            1   0.366   0.580  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<5>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<5>_cy<4>)
+     LUT6:I5->O           68   0.205   1.667  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<5>_cy<5> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<5>)
+     LUT5:I4->O            5   0.205   1.059  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_a[0]_a[23]_MUX_1323_o141 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/a[13]_a[23]_MUX_1310_o)
+     LUT5:I0->O            1   0.203   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<4>_lut<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<4>_lut<4>)
+     MUXCY:S->O            1   0.172   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<4>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<4>_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<4>_cy<5> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<4>_cy<5>)
+     MUXCY:CI->O          81   0.213   1.752  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<4>_cy<6> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<4>)
+     LUT5:I4->O            4   0.205   1.028  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_a[0]_a[23]_MUX_1347_o131 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/a[12]_a[23]_MUX_1335_o)
+     LUT5:I0->O            1   0.203   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<3>_lut<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<3>_lut<4>)
+     MUXCY:S->O            1   0.172   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<3>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<3>_cy<4>)
+     MUXCY:CI->O           9   0.213   0.830  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<3>_cy<5> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<3>_cy<5>)
+     LUT3:I2->O           81   0.205   1.752  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<3>_cy<6> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<3>)
+     LUT5:I4->O            3   0.205   0.995  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_n156331 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/n1563<11>)
+     LUT5:I0->O            1   0.203   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<2>_lut<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<2>_lut<4>)
+     MUXCY:S->O            1   0.172   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<2>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<2>_cy<4>)
+     MUXCY:CI->O           5   0.213   0.715  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<2>_cy<5> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<2>_cy<5>)
+     LUT4:I3->O           62   0.205   1.627  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<2>_cy<6> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<2>)
+     LUT5:I4->O            2   0.205   0.961  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_n156725 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/n1567<10>)
+     LUT5:I0->O            1   0.203   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<1>_lut<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<1>_lut<4>)
+     MUXCY:S->O            1   0.172   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<1>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<1>_cy<4>)
+     MUXCY:CI->O           1   0.213   0.580  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<1>_cy<5> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<1>_cy<5>)
+     LUT5:I4->O           22   0.205   1.134  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<1>_cy<6> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<1>)
+     LUT5:I4->O            2   0.205   0.961  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mmux_n1470241 (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/n1470<9>)
+     LUT5:I0->O            1   0.203   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<0>_lut<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<0>_lut<4>)
+     MUXCY:S->O            1   0.172   0.000  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<0>_cy<4> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<0>_cy<4>)
+     MUXCY:CI->O           1   0.213   0.580  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<0>_cy<5> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<0>_cy<5>)
+     LUT6:I5->O            2   0.205   0.845  pwm0/pwm0/valor2[7]_PWR_20_o_div_8/Mcompar_o<0>_cy<6> (pwm0/pwm0/valor2[7]_PWR_20_o_div_8_OUT<0>)
+     LUT4:I1->O            1   0.205   0.000  pwm0/pwm0/Mcompar_n0004_lut<0> (pwm0/pwm0/Mcompar_n0004_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  pwm0/pwm0/Mcompar_n0004_cy<0> (pwm0/pwm0/Mcompar_n0004_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  pwm0/pwm0/Mcompar_n0004_cy<1> (pwm0/pwm0/Mcompar_n0004_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  pwm0/pwm0/Mcompar_n0004_cy<2> (pwm0/pwm0/Mcompar_n0004_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  pwm0/pwm0/Mcompar_n0004_cy<3> (pwm0/pwm0/Mcompar_n0004_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  pwm0/pwm0/Mcompar_n0004_cy<4> (pwm0/pwm0/Mcompar_n0004_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  pwm0/pwm0/Mcompar_n0004_cy<5> (pwm0/pwm0/Mcompar_n0004_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  pwm0/pwm0/Mcompar_n0004_cy<6> (pwm0/pwm0/Mcompar_n0004_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  pwm0/pwm0/Mcompar_n0004_cy<7> (pwm0/pwm0/Mcompar_n0004_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  pwm0/pwm0/Mcompar_n0004_cy<8> (pwm0/pwm0/Mcompar_n0004_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  pwm0/pwm0/Mcompar_n0004_cy<9> (pwm0/pwm0/Mcompar_n0004_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  pwm0/pwm0/Mcompar_n0004_cy<10> (pwm0/pwm0/Mcompar_n0004_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  pwm0/pwm0/Mcompar_n0004_cy<11> (pwm0/pwm0/Mcompar_n0004_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  pwm0/pwm0/Mcompar_n0004_cy<12> (pwm0/pwm0/Mcompar_n0004_cy<12>)
+     MUXCY:CI->O           6   0.019   0.745  pwm0/pwm0/Mcompar_n0004_cy<13> (pwm0/pwm0/Mcompar_n0004_cy<13>)
+     LUT1:I0->O            1   0.205   0.000  pwm0/pwm0/_n0096_inv1_cy_rt (pwm0/pwm0/_n0096_inv1_cy_rt)
+     MUXCY:S->O           36   0.411   1.348  pwm0/pwm0/_n0096_inv1_cy (pwm0/pwm0/_n0096_inv)
+     FDE:CE                    0.322          pwm0/pwm0/counter3_0
     ----------------------------------------
-    Total                     13.097ns (9.896ns logic, 3.201ns route)
-                                       (75.6% logic, 24.4% route)
+    Total                     72.697ns (20.161ns logic, 52.536ns route)
+                                       (27.7% logic, 72.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 1284 / 1267
+  Total number of paths / destination ports: 1280 / 1280
 -------------------------------------------------------------------------
 Offset:              5.744ns (Levels of Logic = 2)
   Source:            rst (PAD)
@@ -1542,7 +1821,7 @@ Offset:              5.744ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          1107   1.222   2.597  rst_IBUF (rst_IBUF)
+     IBUF:I->O          1109   1.222   2.598  rst_IBUF (rst_IBUF)
      LUT6:I0->O           32   0.203   1.291  timer0/_n0187<7>3 (timer0/_n0187)
      FDRE:R                    0.430          timer0/wb_dat_o_0
     ----------------------------------------
@@ -1551,23 +1830,23 @@ Offset:              5.744ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 20 / 12
+  Total number of paths / destination ports: 32 / 15
 -------------------------------------------------------------------------
-Offset:              4.419ns (Levels of Logic = 2)
-  Source:            uart0/uart0/uart_txd (FF)
-  Destination:       led (PAD)
+Offset:              4.897ns (Levels of Logic = 2)
+  Source:            pwm0/pwm0/pwm2_BRB3 (FF)
+  Destination:       pwm_o1 (PAD)
   Source Clock:      clk rising
 
-  Data Path: uart0/uart0/uart_txd to led
+  Data Path: pwm0/pwm0/pwm2_BRB3 to pwm_o1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDS:C->Q              2   0.447   0.616  uart0/uart0/uart_txd (uart0/uart0/uart_txd)
-     INV:I->O              1   0.206   0.579  led1_INV_0 (led_OBUF)
-     OBUF:I->O                 2.571          led_OBUF (led)
+     FD:C->Q               9   0.447   1.058  pwm0/pwm0/pwm2_BRB3 (pwm0/pwm0/pwm2_BRB3)
+     LUT4:I1->O            2   0.205   0.616  pwm0/pwm0/pwm3_rstpot (pwm0/pwm0/pwm3)
+     OBUF:I->O                 2.571          pwm_o3_OBUF (pwm_o3)
     ----------------------------------------
-    Total                      4.419ns (3.224ns logic, 1.195ns route)
-                                       (73.0% logic, 27.0% route)
+    Total                      4.897ns (3.223ns logic, 1.674ns route)
+                                       (65.8% logic, 34.2% route)
 
 =========================================================================
 
@@ -1579,21 +1858,21 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |   13.097|         |         |         |
+clk            |   72.697|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 19.00 secs
-Total CPU time to Xst completion: 15.90 secs
+Total REAL time to Xst completion: 29.00 secs
+Total CPU time to Xst completion: 28.20 secs
  
 --> 
 
 
-Total memory usage is 413904 kilobytes
+Total memory usage is 424416 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  327 (   0 filtered)
-Number of infos    :  111 (   0 filtered)
+Number of warnings :  355 (   0 filtered)
+Number of infos    :  105 (   0 filtered)
 
